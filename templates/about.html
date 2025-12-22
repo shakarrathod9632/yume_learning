@@ -1,0 +1,931 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+{% load static %}
+
+<!-- ========  YUME ABOUT SECTION ===== -->
+<section class="yume-section">
+    <div class="yume-container">
+        
+        <!-- Main Title -->
+        <div class="yume-header">
+            <h2>About YuMe Learning</h2>
+
+            <!-- Added Tagline Text -->
+            
+        </div>
+
+        <!-- Content Layout -->
+        <div class="yume-content">
+            
+            <!-- Image -->
+            <div class="yume-image">
+                <img src="{% static 'images/about.jpg' %}" alt="YuMe Learning" class="yume-img">
+            </div>
+
+            <!-- Text Content -->
+            <div class="yume-text">
+                <p class="yume-tagline">
+                <strong>Your YuMe, Your Dream</strong>
+                College is Over. Let’s Get You Hired.
+                </p>
+                <p>
+                    At YuMe Learning, we help young graduates move from classroom theory to industry-ready skills. 
+                    "YuMe" comes from the Japanese word for dream—and we're here to turn dreams into careers.
+                </p>
+                
+                <p>
+                    We focus on practical, hands-on training in emerging technologies, preparing you for jobs that 
+                    exist today and will grow tomorrow. Our programs are industry-aligned and focused on outcomes, 
+                    not just certificates.
+                </p>
+                
+                <p>
+                    Since we began, we've trained and placed over <strong>300,000 students</strong> across 
+                    <strong>12 Indian states</strong>.
+                </p>
+                
+                <h3>Who We Are</h3>
+                
+                <p>
+                    Our leadership includes IIM alumni and professionals with decades of experience in corporate 
+                    strategy, education, and social impact. We've worked with governments, built training systems, 
+                    and placed thousands of graduates.
+                </p>
+                
+                <p>
+                    At YuMe, we don't just run courses. We help you build your edge, land your first job, 
+                    and start your real journey.
+                </p>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<style>
+       /* --- YOUR ORIGINAL CSS (UNCHANGED) --- */
+
+        /* Section Container */
+        .yume-section {
+            padding: 40px 0;
+            background: #ffffff;
+            font-family: "Montserrat", Arial, Helvetica, sans-serif;
+        }
+
+        .yume-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .yume-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .yume-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0a0a0a;
+            margin: 0;
+            padding-bottom: 10px;
+            display: inline-block;
+            border-bottom: 2px solid #4c5df0;
+        }
+
+        /* Tagline */
+        .yume-tagline {
+            margin-top: 12px;
+            font-size: 1rem;
+            line-height: 1.3;
+            color: #333;
+        }
+
+        /* Content Layout */
+        .yume-content {
+            display: flex;
+            gap: 35px;
+            align-items: flex-start;
+        }
+
+        /* Image */
+        .yume-image {
+            flex: 0 0 300px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .yume-img {
+            width: 100%;
+            height: 290px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.35s ease;
+        }
+
+        /* Hover effect */
+        .yume-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Text Content */
+        .yume-text {
+            flex: 1;
+        }
+
+        .yume-text p {
+            font-size: 0.8rem;
+            line-height: 1.4;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .yume-text h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #222;
+            margin: 20px 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .yume-text strong {
+            color: #4c5df0;
+            font-weight: 600;
+        }
+
+        /* --- MOBILE RESPONSIVE IMPROVEMENTS BELOW --- */
+
+        /* Tablets & Small Screens */
+        @media (max-width: 900px) {
+            .yume-content {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .yume-image {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+            
+            .yume-img {
+                height: 240px; /* slightly taller for better viewing */
+            }
+            
+            .yume-header h2 {
+                font-size: 1.6rem;
+            }
+
+            .yume-tagline {
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+
+            .yume-text {
+                text-align: justify; /* cleaner reading on mobile */
+            }
+        }
+
+        /* Mobile Phones */
+        @media (max-width: 480px) {
+            .yume-section {
+                padding: 28px 0;
+            }
+            
+            .yume-header h2 {
+                font-size: 1.35rem;
+            }
+
+            .yume-tagline {
+                font-size: 0.88rem;
+                line-height: 1.4;
+                padding: 0 10px;
+            }
+
+            .yume-content {
+                gap: 20px;
+            }
+
+            .yume-image {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            .yume-img {
+                height: 220px; /* taller & balanced */
+                border-radius: 10px;
+            }
+
+            .yume-text p {
+                font-size: 0.82rem;
+                line-height: 1.5;
+                padding: 0 5px;
+            }
+
+            .yume-text h3 {
+                font-size: 1rem;
+                padding-left: 5px;
+            }
+        }
+
+</style>
+
+<!-- ========  YUME ABOUT SECTION  ENDS ===== -->
+
+
+<style>
+        /* =======================
+        FOUNDER SECTION
+        ========================== */
+        .founder-section {
+            padding: 40px 60px;
+            background: linear-gradient(to bottom right, #ffffff, #f3f4f6);
+        }
+
+        .founder-wrapper {
+            max-width: 1150px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* CONTENT LEFT */
+        .founder-content {
+            flex: 1 1 520px;
+        }
+
+        /* IMAGE RIGHT */
+        .founder-img {
+            flex: 1 1 300px;
+            text-align: center;
+        }
+
+        .founder-img img {
+            width: 85%;
+            border-radius: 25px;
+            object-fit: cover;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+            transition: 0.3s ease;
+        }
+
+        .founder-img img:hover {
+            transform: scale(1.03);
+        }
+
+        /* TEXT STYLES */
+        .founder-title {
+            font-size: 30px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+
+        .founder-role {
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+        }
+
+        .founder-text {
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: #374151;
+        }
+
+        /* highlighted text */
+        .highlight {
+            color: #2563eb;
+            font-weight: 700;
+        }
+
+        /* Hidden content */
+        #moreContent {
+            display: none;
+        }
+
+        /* Button */
+        .read-more-btn {
+            margin-top: 14px;
+            padding: 10px 20px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .read-more-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            .founder-wrapper {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .founder-img img {
+                width: 70%;
+            }
+
+            .founder-content {
+                text-align: center;
+            }
+        }
+</style>
+
+<!-- =======================
+     FOUNDER HTML
+=========================== -->
+<section class="founder-section">
+    <div class="founder-wrapper">
+
+        <!-- CONTENT LEFT -->
+        <div class="founder-content">
+            <h2 class="founder-title">Rajesh Rathod</h2>
+            <p class="founder-role">FOUNDER • YUME LEARNING • ENTREPRENEUR • WORKFORCE ARCHITECT</p>
+
+            <p class="founder-text">
+                Rajesh Rathod is a <span class="highlight">serial entrepreneur</span> and lifelong learner who has spent
+                over two decades building platforms that help young people transition from 
+                <span class="highlight">education to employment</span>. As the founder of 
+                <span class="highlight">Yume Learning</span>, he focuses on bridging the gap between emerging technologies 
+                and accessible, job-linked training for graduates.
+                <br><br>
+                He has consistently worked in <span class="highlight">sunrise sectors</span> — launching mobile phones in 1996, 
+                promoting internet payments in 2000, entering the skilling space in 2010, and most recently, 
+                popularizing AI learning since 2024. Across 12 Indian states, his companies have directly trained 
+                more than <span class="highlight">5 lakh learners</span>, many from underserved backgrounds.
+            </p>
+
+            <!-- Hidden Content -->
+            <div id="moreContent">
+                <p class="founder-text">
+                    Before founding Yume, Rajesh co-founded Paradigm Consulting and Ants & Partners, and mentored 
+                    SAFAL Trust, leading skilling programs in collaboration with government bodies and civil society.
+                    <br><br>
+                    He has contributed to large-scale initiatives such as STAR, Skill India, BridgeTech, Naan Mudhalvan, 
+                    and Kalike Jothege Kaushalya (KJK) — all focused on practical, outcome-driven education.
+                    <br><br>
+                    A product of IIM Ahmedabad, with a degree in Physics from Mumbai University, Rajesh’s early career in 
+                    <span class="highlight">advertising & telecom</span> shaped his sharp professional instincts. He draws 
+                    inspiration from Bill Bernbach’s honest creativity and Alfred E. Neuman’s playful irreverence — a mix 
+                    that reflects in both his work and worldview.
+                    <br><br>
+                    Outside of work, Rajesh enjoys traveling through India’s small towns, watching oddball foreign films, 
+                    listening to rock and folk music, and getting lost on treks — 
+                    <span class="highlight">always curious, always moving forward</span>.
+                </p>
+            </div>
+
+            <button class="read-more-btn" id="toggleBtn">Read More</button>
+        </div>
+
+        <!-- IMAGE RIGHT -->
+        <div class="founder-img">
+            <img src="{% static 'images/rajesh.jpg' %}" alt="Rajesh Rathod">
+        </div>
+
+    </div>
+</section>
+
+<!-- =======================
+     JS LOGIC
+=========================== -->
+<script>
+document.getElementById("toggleBtn").addEventListener("click", function () {
+    var moreContent = document.getElementById("moreContent");
+
+    if (moreContent.style.display === "block") {
+        moreContent.style.display = "none";
+        this.textContent = "Read More";
+    } else {
+        moreContent.style.display = "block";
+        this.textContent = "Read Less";
+    }
+});
+</script>
+
+
+<style>
+/* =======================
+   FOUNDER SECTION
+========================== */
+.founder-section {
+    padding: 40px 60px;
+    background: linear-gradient(to bottom right, #ffffff, #f3f4f6);
+}
+
+.founder-wrapper {
+    max-width: 1150px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* IMAGE LEFT */
+.founder-img {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.founder-img img {
+    width: 85%;
+    border-radius: 25px;
+    object-fit: cover;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+    transition: 0.3s ease;
+}
+
+.founder-img img:hover {
+    transform: scale(1.03);
+}
+
+/* CONTENT RIGHT */
+.founder-content {
+    flex: 1 1 520px;
+}
+
+/* TEXT STYLES */
+.founder-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.founder-role {
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+}
+
+.founder-text {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: #374151;
+}
+
+/* highlighted text */
+.highlight {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+/* Hidden content */
+#moreContentRumi {
+    display: none;
+}
+
+/* Button */
+.read-more-btn {
+    margin-top: 14px;
+    padding: 10px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.read-more-btn:hover {
+    background: #1d4ed8;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+    .founder-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .founder-img img {
+        width: 70%;
+    }
+
+    .founder-content {
+        text-align: center;
+    }
+}
+</style>
+
+<!-- =======================
+     FOUNDER HTML
+=========================== -->
+<section class="founder-section">
+    <div class="founder-wrapper">
+
+        <!-- IMAGE LEFT -->
+        <div class="founder-img">
+            <img src="{% static 'images/rumi_sikdar.avif' %}" alt="Dr. Rumi Sikdar">
+        </div>
+
+        <!-- CONTENT RIGHT -->
+        <div class="founder-content">
+            <h2 class="founder-title">Dr. Rumi Sikdar</h2>
+            <p class="founder-role">CO-FOUNDER • ANTS SKILL VARSITY & YUME LEARNING • SOCIAL ENTREPRENEUR • SKILLING LEADER</p>
+
+            <p class="founder-text">
+                Dr. Rumi Sikdar is a <span class="highlight">serial entrepreneur</span> and changemaker who has worked at the intersection of 
+                <span class="highlight">skills, livelihoods, and social impact</span> for over two decades. As Co-Founder of 
+                <span class="highlight">Yume Learning</span> and Chief Functionary of SAFAL Trust, she has shaped inclusive skilling ecosystems 
+                across India, especially for women, youth, and underserved communities.
+                <br><br>
+                Since 2005, she has built operations that trained more than 
+                <span class="highlight">2 lakh learners</span> across India—through government partnerships, CSR programs, and grassroots initiatives. 
+                Her work includes major projects under <span class="highlight">NSQF, NULM, PMKVY, EGMM</span>, and Higher Education Programs such as 
+                <span class="highlight">Naan Mudhalvan, KJK, Microsoft Education</span>, and <span class="highlight">NASSCOM Future Skills Prime</span>.
+            </p>
+
+            <!-- Hidden Content -->
+            <div id="moreContentRumi">
+                <p class="founder-text">
+                    She holds a <span class="highlight">PhD on NSQF impact</span> and has contributed to curriculum reform, school-based skill programs, 
+                    Higher Education skilling pathways, and community entrepreneurship. Her journey reflects resilience—building teams of 400+, 
+                    scaling operations with technology, and emerging as one of India’s early <span class="highlight">women leaders</span> merging social impact 
+                    with enterprise.
+                    <br><br>
+                    Her professional experience includes impactful roles at TARU, CEE, YUVA, and Dr. Reddy’s Foundation, working across environment, 
+                    disability, and youth development. She is an alumna of <span class="highlight">IIM Bangalore</span>, a UNCTAD-certified 
+                    <span class="highlight">Empretec entrepreneur</span>, and a strong advocate for women-led nano enterprises.
+                    <br><br>
+                    Beyond work, Rumi is an avid traveler (33 countries), an enthusiastic gardener, and a design lover with deep passion for interiors 
+                    and landscaping. She has been recognized with honors like <span class="highlight">Social Entrepreneur of Karnataka (2017)</span>, 
+                    <span class="highlight">Women Entrepreneur of the Year (2018)</span>, and featured in <span class="highlight">CEO Magazine (2023)</span>.
+                </p>
+            </div>
+
+            <button class="read-more-btn" id="toggleBtnRumi">Read More</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- =======================
+     JS LOGIC
+=========================== -->
+<script>
+document.getElementById("toggleBtnRumi").addEventListener("click", function () {
+    var moreContent = document.getElementById("moreContentRumi");
+
+    if (moreContent.style.display === "block") {
+        moreContent.style.display = "none";
+        this.textContent = "Read More";
+    } else {
+        moreContent.style.display = "block";
+        this.textContent = "Read Less";
+    }
+});
+</script>
+
+
+
+
+
+<!-- =======================
+     FOUNDER SECTION
+=========================== -->
+<section class="founder-section">
+    <div class="founder-wrapper">
+
+        <!-- CONTENT LEFT -->
+        <div class="founder-content">
+
+            <h2 class="founder-title">Dr. Ravi Shankar</h2>
+
+            <!-- VISIBLE PART -->
+            <div class="visible-content">
+                <p class="founder-text">
+                    Dr. Ravishankar is a <span class="highlight">global thought leader</span> in framing accreditation and 
+                    certification standards for <span class="highlight">Data Science & AI-ML</span>. He specializes in 
+                    <span class="highlight">IR4.0 technologies</span> and its application to solve business problems 
+                    across the <span class="highlight">Education, Pharma, Insurance and IT</span> sectors. He crafts 
+                    strategic learning journeys and delivers <span class="highlight">AI-ML programs for CXOs</span> in 
+                    Healthcare, BFSI and Retail/CPG. Dr. Ravi Shankar is also an 
+                    <span class="highlight">entrepreneur, mentor & investor</span> in the AgFood Tech and rural 
+                    impact startup ecosystems.
+                </p>
+
+                <p class="founder-text">
+                    Currently a <span class="highlight">Visiting Professor</span> at leading business institutes in India 
+                    and abroad including the prestigious <span class="highlight">ISB</span> and 
+                    <span class="highlight">Singapore Management University</span>. He specializes in teaching 
+                    <span class="highlight">Strategic AI Leadership</span>, <span class="highlight">AI Business Adoption</span>, 
+                    <span class="highlight">Computer Vision</span> and <span class="highlight">Deep Learning</span>. 
+                    He also consults and drives <span class="highlight">Data Science–driven Digital Transformation</span> 
+                    initiatives at <span class="highlight">Fortune 1000 companies</span>. Ravi has over three decades of 
+                    expertise at the intersection of <span class="highlight">Agricultural Policy & Data Analytics</span>.
+                </p>
+            </div>
+
+            <!-- HIDDEN PART -->
+            <div class="more-content">
+                <p class="founder-text">
+                    He is actively involved in transforming the sugarcane industry from a 
+                    <span class="highlight">net-zero perspective</span>. He is also the co-founder of 
+                    <span class="highlight">Gram Paathshala</span>, <span class="highlight">Bharat Mandi</span> and 
+                    <span class="highlight">NextWave Tech</span>. His past work includes leadership roles at 
+                    <span class="highlight">ICAR, AMEX, Blackstone, Dell, GE Healthcare</span> and 
+                    <span class="highlight">PwC</span>, across analytics-led consulting in Agriculture, BFSI, Healthcare, 
+                    CPG-Retail and Technology in the Indo-US corridor. He also works on scaling 
+                    <span class="highlight">FPOs/FPCs</span> and driving <span class="highlight">innovation & technology adoption</span> 
+                    across Indian Ag-Food value systems.
+                </p>
+
+                <p class="founder-text">
+                    A seasoned <span class="highlight">AgTech mentor</span> associated with multiple accelerators & 
+                    incubators including <span class="highlight">UASB, C-CAMP, Ah Ventures, FAAD Network, A-Idea NAARM 
+                    (AgriUdaan), AgFoodTech360</span>, FKCCI Startups, TiE Bangalore and the 
+                    <span class="highlight">Karnataka Digital Economy Mission (KDEM)</span>. He contributes to national 
+                    agricultural research and policy as an Advisory Board Member at 
+                    <span class="highlight">NDRI, IIHR, MoFPI, ICRISAT, CIMMYT, ITC, JUAIV</span> and others. Most recently, 
+                    he was selected as an <span class="highlight">Indian Administrative Fellow (IAF)</span> with the 
+                    Union Ministry of Social Justice & Empowerment.
+                </p>
+            </div>
+
+            <button class="read-more-btn">Read More</button>
+        </div>
+
+        <!-- IMAGE RIGHT -->
+        <div class="founder-img">
+            <img src="{% static 'images/ravi_shankar.jpg' %}" alt="Dr. Ravi Shankar">
+        </div>
+
+    </div>
+</section>
+
+
+
+
+<style>
+/* =======================
+   FOUNDER SECTION
+=========================== */
+.founder-section {
+    padding: 40px 60px;
+    background: linear-gradient(to bottom right, #ffffff, #f3f4f6);
+}
+
+.founder-wrapper {
+    max-width: 1150px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* CONTENT LEFT */
+.founder-content {
+    flex: 1 1 520px;
+}
+
+/* IMAGE RIGHT */
+.founder-img {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.founder-img img {
+    width: 85%;
+    border-radius: 25px;
+    object-fit: cover;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+    transition: 0.3s ease;
+}
+
+.founder-img img:hover {
+    transform: scale(1.03);
+}
+
+/* TEXT */
+.founder-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.founder-text {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: #374151;
+    margin-bottom: 15px;
+}
+
+/* Hidden content */
+.more-content {
+    display: none;
+}
+
+/* Button */
+.read-more-btn {
+    margin-top: 10px;
+    padding: 10px 22px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.read-more-btn:hover {
+    background: #1d4ed8;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+    .founder-wrapper {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .founder-img img {
+        width: 70%;
+    }
+
+    .founder-content {
+        text-align: center;
+    }
+}
+</style>
+
+
+<!-- =======================
+     JS LOGIC
+=========================== -->
+<script>
+document.querySelectorAll(".founder-section").forEach(section => {
+    const btn = section.querySelector(".read-more-btn");
+    const hidden = section.querySelector(".more-content");
+
+    btn.addEventListener("click", () => {
+        if (hidden.style.display === "block") {
+            hidden.style.display = "none";
+            btn.textContent = "Read More";
+        } else {
+            hidden.style.display = "block";
+            btn.textContent = "Read Less";
+        }
+    });
+});
+</script>
+
+
+
+
+<!-- =============================
+   HOW LEARNING HAPPENS AT YUME (PREMIUM)
+============================== -->
+<section class="yume-learn">
+    <div class="yume-card">
+
+        <h2 class="yume-title">How Learning Happens at <span>YuMe</span></h2>
+
+        <p class="yume-desc">
+            At <strong class="highlight">YuMe</strong>, learning is designed to turn concepts into real skills. 
+            We focus on <strong class="highlight">clarity</strong>, <strong class="highlight">practice</strong>, 
+            and <strong class="highlight">job-ready performance</strong> so every learner grows with purpose.
+        </p>
+
+        <p class="yume-desc">
+            Through a structured blend of explanation, guided work, and practical exposure, 
+            you build confidence faster and stay aligned with what companies look for today.
+        </p>
+
+        <h3 class="yume-sub">The Phygital Advantage</h3>
+
+        <!-- Compact & Expanded 2-column Grid -->
+        <div class="yume-grid">
+            <div class="item">Guided, real-time projects that improve practical confidence.</div>
+            <div class="item">Structured, industry-aligned sessions for stronger clarity.</div>
+            <div class="item">Experienced mentor support for doubt-solving and guidance.</div>
+            <div class="item">Career-driven learning focused on performance and readiness.</div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+/* Section Base With Premium Gradient */
+.yume-learn {
+    padding: 35px 0;
+    background: linear-gradient(135deg, #eef0ff, #f9faff);
+    display: flex;
+    justify-content: center;
+}
+
+/* Wider, High-Level Card */
+.yume-card {
+    width: 88%;
+    max-width: 920px;
+    background: #ffffff;
+    padding: 26px 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    text-align: start;
+}
+
+/* Title */
+.yume-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #111;
+}
+.yume-title span {
+    color: #4c5df0;
+}
+
+/* Paragraphs */
+.yume-desc {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Highlight Words */
+.highlight {
+    color: #4c5df0;
+    font-weight: 600;
+}
+
+/* Subtitle */
+.yume-sub {
+    font-size: 1rem;
+    margin: 16px 0 12px;
+    font-weight: 700;
+    color: #111;
+}
+
+/* 2-Column Compact Grid */
+.yume-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 18px; /* VERY minimal spacing as you requested */
+}
+
+/* Grid Items */
+.yume-grid .item {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: #333;
+    text-align: left;
+    position: relative;
+    padding-left: 14px;
+}
+
+/* Premium Bullet */
+.yume-grid .item::before {
+    content: "•";
+    color: #4c5df0;
+    position: absolute;
+    left: 0;
+    top: -1px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .yume-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 10px;
+    }
+    .yume-card {
+        width: 92%;
+        padding: 22px 20px;
+    }
+    .yume-title {
+        font-size: 26px;
+    }
+}
+</style>
+
+
+
+
+{% endblock %}

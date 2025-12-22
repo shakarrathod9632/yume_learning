@@ -1,0 +1,393 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<section class="course-catalog py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h1 class="display-5 fw-bold text-dark mb-3 text-center" style="position: relative; display: inline-block;">
+                    Professional Development Courses
+                    <span style="position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 120px; height: 4px; background: linear-gradient(90deg, #0284c7, #0369a1); border-radius: 2px;"></span>
+                </h1>
+            </div>
+        </div>
+
+        <div class="row g-4" id="courseGrid">
+            <!-- Course Card 1 - Excel -->
+            <div class="col-lg-4 col-md-6">
+                <div class="course-card card h-100 border-0 shadow-lg overflow-hidden">
+                    <div class="card-header bg-white border-0 pt-4 pb-1">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="{% static 'images/courses_logs/excel1.jpg' %}" 
+                                alt="Excel Logo" 
+                                class="img-fluid rounded-circle shadow-sm" style="width: 140px; height: 140px; object-fit: cover; object-position: center;">
+                        </div>
+                    </div>
+                    <div class="card-body p-4 pt-2 text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold text-dark mb-2 mt-1" style="font-size: 1.25rem;">Excel for Data Analysis</h5>
+                        <p class="text-muted flex-grow-1 mb-3" style="line-height: 1.6; font-size: 0.95rem;">
+                            Learn powerful Excel tools and functions for effective data analysis and business insights.
+                        </p>
+                        <div class="mt-2">
+                            <a href="{% url 'excel' %}" class="btn btn-primary btn-lg w-100 fw-semibold px-4 py-2 d-flex align-items-center justify-content-center gap-2" style="font-size: 1rem;">
+                                Explore Course
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" style="transition: transform 0.2s ease;">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 2 - SQL -->
+            <div class="col-lg-4 col-md-6">
+                <div class="course-card card h-100 border-0 shadow-lg overflow-hidden">
+                    <div class="card-header bg-white border-0 pt-4 pb-1">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="{% static 'images/courses_logs/sql.jpg' %}" 
+                                 alt="SQL Logo" 
+                                 class="img-fluid rounded-circle shadow-sm" style="width: 140px; height: 140px; object-fit: cover; object-position: center;">
+                        </div>
+                    </div>
+                    <div class="card-body p-4 pt-2 text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold text-dark mb-2 mt-1" style="font-size: 1.25rem;">SQL for Data Analysis</h5>
+                        <p class="text-muted flex-grow-1 mb-3" style="line-height: 1.6; font-size: 0.95rem;">
+                            Extract, transform and analyze data using industry-standard SQL techniques and queries.
+                        </p>
+                        <div class="mt-2">
+                            <a href="{% url 'sql' %}" class="btn btn-primary btn-lg w-100 fw-semibold px-4 py-2 d-flex align-items-center justify-content-center gap-2" style="font-size: 1rem;">
+                                Explore Course
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" style="transition: transform 0.2s ease;">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 3 - Python -->
+            <div class="col-lg-4 col-md-6">
+                <div class="course-card card h-100 border-0 shadow-lg overflow-hidden">
+                    <div class="card-header bg-white border-0 pt-4 pb-1">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="{% static 'images/courses_logs/python.jpg' %}" 
+                                 alt="Python Logo" 
+                                 class="img-fluid rounded-circle shadow-sm" style="width: 140px; height: 140px; object-fit: cover; object-position: center;">
+                        </div>
+                    </div>
+                    <div class="card-body p-4 pt-2 text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold text-dark mb-2 mt-1" style="font-size: 1.25rem;">Python Development</h5>
+                        <p class="text-muted flex-grow-1 mb-3" style="line-height: 1.6; font-size: 0.95rem;">
+                            Comprehensive Python programming for analytics, machine learning, and development projects.
+                        </p>
+                        <div class="mt-2">
+                            <a href="{% url 'python' %}" class="btn btn-primary btn-lg w-100 fw-semibold px-4 py-2 d-flex align-items-center justify-content-center gap-2" style="font-size: 1rem;">
+                                Explore Course
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" style="transition: transform 0.2s ease;">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 4 - Data Visualization -->
+            <div class="col-lg-4 col-md-6">
+                <div class="course-card card h-100 border-0 shadow-lg overflow-hidden">
+                    <div class="card-header bg-white border-0 pt-4 pb-1">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="{% static 'images/courses_logs/data_visualization.jpg' %}" 
+                                 alt="Visualization Logo" 
+                                 class="img-fluid rounded-circle shadow-sm" style="width: 140px; height: 140px; object-fit: cover; object-position: center;">
+                        </div>
+                    </div>
+                    <div class="card-body p-4 pt-2 text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold text-dark mb-2 mt-1" style="font-size: 1.25rem;">Data Visualization</h5>
+                        <p class="text-muted flex-grow-1 mb-3" style="line-height: 1.6; font-size: 0.95rem;">
+                            Create compelling data visualizations and interactive dashboards using Power BI and tools.
+                        </p>
+                        <div class="mt-2">
+                            <a href="{% url 'visualization' %}" class="btn btn-primary btn-lg w-100 fw-semibold px-4 py-2 d-flex align-items-center justify-content-center gap-2" style="font-size: 1rem;">
+                                Explore Course
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" style="transition: transform 0.2s ease;">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 5 - Azure Fundamentals -->
+            <div class="col-lg-4 col-md-6">
+                <div class="course-card card h-100 border-0 shadow-lg overflow-hidden">
+                    <div class="card-header bg-white border-0 pt-4 pb-1">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="{% static 'images/courses_logs/ai_azure.jpg' %}" 
+                                 alt="Azure Logo" 
+                                 class="img-fluid rounded-circle shadow-sm" style="width: 140px; height: 140px; object-fit: cover; object-position: center;">
+                        </div>
+                    </div>
+                    <div class="card-body p-4 pt-2 text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold text-dark mb-2 mt-1" style="font-size: 1.25rem;">Azure Fundamentals</h5>
+                        <p class="text-muted flex-grow-1 mb-3" style="line-height: 1.6; font-size: 0.95rem;">
+                            Understand cloud concepts, Microsoft Azure services, security, privacy, and pricing models.
+                        </p>
+                        <div class="mt-2">
+                            <a href="{% url 'azure' %}" class="btn btn-primary btn-lg w-100 fw-semibold px-4 py-2 d-flex align-items-center justify-content-center gap-2" style="font-size: 1rem;">
+                                Explore Course
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" style="transition: transform 0.2s ease;">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 6 - Azure AI -->
+            <div class="col-lg-4 col-md-6">
+                <div class="course-card card h-100 border-0 shadow-lg overflow-hidden">
+                    <div class="card-header bg-white border-0 pt-4 pb-1">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="{% static 'images/courses_logs/ai_ms_azure.png' %}" 
+                                 alt="AI Logo" 
+                                 class="img-fluid rounded-circle shadow-sm" style="width: 140px; height: 140px; object-fit: cover; object-position: center;">
+                        </div>
+                    </div>
+                    <div class="card-body p-4 pt-2 text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold text-dark mb-2 mt-1" style="font-size: 1.25rem;">Azure AI Fundamentals</h5>
+                        <p class="text-muted flex-grow-1 mb-3" style="line-height: 1.6; font-size: 0.95rem;">
+                            Learn artificial intelligence and machine learning concepts on the Microsoft Azure platform.
+                        </p>
+                        <div class="mt-2">
+                            <a href="{% url 'azure_ai' %}" class="btn btn-primary btn-lg w-100 fw-semibold px-4 py-2 d-flex align-items-center justify-content-center gap-2" style="font-size: 1rem;">
+                                Explore Course
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" style="transition: transform 0.2s ease;">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 7 - Power Platform -->
+            <div class="col-lg-4 col-md-6">
+                <div class="course-card card h-100 border-0 shadow-lg overflow-hidden">
+                    <div class="card-header bg-white border-0 pt-4 pb-1">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="{% static 'images/courses_logs/p.jpg' %}" 
+                                 alt="Power Platform Logo" 
+                                 class="img-fluid rounded-circle shadow-sm" style="width: 140px; height: 140px; object-fit: cover; object-position: center;">
+                        </div>
+                    </div>
+                    <div class="card-body p-4 pt-2 text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold text-dark mb-2 mt-1" style="font-size: 1.25rem;">Power Platform</h5>
+                        <p class="text-muted flex-grow-1 mb-3" style="line-height: 1.6; font-size: 0.95rem;">
+                            Master Power Apps, Power Automate, Power BI, and Power Virtual Agents for business solutions.
+                        </p>
+                        <div class="mt-2">
+                            <a href="{% url 'power_platform' %}" class="btn btn-primary btn-lg w-100 fw-semibold px-4 py-2 d-flex align-items-center justify-content-center gap-2" style="font-size: 1rem;">
+                                Explore Course
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" style="transition: transform 0.2s ease;">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 8 - Security -->
+            <div class="col-lg-4 col-md-6">
+                <div class="course-card card h-100 border-0 shadow-lg overflow-hidden">
+                    <div class="card-header bg-white border-0 pt-4 pb-1">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="{% static 'images/courses_logs/secure.jpg' %}" 
+                                 alt="Security Logo" 
+                                 class="img-fluid rounded-circle shadow-sm" style="width: 140px; height: 140px; object-fit: cover; object-position: center;">
+                        </div>
+                    </div>
+                    <div class="card-body p-4 pt-2 text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold text-dark mb-2 mt-1" style="font-size: 1.25rem;">Security & Compliance</h5>
+                        <p class="text-muted flex-grow-1 mb-3" style="line-height: 1.6; font-size: 0.95rem;">
+                            Understand security, compliance and identity concepts across cloud-based and hybrid solutions.
+                        </p>
+                        <div class="mt-2">
+                            <a href="{% url 'security' %}" class="btn btn-primary btn-lg w-100 fw-semibold px-4 py-2 d-flex align-items-center justify-content-center gap-2" style="font-size: 1rem;">
+                                Explore Course
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" style="transition: transform 0.2s ease;">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 9 - Soft Skills -->
+            <div class="col-lg-4 col-md-6">
+                <div class="course-card card h-100 border-0 shadow-lg overflow-hidden">
+                    <div class="card-header bg-white border-0 pt-4 pb-1">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="{% static 'images/courses_logs/soft_skills.webp' %}" 
+                                 alt="Soft Skills Logo" 
+                                 class="img-fluid rounded-circle shadow-sm" style="width: 140px; height: 140px; object-fit: cover; object-position: center;">
+                        </div>
+                    </div>
+                    <div class="card-body p-4 pt-2 text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold text-dark mb-2 mt-1" style="font-size: 1.25rem;">Professional Development</h5>
+                        <p class="text-muted flex-grow-1 mb-3" style="line-height: 1.6; font-size: 0.95rem;">
+                            Enhance communication, leadership and professional skills for career advancement and success.
+                        </p>
+                        <div class="mt-2">
+                            <a href="{% url 'professional_dev' %}" class="btn btn-primary btn-lg w-100 fw-semibold px-4 py-2 d-flex align-items-center justify-content-center gap-2" style="font-size: 1rem;">
+                                Explore Course
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" style="transition: transform 0.2s ease;">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .course-catalog {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+        
+        .course-card {
+            border-radius: 16px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: white;
+            border: 1px solid rgba(241, 245, 249, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 32px 64px rgba(2, 132, 199, 0.12), 
+                        0 8px 16px rgba(2, 132, 199, 0.08),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+            border-color: rgba(2, 132, 199, 0.15);
+        }
+        
+        .card-header img {
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            filter: brightness(1.05) contrast(1.1);
+        }
+        
+        .course-card:hover .card-header img {
+            transform: scale(1.08);
+            filter: brightness(1.1) contrast(1.15);
+            box-shadow: 0 12px 32px rgba(2, 132, 199, 0.2) !important;
+        }
+        
+        .card-title {
+            background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+        
+        .btn-primary:hover svg {
+            transform: translateX(3px);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        .btn-primary svg {
+            transition: transform 0.2s ease;
+        }
+        
+        .shadow-sm {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06) !important;
+        }
+        
+        .text-muted {
+            color: #64748b !important;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .display-5 {
+                font-size: 2.1rem;
+            }
+            
+            .lead {
+                font-size: 1rem;
+            }
+            
+            .course-card {
+                margin-bottom: 1.25rem;
+            }
+            
+            .card-header img {
+                width: 120px !important;
+                height: 120px !important;
+            }
+            
+            .card-title {
+                font-size: 1.15rem !important;
+            }
+            
+            .btn-primary {
+                padding: 0.7rem 1.5rem !important;
+                font-size: 0.95rem !important;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .card-header img {
+                width: 110px !important;
+                height: 110px !important;
+            }
+            
+            .card-title {
+                font-size: 1.1rem !important;
+            }
+            
+            .btn-primary {
+                padding: 0.65rem 1.25rem !important;
+                font-size: 0.9rem !important;
+            }
+        }
+    </style>
+</section>
+
+
+{% endblock %}

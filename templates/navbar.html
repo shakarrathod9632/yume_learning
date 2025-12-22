@@ -1,0 +1,345 @@
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yume Learning</title>
+
+    <!-- FONT AWESOME (ICONS) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+        /* ============================================================
+        TOP INFO BAR (Static – Not visible while scrolling)
+        ============================================================ */
+        .top-info-bar {
+            width: 100%;
+            background: white;
+            color: black;
+            padding: 6px 20px;
+            font-family: "Montserrat", sans-serif;
+            font-size: 12px;
+            height: 40px;
+            position: relative;   /* ← changed from sticky to normal */
+            z-index: 2000;
+        }
+
+        /* LEFT CONTACT ITEMS */
+        .info-item {
+            color: black;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .info-item i {
+            margin-right: 6px;
+            font-size: 16px;
+        }
+
+        .info-phone i {
+            color: #0b7dda; 
+        }
+
+        .info-email i {
+            color: #ffcc00; 
+        }
+
+        /* SOCIAL ICONS */
+        .social-icon i {
+            font-size: 18px;
+            transition: 0.3s ease;
+        }
+
+        .social-icon.instagram i {
+            color: #E1306C;
+        }
+
+        .social-icon.facebook i {
+            color: #1877F2;
+        }
+
+        .social-icon.linkedin i {
+            color: #0077B5;
+        }
+
+        .social-icon:hover i {
+            transform: scale(1.15);
+        }
+
+        /* ===================== MARQUEE STYLE TEXT ===================== */
+        .marquee-box {
+            width: 350px;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 15px;
+            animation: marqueeMove 6s linear infinite;
+        }
+
+        @keyframes marqueeMove {
+            0% { transform: translateX(120%); }
+            100% { transform: translateX(-120%); }
+        }
+
+        /* HIDE INFO BAR ON MOBILE */
+        @media (max-width: 768px) {
+            .top-info-bar {
+                display: none !important;
+            }
+        }
+
+
+        /* ============================================================
+        NAVBAR (Fixed – Always visible on scroll)
+        ============================================================ */
+        .main-navbar {
+            background-color: #fff;
+            padding: 8px 0;
+            font-family: "Montserrat", Arial, Helvetica, sans-serif;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            position: fixed;     /* ← changed from sticky */
+            top: 0;              /* ← always on top */
+            left: 0;
+            width: 100%;
+            z-index: 3000;
+        }
+
+        /* Prevent content hiding behind navbar */
+        body {
+            padding-top: 80px;   /* Adjust if navbar height changes */
+        }
+
+
+        /* LOGO */
+        .logo-img {
+            width: 140px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* NAV LINKS */
+        .nav-link {
+            color: #000;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 6px 14px !important;
+            transition: 0.3s ease;
+        }
+
+        /* HOVER EFFECT */
+        .hover-effect {
+            position: relative;
+        }
+
+        .hover-effect::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(to right, rgb(5, 201, 254), rgb(10, 254, 2));
+            transition: width 0.3s ease;
+        }
+
+        .hover-effect:hover::after {
+            width: 100%;
+        }
+
+        .hover-effect:hover {
+            color: rgb(5, 201, 254);
+        }
+
+        /* SPECIAL CLASSROOM BUTTON */
+        .special-classroom-link {
+            position: relative;
+            display: inline-block;
+            padding: 0.5rem 1.5rem !important;
+            margin-left: 25px;
+            font-weight: 900;
+            font-size: 13px;
+            text-transform: uppercase;
+            border-radius: 6px;
+            border: 1px solid black;
+            overflow: hidden;
+            cursor: pointer;
+            background: #66ff66;
+            text-decoration: none;
+        }
+
+        .special-classroom-link span {
+            position: relative;
+            z-index: 10;
+            
+        }
+
+        .special-classroom-link::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -10%;
+            width: 120%;
+            height: 100%;
+            background: white;
+            transform: skew(30deg);
+            z-index: 0;
+            transition: 0.4s;
+        
+        }
+
+        .special-classroom-link:hover::before {
+            transform: translate3d(100%, 0, 0);
+        }
+
+        /* MOBILE NAVBAR */
+        .navbar-toggler {
+            border-color: #000;
+        }
+
+
+        /* ==================== MOBILE HAMBURGER FIX ==================== */
+        .navbar-toggler {
+            border: none !important;          /* Remove border */
+            outline: none !important;         /* Remove focus outline */
+            padding: 6px 10px !important;     /* Make tap area bigger */
+        }
+
+        .navbar-toggler-icon {
+            width: 28px !important;           /* Bigger icon */
+            height: 28px !important;
+            filter: brightness(0) saturate(100%); /* Make it dark always */
+        }
+
+        /* Extra smooth click effect */
+        .navbar-toggler:active,
+        .navbar-toggler:focus {
+            box-shadow: none !important;
+        }
+
+</style>
+
+</head>
+
+<body>
+
+
+    <!-- ===================== TOP INFO BAR ===================== -->
+    <div class="top-info-bar d-none d-md-flex align-items-center justify-content-between px-3">
+
+        <!-- LEFT -->
+        <div class="info-left d-flex align-items-center gap-4">
+            <a href="tel:+918792885644" class="info-item info-phone">
+                <i class="fas fa-phone"></i> +91 879 2885 644
+            </a>
+            <a href="mailto:info@yumelearning.net" class="info-item info-email">
+                <i class="fas fa-envelope-circle-check"></i> info@yumelearning.net
+            </a>
+        </div>
+
+        <!-- MIDDLE MARQUEE -->
+        <div class="marquee-box">
+            <span id="marqueeText" class="marquee-text"></span>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="info-right d-flex align-items-center gap-3">
+            <a href="https://www.instagram.com/yumelearning/" target="_blank" class="social-icon instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/yumelearning" target="_blank" class="social-icon facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/antsskillvarsity/" target="_blank" class="social-icon linkedin">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+
+    </div>
+    <!-- ===================== END INFO BAR ===================== -->
+
+
+
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar navbar-expand-lg main-navbar px-0 mt-info-fix">
+        <div class="container-fluid px-0">
+
+            <!-- LEFT: LOGO -->
+            <a class="navbar-brand logo-container m-0" href="/">
+                <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo-img">
+            </a>
+
+            <!-- MOBILE TOGGLER -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- NAV LINKS -->
+            <div class="collapse navbar-collapse" id="mainNavbar">
+
+                <!-- MIDDLE -->
+                <ul class="navbar-nav middle-nav ps-4">
+                    <li class="nav-item">
+                        <a class="special-classroom-link" href="https://yume.onlineclass.site/" target="_blank">
+                            <span>My Online Classroom</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- RIGHT LINKS -->
+                <ul class="navbar-nav ms-auto right-nav pe-3">
+                    <li class="nav-item"><a class="nav-link hover-effect" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link hover-effect" href="{% url 'about' %}">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link hover-effect" href="{% url 'courses' %}">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link hover-effect" href="{% url 'projects' %}">Projects</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link hover-effect" href="{% url 'placements' %}">Placements</a></li>
+                    <li class="nav-item"><a class="nav-link hover-effect" href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+    <!-- ===================== END NAVBAR ===================== -->
+
+
+
+    <!-- ===================== MARQUEE ROTATION SCRIPT ===================== -->
+    <script>
+        const messages = [
+            "Welcome to Yume Learning",
+            "College is over, let's get you hired!",
+            "Training | Certifications | Placements"
+        ];
+
+        let index = 0;
+        const marqueeText = document.getElementById("marqueeText");
+
+        function updateMarquee() {
+            marqueeText.textContent = messages[index];
+            marqueeText.classList.remove("marquee-text");
+            void marqueeText.offsetWidth; // reset animation
+            marqueeText.classList.add("marquee-text");
+            index = (index + 1) % messages.length;
+        }
+
+        updateMarquee();
+        setInterval(updateMarquee, 5000);
+    </script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html> {% endcomment %}
