@@ -94,7 +94,7 @@
                         
                         <!-- Action Button -->
                         <div class="project-action">
-                            <a href="#" class="view-details-btn">
+                            <a href="{% url 'aspire_project' %}" class="view-details-btn">
                                 <span>View Project Details</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -176,7 +176,7 @@
                         
                         <!-- Action Button -->
                         <div class="project-action">
-                            <a href="#" class="view-details-btn">
+                            <a href="{% url 'kjk_project' %}" class="view-details-btn">
                                 <span>View Project Details</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -258,7 +258,7 @@
                         
                         <!-- Action Button -->
                         <div class="project-action">
-                            <a href="#" class="view-details-btn">
+                            <a href="{% url 'naan_mudhalvan_project' %}" class="view-details-btn">
                                 <span>View Project Details</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -340,7 +340,7 @@
                         
                         <!-- Action Button -->
                         <div class="project-action">
-                            <a href="#" class="view-details-btn">
+                            <a href="{% url 'bridgetech_project' %}" class="view-details-btn">
                                 <span>View Project Details</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -778,35 +778,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Click handler for view details button
-        const viewBtn = card.querySelector('.view-details-btn');
-        if (viewBtn) {
-            viewBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Get project name
-                const projectName = card.querySelector('.project-name').textContent;
-                
-                // Button loading animation
-                const originalHTML = this.innerHTML;
-                this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Loading Details';
-                this.style.pointerEvents = 'none';
-                this.style.opacity = '0.8';
-                
-                // Simulate loading delay
-                setTimeout(() => {
-                    // Reset button
-                    this.innerHTML = originalHTML;
-                    this.style.pointerEvents = 'auto';
-                    this.style.opacity = '1';
-                    
-                    // Show success message
-                    showSuccessMessage(`Opening ${projectName} details`);
-                    
-                    // In production, redirect to project page
-                    // window.location.href = `/projects/${projectName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
-                }, 800);
-            });
-        }
+        
     });
     
     // Success message function

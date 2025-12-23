@@ -17,6 +17,12 @@ urlpatterns = [
     path("courses/professional-development/", views.professional_dev_course, name="professional_dev"),
 
     path("projects/", views.projects_page, name="projects"),
+    
+     path('projects/aspire_project/', views.aspire_project, name='aspire_project'),
+    path('projects/kjk_project/', views.kjk_project, name='kjk_project'),
+    path('projects/naan-mudhalvan_project/', views.naan_mudhalvan_project, name='naan_mudhalvan_project'),
+    path('projects/bridgetech_project/', views.bridgetech_project, name='bridgetech_project'),
+    
     path("placements/", views.placements_page, name="placements"),
     path("contact/", views.contact_page, name="contact"),
 ]

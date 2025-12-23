@@ -6,6 +6,8 @@ def home_page(request):
 def about_page(request):
     return render(request, "about.html")
 
+
+
 def courses_page(request):
     return render(request, "courses.html")
 
@@ -36,8 +38,25 @@ def security_course(request):
 def professional_dev_course(request):
     return render(request, "courses/professional_development.html")
 
+
+
 def projects_page(request):
     return render(request, "projects.html")
+
+
+def aspire_project(request):
+    return render(request, 'aspire_project.html')
+
+def kjk_project(request):
+    return render(request, 'kjk_project.html')
+
+def naan_mudhalvan_project(request):
+    return render(request, 'naan_mudhalvan_project.html')
+
+def bridgetech_project(request):
+    return render(request, 'bridgetech_project.html')
+
+
 
 def placements_page(request):
     return render(request, "placements.html")
