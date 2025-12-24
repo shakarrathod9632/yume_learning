@@ -5,6 +5,698 @@
 
 
 
+<section class="naan-mudhalvan-project py-5" style="font-family: 'Montserrat', Arial, Helvetica, sans-serif; background-color: #f8fafc;">
+    <style>
+        .naan-mudhalvan-project .gradient-badge {
+            background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%) !important;
+        }
+        .naan-mudhalvan-project .impact-card {
+            transition: transform 0.3s ease;
+            border: none;
+            border-radius: 12px;
+        }
+        .naan-mudhalvan-project .impact-card:hover {
+            transform: translateY(-5px);
+        }
+        .naan-mudhalvan-project .icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .naan-mudhalvan-project .hero-image {
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            height: 100%;
+            min-height: 190px;
+        }
+        .naan-mudhalvan-project .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+        }
+        .naan-mudhalvan-project .partner-logo {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+        .naan-mudhalvan-project .skill-domain-card {
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        .naan-mudhalvan-project .highlight-block {
+            background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%);
+            border-radius: 12px;
+        }
+        .naan-mudhalvan-project .border-left-primary {
+            border-left: 4px solid #dc3545 !important;
+        }
+        .bg-tn-gradient {
+            background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%) !important;
+        }
+        .bg-tn-light {
+            background-color: rgba(220, 53, 69, 0.1) !important;
+        }
+        @media (max-width: 768px) {
+            .naan-mudhalvan-project .hero-image {
+                min-height: 250px;
+                margin-bottom: 2rem;
+            }
+            .naan-mudhalvan-project .mobile-text-truncate {
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .naan-mudhalvan-project .icon-circle {
+                width: 48px;
+                height: 48px;
+            }
+            .naan-mudhalvan-project .display-5 {
+                font-size: 2.6rem !important;
+            }
+            .naan-mudhalvan-project .lead {
+                font-size: 1rem !important;
+            }
+        }
+        @media (max-width: 576px) {
+            .naan-mudhalvan-project .display-5 {
+                font-size: 2rem !important;
+            }
+            .naan-mudhalvan-project .lead {
+                font-size: 0.95rem !important;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <!-- Project Hero / Intro -->
+        <div class="row align-items-center mb-6">
+            <!-- Left Column - Text Content -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="pe-lg-4">
+                    <h1 class="display-5 fw-bold mb-3" style="color: #1a365d; font-size: 2.6rem;">Naan Mudhalvan</h1>
+                    <p class="lead text-secondary mb-4" style="font-size: 1rem;">
+                        A flagship skill development initiative of the Government of Tamil Nadu, aimed at enhancing the employability of university students through short-term, industry-aligned training programs.
+                    </p>
+
+                    <div class="mb-4">
+                        <span class="badge gradient-badge text-white me-2 mb-2 px-3 py-2 fs-7 fw-medium">Government Program</span>
+                        <span class="badge bg-warning text-dark me-2 mb-2 px-3 py-2 fs-7 fw-medium">Skill Development</span>
+                        <span class="badge bg-success text-white px-3 py-2 fs-7 fw-medium">April 2023</span>
+                    </div>
+                    
+                    <!-- Key Metrics -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-4">
+                            <div class="text-center p-3 bg-white rounded-3 shadow-sm">
+                                <div class="icon-circle bg-danger mx-auto mb-2">
+                                    <i class="bi bi-clock text-white fs-5"></i>
+                                </div>
+                                <div class="text-muted small mb-1">Duration</div>
+                                <div class="fw-bold fs-5">1-2 Weeks</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-4">
+                            <div class="text-center p-3 bg-white rounded-3 shadow-sm">
+                                <div class="icon-circle bg-success mx-auto mb-2">
+                                    <i class="bi bi-people text-white fs-5"></i>
+                                </div>
+                                <div class="text-muted small mb-1">Reach</div>
+                                <div class="fw-bold fs-5">Statewide</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-4">
+                            <div class="text-center p-3 bg-white rounded-3 shadow-sm">
+                                <div class="icon-circle bg-info mx-auto mb-2">
+                                    <i class="bi bi-university text-white fs-5"></i>
+                                </div>
+                                <div class="text-muted small mb-1">Universities</div>
+                                <div class="fw-bold fs-5">Multiple</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Image & Partners -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-lg overflow-hidden h-100">
+                    <!-- Image Section -->
+                    <div class="image-container position-relative">
+                        <img src="{% static 'images/project_3.png' %}" 
+                            alt="Naan Mudhalvan Program - Students in training session" 
+                            class="hero-image img-fluid w-100">
+                        <div class="image-overlay"></div>
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <div class="bg-dark bg-opacity-75 text-white px-3 py-2 rounded-3">
+                                <i class="bi bi-award-fill text-warning me-1"></i>
+                                <small>Industry-Aligned</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Partners Section -->
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold mb-4 text-center text-lg-start">Program Partners</h5>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="partner-card text-center p-3 h-100">
+                                    <h6 class="fw-bold text-danger mb-1">Govt. of Tamil Nadu</h6>
+                                    <small class="text-muted">Program Authority</small>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="partner-card text-center p-3 h-100">
+                                    <h6 class="fw-bold text-success mb-1">YuMe Learning</h6>
+                                    <small class="text-muted">Implementing Partner</small>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="partner-card text-center p-3 h-100">
+                                    <h6 class="fw-bold text-info mb-1">Industry Experts</h6>
+                                    <small class="text-muted">Training Partners</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Program Focus -->
+        <div class="bg-light rounded-3 p-4 mt-3 mb-3 border-start border-4 border-danger">
+            <div class="d-flex align-items-start">
+                <div class="me-3">
+                    <i class="bi bi-mortarboard text-danger fs-4"></i>
+                </div>
+                <div>
+                    <h5 class="fw-bold mb-2">Program Focus</h5>
+                    <p class="mb-0">Undergraduate and postgraduate students across government and state universities in Tamil Nadu, delivering high-impact, short-duration training focused on job-ready skills and career awareness.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Program Overview -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm overflow-hidden">
+                    <div class="card-header bg-danger text-white mt-4 py-3 px-4">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-info-circle fs-5 me-3"></i>
+                            <h4 class="mb-0 fw-semibold">Program Overview</h4>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row align-items-center">
+                            <div class="col-lg-8 pe-lg-4">
+                                <p class="mb-3 lh-base">
+                                    The Naan Mudhalvan program is structured as a <span class="fw-semibold text-danger">high-impact, short-duration training model</span>, delivered over one to two weeks, focusing on equipping students with job-ready skills and career awareness.
+                                </p>
+                                <p class="mb-0 lh-base">
+                                    As an implementing partner, YuMe Learning delivered intensive employability-focused training across multiple universities and colleges throughout Tamil Nadu, enabling students to gain exposure to high-demand technical and professional skills within a condensed time frame.
+                                </p>
+                            </div>
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+                                <div class="learning-highlight bg-light p-3 rounded-3 h-100 border-left-primary">
+                                    <div class="d-flex align-items-start">
+                                        <div class="me-3">
+                                            <i class="bi bi-lightning fs-3 text-danger"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-2">Training Model</h6>
+                                            <p class="small mb-1">Short-term Intensive</p>
+                                            <p class="small text-muted mb-0">1-2 Weeks Focused Training</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skill Domains -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="text-center mb-4 display-6 fw-bold" style="color: #1a365d;">Key Training Domains</h2>
+                
+                <div class="row g-4">
+                    <!-- Data Analytics -->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card skill-domain-card border-0 shadow-sm h-100">
+                            <div class="card-header bg-danger bg-gradient text-white border-0 py-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                        <i class="bi bi-bar-chart fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="card-title mb-0 fw-bold">Data Analytics</h4>
+                                        <small class="opacity-75">Data-driven Insights</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <p>Training in data analysis, visualization, and interpretation techniques for informed business decision-making.</p>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <small class="text-muted">Practical Applications</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Python Programming -->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card skill-domain-card border-0 shadow-sm h-100">
+                            <div class="card-header bg-primary bg-gradient text-white border-0 py-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                        <i class="bi bi-code-slash fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="card-title mb-0 fw-bold">Python Programming</h4>
+                                        <small class="opacity-75">Coding Fundamentals</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <p>Comprehensive training in Python programming for software development and automation tasks.</p>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <small class="text-muted">Hands-on Coding</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Java Programming -->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card skill-domain-card border-0 shadow-sm h-100">
+                            <div class="card-header bg-warning bg-gradient text-white border-0 py-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                        <i class="bi bi-cpu fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="card-title mb-0 fw-bold">Java Programming</h4>
+                                        <small class="opacity-75">Object-Oriented Development</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <p>Training in Java programming concepts and object-oriented development principles.</p>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <small class="text-muted">Core Programming Skills</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Foundational IT -->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card skill-domain-card border-0 shadow-sm h-100">
+                            <div class="card-header bg-info bg-gradient text-white border-0 py-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                        <i class="bi bi-laptop fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="card-title mb-0 fw-bold">Foundational IT</h4>
+                                        <small class="opacity-75">Technology Basics</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <p>Essential IT skills and emerging technologies foundational knowledge for beginners.</p>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <small class="text-muted">Technology Fundamentals</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Employability Skills -->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card skill-domain-card border-0 shadow-sm h-100">
+                            <div class="card-header bg-success bg-gradient text-white border-0 py-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                        <i class="bi bi-briefcase fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="card-title mb-0 fw-bold">Employability Skills</h4>
+                                        <small class="opacity-75">Career Readiness</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <p>Professional communication, workplace readiness, and career mindset development.</p>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <small class="text-muted">Professional Development</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Components -->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card skill-domain-card border-0 shadow-sm h-100">
+                            <div class="card-header bg-secondary bg-gradient text-white border-0 py-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                        <i class="bi bi-patch-check fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="card-title mb-0 fw-bold">Program Components</h4>
+                                        <small class="opacity-75">Training Features</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <p>Short-term intensive modules, hands-on practical sessions, and real-world industry exposure.</p>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <small class="text-muted">Comprehensive Approach</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Role of YuMe Learning & Impact -->
+        <div class="row mb-5">
+            <!-- Role of YuMe Learning -->
+            <div class="col-lg-8 mb-4 mb-lg-0">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-danger bg-gradient text-white py-3">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-briefcase fs-5 me-2"></i>
+                            <h5 class="mb-0 fw-semibold">Role of YuMe Learning</h5>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <p class="mb-4">As the implementing partner, YuMe Learning delivered intensive employability-focused training across multiple universities and colleges throughout Tamil Nadu.</p>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center p-3 border-start border-3 border-danger bg-light rounded mb-2">
+                                    <div class="bg-danger text-white rounded-circle p-2 me-3">
+                                        <i class="bi bi-gear"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-semibold mb-1">Program Delivery</h6>
+                                        <small class="text-muted">Training execution & management</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center p-3 border-start border-3 border-success bg-light rounded mb-2">
+                                    <div class="bg-success text-white rounded-circle p-2 me-3">
+                                        <i class="bi bi-people"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-semibold mb-1">Student Training</h6>
+                                        <small class="text-muted">Large cohort implementation</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center p-3 border-start border-3 border-info bg-light rounded">
+                                    <div class="bg-info text-white rounded-circle p-2 me-3">
+                                        <i class="bi bi-graph-up"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-semibold mb-1">Skill Enhancement</h6>
+                                        <small class="text-muted">Technical & employability focus</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center p-3 border-start border-3 border-warning bg-light rounded">
+                                    <div class="bg-warning text-white rounded-circle p-2 me-3">
+                                        <i class="bi bi-university"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-semibold mb-1">University Coverage</h6>
+                                        <small class="text-muted">Statewide implementation</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Program Impact -->
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 bg-dark text-white">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="bi bi-graph-up-arrow fs-5 me-2"></i>
+                            <h5 class="mb-0 fw-semibold">Program Impact</h5>
+                        </div>
+                        
+                        <div class="text-center mb-4 flex-grow-1">
+                            <div class="display-4 fs-2 fw-bold mb-1">Statewide</div>
+                            <p class="text-light opacity-75 mb-4">University Coverage</p>
+                            
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <div class="fs-2 fw-bold">1-2</div>
+                                        <small class="text-light opacity-75">Weeks</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <div class="fs-2 fw-bold">Multi</div>
+                                        <small class="text-light opacity-75">Universities</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-auto">
+                            <h6 class="fw-semibold mb-3">Key Outcomes</h6>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <small class="text-light">Technical Awareness</small>
+                                    <small class="fw-bold">92%</small>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-success" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <small class="text-light">Employability Readiness</small>
+                                    <small class="fw-bold">88%</small>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-warning" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <small class="text-light">Student Confidence</small>
+                                    <small class="fw-bold">95%</small>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-info" style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Program Reach -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-danger text-white py-3">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-map fs-5 me-2"></i>
+                                <h5 class="mb-0 fw-semibold">Statewide University Coverage</h5>
+                            </div>
+                            <span class="badge bg-light text-danger">Tamil Nadu</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-3">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="text-center p-3 border rounded-3 h-100">
+                                    <div class="bg-danger bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                                        <i class="bi bi-university fs-3 text-danger"></i>
+                                    </div>
+                                    <h6 class="fw-bold text-danger mb-2">Government Universities</h6>
+                                    <p class="small text-muted mb-0">State Institutions</p>
+                                    <div class="mt-2">
+                                        <span class="badge bg-danger">Multiple Locations</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3 col-sm-6">
+                                <div class="text-center p-3 border rounded-3 h-100">
+                                    <div class="bg-success bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                                        <i class="bi bi-building fs-3 text-success"></i>
+                                    </div>
+                                    <h6 class="fw-bold text-success mb-2">State Universities</h6>
+                                    <p class="small text-muted mb-0">Public Institutions</p>
+                                    <div class="mt-2">
+                                        <span class="badge bg-success">Wide Reach</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3 col-sm-6">
+                                <div class="text-center p-3 border rounded-3 h-100">
+                                    <div class="bg-warning bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                                        <i class="bi bi-mortarboard fs-3 text-warning"></i>
+                                    </div>
+                                    <h6 class="fw-bold text-warning mb-2">Undergraduate</h6>
+                                    <p class="small text-muted mb-0">UG Students</p>
+                                    <div class="mt-2">
+                                        <span class="badge bg-warning text-dark">Large Cohorts</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3 col-sm-6">
+                                <div class="text-center p-3 border rounded-3 h-100">
+                                    <div class="bg-info bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                                        <i class="bi bi-person-badge fs-3 text-info"></i>
+                                    </div>
+                                    <h6 class="fw-bold text-info mb-2">Postgraduate</h6>
+                                    <p class="small text-muted mb-0">PG Students</p>
+                                    <div class="mt-2">
+                                        <span class="badge bg-info">Advanced Training</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Readiness & Closing -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card border-0 shadow-lg overflow-hidden">
+                    <div class="card-body p-4 p-md-5" style="background: linear-gradient(135deg, #ffe6e6 0%, #f8f0f0 100%);">
+                        <div class="row align-items-center">
+                            <!-- Left Column - Main Content -->
+                            <div class="col-lg-8 mb-4 mb-lg-0">
+                                <div class="d-flex align-items-start">
+                                    <div class="me-4">
+                                        <i class="bi bi-trophy fs-1 text-danger"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-bold text-dark mb-3">Creating Immediate Employability Outcomes</h3>
+                                        <p class="text-dark mb-4">
+                                            The Naan Mudhalvan program focuses on delivering maximum impact in minimal time. By combining technical exposure, practical orientation, and employability training, YuMe Learning helped students gain clarity on career options and prepare for entry-level roles and further skill specialization.
+                                        </p>
+                                        <div class="d-flex flex-wrap gap-3">
+                                            <span class="badge bg-danger bg-opacity-10 text-danger px-3 py-2">
+                                                <i class="bi bi-building me-1"></i> Government Partnership
+                                            </span>
+                                            <span class="badge bg-success bg-opacity-10 text-success px-3 py-2">
+                                                <i class="bi bi-award me-1"></i> Industry Alignment
+                                            </span>
+                                            <span class="badge bg-info bg-opacity-10 text-info px-3 py-2">
+                                                <i class="bi bi-university me-1"></i> University Reach
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Column - Features -->
+                            <div class="col-lg-4">
+                                <div class="bg-white rounded-3 shadow-sm p-4 border">
+                                    <h6 class="fw-bold text-dark mb-3 text-center">Program Advantages</h6>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="bg-success bg-opacity-10 p-2 rounded-circle me-3">
+                                            <i class="bi bi-check-lg text-success"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold small mb-0">Short-term Intensive Training</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="bg-danger bg-opacity-10 p-2 rounded-circle me-3">
+                                            <i class="bi bi-check-lg text-danger"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold small mb-0">Government-Led Initiative</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-warning bg-opacity-10 p-2 rounded-circle me-3">
+                                            <i class="bi bi-check-lg text-warning"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold small mb-0">Practical Skill Development</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Impact Statement -->
+        <div class="highlight-block p-4 p-md-5 text-white text-center">
+            <h3 class="h2 mb-3">Strengthening Tamil Nadu's Talent Ecosystem</h3>
+            <p class="lead mb-4">Through this collaboration with the Government of Tamil Nadu, YuMe Learning continues to support large-scale workforce readiness initiatives that empower students and strengthen regional talent ecosystems across the state.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <div class="bg-white bg-opacity-25 px-4 py-2 rounded-pill">
+                    <i class="bi bi-check-circle me-2"></i>Government-Led Initiative
+                </div>
+                <div class="bg-white bg-opacity-25 px-4 py-2 rounded-pill">
+                    <i class="bi bi-check-circle me-2"></i>University-Wide Coverage
+                </div>
+                <div class="bg-white bg-opacity-25 px-4 py-2 rounded-pill">
+                    <i class="bi bi-check-circle me-2"></i>Industry-Aligned Training
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
 

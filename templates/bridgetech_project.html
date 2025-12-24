@@ -6,6 +6,692 @@
 
 
 
+<section class="bridgetech-project py-5" style="font-family: 'Montserrat', Arial, Helvetica, sans-serif; background-color: #f8fafc;">
+    <style>
+        .bridgetech-project .gradient-badge {
+            background: linear-gradient(135deg, #6f42c1 0%, #563d7c 100%) !important;
+        }
+        .bridgetech-project .impact-card {
+            transition: transform 0.3s ease;
+            border: none;
+            border-radius: 12px;
+        }
+        .bridgetech-project .impact-card:hover {
+            transform: translateY(-5px);
+        }
+        .bridgetech-project .icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .bridgetech-project .hero-image {
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            height: 100%;
+            min-height: 190px;
+        }
+        .bridgetech-project .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+        }
+        .bridgetech-project .partner-logo {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+        .bridgetech-project .skill-domain-card {
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        .bridgetech-project .highlight-block {
+            background: linear-gradient(135deg, #6f42c1 0%, #563d7c 100%);
+            border-radius: 12px;
+        }
+        .bridgetech-project .border-left-primary {
+            border-left: 4px solid #6f42c1 !important;
+        }
+        .bg-purple-gradient {
+            background: linear-gradient(135deg, #6f42c1 0%, #563d7c 100%) !important;
+        }
+        .bg-purple-light {
+            background-color: rgba(111, 66, 193, 0.1) !important;
+        }
+        @media (max-width: 768px) {
+            .bridgetech-project .hero-image {
+                min-height: 250px;
+                margin-bottom: 2rem;
+            }
+            .bridgetech-project .mobile-text-truncate {
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .bridgetech-project .icon-circle {
+                width: 48px;
+                height: 48px;
+            }
+            .bridgetech-project .display-5 {
+                font-size: 2.6rem !important;
+            }
+            .bridgetech-project .lead {
+                font-size: 1rem !important;
+            }
+        }
+        @media (max-width: 576px) {
+            .bridgetech-project .display-5 {
+                font-size: 2rem !important;
+            }
+            .bridgetech-project .lead {
+                font-size: 0.95rem !important;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <!-- Project Hero / Intro -->
+        <div class="row align-items-center mb-6">
+            <!-- Left Column - Text Content -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="pe-lg-4">
+                    <h1 class="display-5 fw-bold mb-3" style="color: #1a365d; font-size: 2.6rem;">BridgeTech</h1>
+                    <p class="lead text-secondary mb-4" style="font-size: 1rem;">
+                        A flagship employability initiative empowering economically disadvantaged graduates through industry-aligned technology training and career support.
+                    </p>
+
+                    <div class="mb-4">
+                        <span class="badge gradient-badge text-white me-2 mb-2 px-3 py-2 fs-7 fw-medium">Skill Development</span>
+                        <span class="badge bg-warning text-dark me-2 mb-2 px-3 py-2 fs-7 fw-medium">Employability Program</span>
+                        <span class="badge bg-success text-white px-3 py-2 fs-7 fw-medium">April 2023</span>
+                    </div>
+                    
+                    <!-- Key Metrics -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-4">
+                            <div class="text-center p-3 bg-white rounded-3 shadow-sm">
+                               
+                                <div class="text-muted small mb-1">Duration</div>
+                                <div class="fw-bold fs-5">220 Hours</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-4">
+                            <div class="text-center p-3 bg-white rounded-3 shadow-sm">
+                                
+                                <div class="text-muted small mb-1">Students</div>
+                                <div class="fw-bold fs-5">300+</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-4">
+                            <div class="text-center p-3 bg-white rounded-3 shadow-sm">
+                                
+                                <div class="text-muted small mb-1">Placement Rate</div>
+                                <div class="fw-bold fs-5">60%</div>
+                            </div>
+                        </div>
+                        <div class="bg-light rounded-3 p-4 mt-3 mb-3 border-start border-4 border-purple">
+            <div class="d-flex align-items-start">
+                
+                <div>
+                    <h5 class="fw-bold mb-2">Program Mission</h5>
+                    <p class="mb-0">Empowering economically disadvantaged graduates by bridging the gap between academic education and industry requirements, enabling learners to build practical skills, professional confidence, and long-term career pathways in the technology sector.</p>
+                </div>
+            </div>
+        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Image & Partners -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-lg overflow-hidden h-100">
+                    <!-- Image Section -->
+                    <div class="image-container position-relative">
+                        <img src="{% static 'images/project_4.jpg' %}" 
+                            alt="BridgeTech Program - Students in training session" 
+                            class="hero-image img-fluid w-100">
+                        <div class="image-overlay"></div>
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <div class="bg-dark bg-opacity-75 text-white px-3 py-2 rounded-3">
+                                <i class="bi bi-award-fill text-warning me-1"></i>
+                                <small>NASSCOM Certified</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Partners Section -->
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold mb-4 text-center text-lg-start">Program Partners</h5>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="partner-card text-center p-3 h-100">
+                                    <h6 class="fw-bold text-purple mb-1">YuMe Learning</h6>
+                                    <small class="text-muted">Implementing Organization</small>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="partner-card text-center p-3 h-100">
+                                    <h6 class="fw-bold text-success mb-1">NASSCOM Foundation</h6>
+                                    <small class="text-muted">Knowledge Partner</small>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="partner-card text-center p-3 h-100">
+                                    <h6 class="fw-bold text-info mb-1">Industry Partners</h6>
+                                    <small class="text-muted">Hiring Connect</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Program Focus -->
+        
+
+        <!-- Program Overview -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm overflow-hidden">
+                    <div class="card-header bg-purple-gradient text-white mt-4 py-3 px-4">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-info-circle fs-5 me-3"></i>
+                            <h4 class="mb-0 fw-semibold">Program Overview</h4>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row align-items-center">
+                            <div class="col-lg-8 pe-lg-4">
+                                <p class="mb-3 lh-base">
+                                    BridgeTech delivers an intensive <span class="fw-semibold text-purple">220-hour structured training program</span> focused on equipping students with job-ready competencies through technical instruction, applied learning, and real-world exposure.
+                                </p>
+                                <p class="mb-0 lh-base">
+                                    The curriculum combines technical skills training with professional soft skills development, hands-on industry projects, and comprehensive career readiness support, ensuring students are equipped not only with knowledge but with practical, industry-relevant competencies.
+                                </p>
+                            </div>
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+                                <div class="learning-highlight bg-light p-3 rounded-3 h-100 border-left-primary">
+                                    <div class="d-flex align-items-start">
+                                        <div class="me-3">
+                                            <i class="bi bi-laptop fs-3 text-purple"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-2">Training Model</h6>
+                                            <p class="small mb-1">Intensive 220-hour Program</p>
+                                            <p class="small text-muted mb-0">Technical + Soft Skills</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skill Domains -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="text-center mb-4 display-6 fw-bold" style="color: #1a365d;">Core Training Components</h2>
+                
+                <div class="row g-4">
+                    <!-- Data Analytics -->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card skill-domain-card border-0 shadow-sm h-100">
+                            <div class="card-header bg-purple-gradient text-white border-0 py-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                        <i class="bi bi-bar-chart fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="card-title mb-0 fw-bold">Data Analytics</h4>
+                                        <small class="opacity-75">Data-driven Insights</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <p>Comprehensive training in data analysis, visualization, and interpretation techniques for business decision-making.</p>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <small class="text-muted">Industry-Aligned Curriculum</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cybersecurity -->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card skill-domain-card border-0 shadow-sm h-100">
+                            <div class="card-header bg-warning bg-gradient text-white border-0 py-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                        <i class="bi bi-shield-lock fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="card-title mb-0 fw-bold">Cybersecurity</h4>
+                                        <small class="opacity-75">Digital Protection</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <p>Training in cybersecurity principles, threat detection, and protection strategies for digital infrastructure.</p>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <small class="text-muted">High-Demand Skills</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Professional Soft Skills -->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card skill-domain-card border-0 shadow-sm h-100">
+                            <div class="card-header bg-success bg-gradient text-white border-0 py-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                        <i class="bi bi-chat-dots fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="card-title mb-0 fw-bold">Professional Skills</h4>
+                                        <small class="opacity-75">Soft Skills Development</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <p>Comprehensive workplace readiness training including communication, teamwork, and professional etiquette.</p>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <small class="text-muted">Career Readiness Focus</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hands-on Projects -->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card skill-domain-card border-0 shadow-sm h-100">
+                            <div class="card-header bg-info bg-gradient text-white border-0 py-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                        <i class="bi bi-laptop fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="card-title mb-0 fw-bold">Hands-on Projects</h4>
+                                        <small class="opacity-75">Practical Experience</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <p>Real-world industry projects and practical assignments to build applied technical competencies.</p>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <small class="text-muted">Industry Use Cases</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Career Readiness -->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card skill-domain-card border-0 shadow-sm h-100">
+                            <div class="card-header bg-primary bg-gradient text-white border-0 py-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                        <i class="bi bi-briefcase fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="card-title mb-0 fw-bold">Career Readiness</h4>
+                                        <small class="opacity-75">Employability Support</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <p>Comprehensive placement assistance, resume building, interview preparation, and career guidance.</p>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <small class="text-muted">End-to-End Support</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Certification -->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card skill-domain-card border-0 shadow-sm h-100">
+                            <div class="card-header bg-secondary bg-gradient text-white border-0 py-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                        <i class="bi bi-award fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="card-title mb-0 fw-bold">Certification</h4>
+                                        <small class="opacity-75">NASSCOM-Endorsed</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <p>Industry-recognized certification validating technical competencies and industry relevance.</p>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <small class="text-muted">Industry Validation</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Role of YuMe Learning & Impact -->
+        <div class="row mb-5">
+            <!-- Role of YuMe Learning -->
+            <div class="col-lg-8 mb-4 mb-lg-0">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-purple-gradient text-white py-3">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-briefcase fs-5 me-2"></i>
+                            <h5 class="mb-0 fw-semibold">Role of YuMe Learning</h5>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <p class="mb-4">As the implementing organization, YuMe Learning designs and delivers the comprehensive BridgeTech program, focusing on holistic transformation and sustainable career pathways.</p>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center p-3 border-start border-3 border-purple bg-light rounded mb-2">
+                                    <div class="bg-purple text-white rounded-circle p-2 me-3">
+                                        <i class="bi bi-gear"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-semibold mb-1">Program Design</h6>
+                                        <small class="text-muted">Curriculum development & delivery</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center p-3 border-start border-3 border-success bg-light rounded mb-2">
+                                    <div class="bg-success text-white rounded-circle p-2 me-3">
+                                        <i class="bi bi-people"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-semibold mb-1">Student Training</h6>
+                                        <small class="text-muted">Underserved graduates focus</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center p-3 border-start border-3 border-info bg-light rounded">
+                                    <div class="bg-info text-white rounded-circle p-2 me-3">
+                                        <i class="bi bi-graph-up"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-semibold mb-1">Career Support</h6>
+                                        <small class="text-muted">Placement & mentorship</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center p-3 border-start border-3 border-warning bg-light rounded">
+                                    <div class="bg-warning text-white rounded-circle p-2 me-3">
+                                        <i class="bi bi-handshake"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-semibold mb-1">Partner Collaboration</h6>
+                                        <small class="text-muted">NASSCOM Foundation partnership</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Program Impact -->
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 bg-dark text-white">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="bi bi-graph-up-arrow fs-5 me-2"></i>
+                            <h5 class="mb-0 fw-semibold">Program Impact</h5>
+                        </div>
+                        
+                        <div class="text-center mb-4 flex-grow-1">
+                            <div class="display-4 fs-2 fw-bold mb-1">300+</div>
+                            <p class="text-light opacity-75 mb-4">Students Trained</p>
+                            
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <div class="fs-2 fw-bold">60%</div>
+                                        <small class="text-light opacity-75">Placement Rate</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <div class="fs-2 fw-bold">220</div>
+                                        <small class="text-light opacity-75">Training Hours</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-auto">
+                            <h6 class="fw-semibold mb-3">Key Outcomes</h6>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <small class="text-light">Employability Enhancement</small>
+                                    <small class="fw-bold">85%</small>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-success" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <small class="text-light">Career Clarity</small>
+                                    <small class="fw-bold">90%</small>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-warning" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <small class="text-light">Student Confidence</small>
+                                    <small class="fw-bold">92%</small>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-info" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Program Components -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-purple-gradient text-white py-3">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-puzzle fs-5 me-2"></i>
+                                <h5 class="mb-0 fw-semibold">Key Program Components</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-3">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="text-center p-3 border rounded-3 h-100">
+                                    <div class="bg-purple bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                                        <i class="bi bi-laptop fs-3 text-purple"></i>
+                                    </div>
+                                    <h6 class="fw-bold text-purple mb-2">Technical Training</h6>
+                                    <p class="small text-muted mb-0">Industry-aligned curriculum</p>
+                                    <div class="mt-2">
+                                        <span class="badge bg-danger  text-white">Standards-Based</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3 col-sm-6">
+                                <div class="text-center p-3 border rounded-3 h-100">
+                                    <div class="bg-success bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                                        <i class="bi bi-briefcase fs-3 text-success"></i>
+                                    </div>
+                                    <h6 class="fw-bold text-success mb-2">Hands-on Projects</h6>
+                                    <p class="small text-muted mb-0">Real-world applications</p>
+                                    <div class="mt-2">
+                                        <span class="badge bg-success">Practical Focus</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3 col-sm-6">
+                                <div class="text-center p-3 border rounded-3 h-100">
+                                    <div class="bg-warning bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                                        <i class="bi bi-chat-dots fs-3 text-warning"></i>
+                                    </div>
+                                    <h6 class="fw-bold text-warning mb-2">Soft Skills</h6>
+                                    <p class="small text-muted mb-0">Professional development</p>
+                                    <div class="mt-2">
+                                        <span class="badge bg-warning text-dark">Workplace Ready</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3 col-sm-6">
+                                <div class="text-center p-3 border rounded-3 h-100">
+                                    <div class="bg-info bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                                        <i class="bi bi-award fs-3 text-info"></i>
+                                    </div>
+                                    <h6 class="fw-bold text-info mb-2">Certification</h6>
+                                    <p class="small text-muted mb-0">NASSCOM-endorsed</p>
+                                    <div class="mt-2">
+                                        <span class="badge bg-info">Industry Recognition</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Readiness & Closing -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card border-0 shadow-lg overflow-hidden">
+                    <div class="card-body p-4 p-md-5" style="background: linear-gradient(135deg, #f3e8ff 0%, #f0f4ff 100%);">
+                        <div class="row align-items-center">
+                            <!-- Left Column - Main Content -->
+                            <div class="col-lg-8 mb-4 mb-lg-0">
+                                <div class="d-flex align-items-start">
+                                    <div class="me-4">
+                                        <i class="bi bi-bridge fs-1 text-purple"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-bold text-dark mb-3">Creating a Bridge to Opportunity</h3>
+                                        <p class="text-dark mb-4">
+                                            Beyond skill development, BridgeTech focuses on holistic transformation — helping learners overcome structural barriers, build self-belief, and access meaningful employment opportunities in the technology sector.
+                                        </p>
+                                        <div class="d-flex flex-wrap gap-3">
+                                            <span class="badge bg-danger   bg-opacity-10 text-black px-3 py-2">
+                                                <i class="bi bi-people me-1"></i> Underserved Graduates
+                                            </span>
+                                            <span class="badge bg-success bg-opacity-10 text-success px-3 py-2">
+                                                <i class="bi bi-handshake me-1"></i> Industry Partnership
+                                            </span>
+                                            <span class="badge bg-info bg-opacity-10 text-info px-3 py-2">
+                                                <i class="bi bi-briefcase me-1"></i> Career Pathways
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Column - Features -->
+                            <div class="col-lg-4">
+                                <div class="bg-white rounded-3 shadow-sm p-4 border">
+                                    <h6 class="fw-bold text-dark mb-3 text-center">Program Advantages</h6>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="bg-success bg-opacity-10 p-2 rounded-circle me-3">
+                                            <i class="bi bi-check-lg text-success"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold small mb-0">Industry-Aligned Training</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="bg-purple bg-opacity-10 p-2 rounded-circle me-3">
+                                            <i class="bi bi-check-lg text-purple"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold small mb-0">Holistic Development</div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-warning bg-opacity-10 p-2 rounded-circle me-3">
+                                            <i class="bi bi-check-lg text-warning"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold small mb-0">Sustainable Careers</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Impact Statement -->
+        <div class="highlight-block p-4 p-md-5 text-white text-center">
+            <h3 class="h2 mb-3">Empowering Graduates for Digital Careers</h3>
+            <p class="lead mb-4">By partnering with NASSCOM Foundation, YuMe Learning continues to deliver impactful programs that create real, measurable change and enable young graduates to successfully transition into the digital workforce.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <div class="bg-white bg-opacity-25 px-4 py-2 rounded-pill">
+                    <i class="bi bi-check-circle me-2"></i>300+ Students Empowered
+                </div>
+                <div class="bg-white bg-opacity-25 px-4 py-2 rounded-pill">
+                    <i class="bi bi-check-circle me-2"></i>60% Placement Success
+                </div>
+                <div class="bg-white bg-opacity-25 px-4 py-2 rounded-pill">
+                    <i class="bi bi-check-circle me-2"></i>Industry-Endorsed Certification
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 
 {% endblock %}

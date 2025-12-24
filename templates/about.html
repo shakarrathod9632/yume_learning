@@ -4,6 +4,76 @@
 
 {% load static %}
 
+
+<section class="about-us-banner" data-aos="fade-down">
+  <div class="about-us-content">
+    <h1>About Us</h1>
+    <p>
+      Envision being a part of the most advanced learning system with Tokyo
+      AnalyticX
+    </p>
+  </div>
+</section>
+
+<style>
+  .about-us-banner {
+    position: relative;
+    width: 100%;
+    min-height: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    /* Smooth blue blend from bottom, no visible cut */
+    background:
+      linear-gradient(
+        to top,
+        rgba(14, 165, 233, 0.35) 0%,
+        rgba(14, 165, 233, 0.22) 20%,
+        rgba(14, 165, 233, 0.10) 40%,
+        rgba(14, 165, 233, 0.04) 60%,
+        rgba(0, 0, 0, 0) 85%
+      ),
+      #000000;
+
+    border-bottom: 1px solid rgba(14, 165, 233, 0.25);
+    padding: 40px 20px;
+  }
+
+  .about-us-content h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .about-us-content p {
+    font-size: 17px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .about-us-banner {
+      min-height: 190px;
+      padding: 28px 15px;
+    }
+
+    .about-us-content h1 {
+      font-size: 28px;
+    }
+
+    .about-us-content p {
+      font-size: 15px;
+    }
+  }
+</style>
+
+
 <!-- ========  YUME ABOUT SECTION ===== -->
 <section class="yume-section">
     <div class="yume-container">

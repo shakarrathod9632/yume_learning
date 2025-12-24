@@ -1,4 +1,697 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
+
+
+
+
+
+<style>
+    /* Minimal custom CSS with professional blue theme */
+    :root {
+        --primary-blue: #1e3a8a;
+        --secondary-blue: #3b82f6;
+        --light-blue: #eff6ff;
+        --accent-blue: #1d4ed8;
+    }
+    
+    .contact-section {
+        background-color: #ffffff;
+        padding: 3rem 0;
+        font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    }
+    
+    .contact-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+    }
+    
+    .section-header h2 {
+        color: var(--primary-blue);
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+        font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    }
+    
+    .section-header h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: var(--secondary-blue);
+        border-radius: 2px;
+    }
+    
+    /* Contact card styling */
+    .contact-info-card, .contact-form-container {
+        border: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+    }
+    
+    .contact-info-card:hover, .contact-form-container:hover {
+        transform: translateY(-5px);
+    }
+    
+    /* Contact details styling */
+    .contact-icon {
+        background-color: var(--light-blue);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-blue);
+        font-size: 1.2rem;
+    }
+    
+    .contact-text h5 {
+        color: var(--primary-blue);
+        font-family: "Montserrat", Arial, Helvetica, sans-serif;
+        font-weight: 600;
+    }
+    
+    /* Social icons */
+    .social-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Form styling */
+    .form-control, .form-control:focus {
+        border-color: #dee2e6;
+        box-shadow: none;
+    }
+    
+    .form-control:focus {
+        border-color: var(--secondary-blue);
+        box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.15);
+    }
+    
+    textarea.form-control {
+        resize: none;
+    }
+    
+    /* Submit button */
+    .submit-btn {
+        background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+        border: none;
+        padding: 12px 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .submit-btn:hover {
+        background: linear-gradient(90deg, var(--accent-blue), var(--primary-blue));
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .contact-section {
+            padding: 2rem 0;
+        }
+        
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            font-size: 1.1rem;
+        }
+    }
+</style>
+
+<!-- Contact Section -->
+<section class="contact-section position-relative">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <div class="section-header">
+                    <h2 class="display-5 fw-bold mb-3">Get In Touch With Us</h2>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Contact Information -->
+            <div class="col-lg-5">
+                <div class="contact-info-card card border-0 rounded-3 p-4 h-95">
+                    <h4 class="card-title fw-bold mb-4 text-primary">Contact Information</h4>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="contact-icon flex-shrink-0 me-3">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h5 class="fw-bold mb-1">Our Address</h5>
+                            <p class="text-muted mb-0">850, Nagsquare Building, 2nd Main,<br>
+                            Wellington Paradise, AECS Layout,<br>
+                            Singasandra, Bengaluru, Karnataka 560068</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="contact-icon flex-shrink-0 me-3">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h5 class="fw-bold mb-1">Phone Number</h5>
+                            <p class="text-muted mb-0">+91 8792885644</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="contact-icon flex-shrink-0 me-3">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h5 class="fw-bold mb-1">Email Address</h5>
+                            <p class="text-muted mb-0">info@yumelearning.net</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Links -->
+                    <h5 class="mt-1 mb-3 text-primary fw-bold">Follow Us</h5>
+                    <div class="d-flex gap-2">
+                        <a href="https://www.instagram.com/yumelearning/" target="_blank" class="social-icon instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/yumelearning" target="_blank" class="social-icon facebook" >
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/antsskillvarsity/" target="_blank" class="social-icon linkedin" >
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="col-lg-7">
+                <div class="contact-form-container card border-0 rounded-3 p-4 h-100">
+                    <h4 class="card-title fw-bold mb-4 text-primary">Send a Message</h4>
+                    <form id="contactForm">
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg py-1" id="firstName" placeholder="First Name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg py-1" id="lastName" placeholder="Last Name" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <input type="tel" class="form-control form-control-lg py-1" id="phoneNumber" placeholder="Mobile Number" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <input type="email" class="form-control form-control-lg py-1" id="emailAddress" placeholder="Email Address" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <textarea class="form-control form-control-lg" id="message" placeholder="How can we help you?" rows="3" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg w-100 submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    // Minimal JavaScript for basic form handling
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contactForm');
+        
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Basic validation
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const phone = document.getElementById('phoneNumber').value;
+            const email = document.getElementById('emailAddress').value;
+            const message = document.getElementById('message').value;
+            
+            if (!firstName || !lastName || !phone || !email || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // If all good, show success message
+            alert('Thank you for your message! We will contact you soon.');
+            form.reset();
+        });
+    });
+</script>
+
+
+
+<section class="location-section">
+    <div class="container-fluid px-0">
+        <div class="row g-0">
+            <!-- Info Section -->
+            <div class="col-lg-4">
+                <div class="location-info">
+                    <h2 class="mb-3 fw-bold">Visit Our Center</h2>
+                    <p class="mb-4">Explore our center and discover a world of opportunities. We provide the best learning and support environment for your growth. Join us and experience excellence firsthand.</p>
+                </div>
+            </div>
+            
+            <!-- Map Section -->
+            <div class="col-lg-8">
+                <div class="map-wrapper-2 position-relative">
+                    <!-- Interactive Map with Link -->
+                    <a href="https://maps.app.goo.gl/Lh8HPMoSkakbskxLA" target="_blank" class="map-link-2">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.2471580187007!2d77.6387637!3d12.8918226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1495b3e0c8c5%3A0x8f1f5c8c9e7b3e1c!2s850%2C%20Nagsquare%20Building%2C%202nd%20Main%2C%20Wellington%20Paradise%2C%20AECS%20Layout%2C%20Singasandra%2C%20Bengaluru%2C%20Karnataka%20560068!5e0!3m2!1sen!2sin!4v1741080480091!5m2!1sen!2sin" 
+                            style="border:0;" 
+                            allowfullscreen 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        
+                        <!-- Clickable Map Marker -->
+                        <a href="https://maps.app.goo.gl/Lh8HPMoSkakbskxLA" target="_blank" class="map-marker-2 interactive-marker-2">
+                            <div class="marker-pin-2">
+                                <div class="marker-inner-2"></div>
+                                <div class="marker-dot-2"></div>
+                            </div>
+                            <div class="marker-text-2">YuMe learning</div>
+                        </a>
+                    </a>
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .location-section {
+        background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .location-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    }
+    
+    .location-info {
+        padding: 2rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: rgba(30, 134, 138, 0.9);
+    }
+    
+    .location-info h2 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: white;
+        position: relative;
+        padding-bottom: 0.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .location-info h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 70px;
+        height: 4px;
+        background: linear-gradient(90deg, #ef4444, #f97316);
+        border-radius: 2px;
+    }
+    
+    .location-info p {
+        color: #e2e8f0;
+        line-height: 1.7;
+        font-size: 1.1rem;
+        margin-bottom: 0;
+    }
+    
+    /* Map Styling */
+    .map-wrapper-2 {
+        height: 350px;
+        width: 100%;
+        position: relative;
+    }
+    
+    .map-link-2 {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .map-link-2:hover {
+        opacity: 0.95;
+    }
+    
+    .map-wrapper-2 iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+        filter: brightness(0.95) contrast(1.05);
+        transition: filter 0.3s ease;
+    }
+    
+    .map-link-2:hover iframe {
+        filter: brightness(1) contrast(1.1);
+    }
+    
+    /* Interactive Map Marker */
+    .interactive-marker-2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        z-index: 10;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .interactive-marker-2:hover {
+        transform: translate(-50%, -100%) scale(1.1);
+    }
+    
+    .interactive-marker-2:hover .marker-pin-2 {
+        animation: pulse-effect-2 1.5s infinite;
+    }
+    
+    .interactive-marker-2:hover .marker-text-2 {
+        background: rgba(239, 68, 68, 1);
+        transform: translateY(2px);
+    }
+    
+    .marker-pin-2 {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        border-radius: 50% 50% 50% 0;
+        transform: rotate(-45deg);
+        margin: 0 auto 15px;
+        position: relative;
+        box-shadow: 0 3px 10px rgba(239, 68, 68, 0.4);
+        transition: all 0.3s ease;
+    }
+    
+    .marker-inner-2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        width: 24px;
+        height: 24px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .marker-dot-2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        width: 12px;
+        height: 12px;
+        background: #ef4444;
+        border-radius: 50%;
+        z-index: 2;
+    }
+    
+    .marker-text-2 {
+        background: rgba(239, 68, 68, 0.95);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        white-space: nowrap;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        backdrop-filter: blur(4px);
+    }
+    
+    /* Map Overlay */
+    .map-overlay-2 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.9);
+        padding: 10px 20px;
+        text-align: center;
+        z-index: 5;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    
+    .map-overlay-2:hover {
+        background: rgba(15, 23, 42, 0.95);
+    }
+    
+    .overlay-text-2 {
+        color: #e2e8f0;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Pulse Animation */
+    @keyframes pulse-effect-2 {
+        0% {
+            box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+        }
+        70% {
+            box-shadow: 0 0 0 15px rgba(239, 68, 68, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+        }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .location-info h2 {
+            font-size: 1.8rem;
+        }
+        
+        .location-info p {
+            font-size: 1rem;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .location-info {
+            padding: 2.5rem;
+        }
+        
+        .location-info h2 {
+            font-size: 1.75rem;
+        }
+        
+        .map-wrapper-2 {
+            height: 350px;
+        }
+        
+        .marker-pin-2 {
+            width: 35px;
+            height: 35px;
+        }
+        
+        .marker-inner-2 {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .location-section .row {
+            flex-direction: column;
+        }
+        
+        .location-info {
+            order: 2;
+            padding: 2rem 1.5rem;
+        }
+        
+        .map-wrapper-2 {
+            order: 1;
+            height: 300px;
+        }
+        
+        .location-info h2 {
+            font-size: 1.6rem;
+        }
+        
+        .marker-text-2 {
+            font-size: 0.85rem;
+            padding: 7px 13px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .map-wrapper-2 {
+            height: 280px;
+        }
+        
+        .location-info {
+            padding: 1.5rem;
+        }
+        
+        .location-info h2 {
+            font-size: 1.4rem;
+        }
+        
+        .marker-text-2 {
+            font-size: 0.8rem;
+            padding: 6px 12px;
+        }
+        
+        .overlay-text-2 {
+            font-size: 0.75rem;
+        }
+    }
+    
+    @media (max-width: 400px) {
+        .map-wrapper-2 {
+            height: 250px;
+        }
+        
+        .location-info {
+            padding: 1.25rem;
+        }
+        
+        .location-info h2 {
+            font-size: 1.3rem;
+        }
+        
+        .marker-pin-2 {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .marker-inner-2 {
+            width: 16px;
+            height: 16px;
+        }
+    }
+</style>
+
+<!-- Unique JavaScript for Map Section -->
+<script>
+    // Unique function names to avoid conflicts
+    (function() {
+        'use strict';
+        
+        // Initialize map functionality
+        function initLocationMap() {
+            const mapLinkElement = document.querySelector('.map-link-2');
+            const mapMarkerElement = document.querySelector('.interactive-marker-2');
+            const mapOverlayElement = document.querySelector('.map-overlay-2');
+            
+            if (!mapLinkElement || !mapOverlayElement) return;
+            
+            // Add click event to map overlay
+            function handleOverlayClick(event) {
+                event.stopPropagation();
+                window.open('https://maps.app.goo.gl/Lh8HPMoSkakbskxLA', '_blank');
+            }
+            
+            // Add hover effects
+            function handleMapHover() {
+                if (mapMarkerElement) {
+                    mapMarkerElement.style.transform = 'translate(-50%, -100%) scale(1.1)';
+                }
+            }
+            
+            function handleMapLeave() {
+                if (mapMarkerElement) {
+                    mapMarkerElement.style.transform = 'translate(-50%, -100%) scale(1)';
+                }
+            }
+            
+            // Add event listeners
+            mapOverlayElement.addEventListener('click', handleOverlayClick);
+            
+            if (mapMarkerElement) {
+                mapLinkElement.addEventListener('mouseenter', handleMapHover);
+                mapLinkElement.addEventListener('mouseleave', handleMapLeave);
+            }
+            
+            // Cleanup function (optional)
+            return function cleanup() {
+                mapOverlayElement.removeEventListener('click', handleOverlayClick);
+                if (mapMarkerElement) {
+                    mapLinkElement.removeEventListener('mouseenter', handleMapHover);
+                    mapLinkElement.removeEventListener('mouseleave', handleMapLeave);
+                }
+            };
+        }
+        
+        // Initialize when DOM is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initLocationMap);
+        } else {
+            initLocationMap();
+        }
+        
+        // Make function available globally with unique name
+        window.initYumeLocationMap = initLocationMap;
+        
+    })();
+</script>
 
 {% endblock %}
