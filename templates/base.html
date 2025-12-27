@@ -455,7 +455,7 @@
 
 
 
-<footer class="yume-footer">
+{% comment %} <footer class="yume-footer">
     <div class="yume-footer-container">
 
         <!-- LEFT : LOGO + ADDRESS -->
@@ -474,13 +474,13 @@
 
             <!-- CONTACT LINKS -->
             <div class="yume-footer-section yume-dropdown">
-                <h3>CONTACT LINKS</h3>
+                <h3>QUICK LINKS</h3>
                 <ul>
-                    <li><a href="#">Admissions</a></li>
-                    <li><a href="#">For Payment</a></li>
-                    <li><a href="#">Enquire Now</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Courses Now</a></li>
+                    <li><a href="#">Internship</a></li>
                     <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Centers</a></li>
                 </ul>
             </div>
 
@@ -488,11 +488,11 @@
             <div class="yume-footer-section yume-dropdown">
                 <h3>USEFUL LINKS</h3>
                 <ul>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Admission</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">FAQs</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
                     <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
                 </ul>
             </div>
 
@@ -754,15 +754,604 @@
 </style>
 
 <script>
-// Toggle for mobile
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".yume-dropdown h3").forEach(header => {
-        header.addEventListener("click", () => {
-            header.parentElement.classList.toggle("open");
+        // Toggle for mobile
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".yume-dropdown h3").forEach(header => {
+                header.addEventListener("click", () => {
+                    header.parentElement.classList.toggle("open");
+                });
+            });
+        });
+</script> {% endcomment %}
+
+
+
+
+
+<footer class="yume-footer">
+    <div class="yume-footer-container">
+
+        <!-- Top Section -->
+        <div class="yume-footer-top">
+            <!-- Logo & Company Info -->
+            <div class="yume-footer-section yume-company-info">
+                <img src="{% static 'images/logo.png' %}" class="yume-footer-logo" alt="YuMe Learning Logo">
+                
+                <div class="yume-about">
+                    <p>YuMe Learning provides cutting-edge technology education and training programs. </p>
+                </div>
+                
+                <div class="yume-location">
+                    {% comment %} <i class="fas fa-map-marker-alt"></i> {% endcomment %}
+                    <div>
+                        <p>850, Nagsquare Building, 2nd Main,</p>
+                        <p>Wellington Paradise, AECS Layout,</p>
+                        <p>Singasandra, Bengaluru, Karnataka 560068</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="yume-footer-section yume-links-section">
+                <h3>QUICK LINKS</h3>
+                <ul class="yume-footer-links">
+                    <li><a href="{% url 'about' %}"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="{% url 'projects' %}"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                    <li><a href="{% url 'courses' %}"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                    <li><a href="{% url 'placements' %}"><i class="fas fa-chevron-right"></i> Internship</a></li>
+                    <li><a href="{% url 'contact' %}"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Useful Links -->
+            <div class="yume-footer-section yume-links-section">
+                <h3>USEFUL LINKS</h3>
+                <ul class="yume-footer-links">
+                    <li><a   href="https://yume.onlineclass.site/"><i class="fas fa-chevron-right"></i> Admission</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQs</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact & Social -->
+            <div class="yume-footer-section yume-contact-section">
+                <h3>FOLLOW US</h3>
+                
+                <div class="yume-contact-info">
+                    <a href="tel:+918792885644" class="yume-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 879 2885 644</span>
+                    </a>
+                    <a href="mailto:info@yumelearning.net" class="yume-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@yumelearning.net</span>
+                    </a>
+                </div>
+                
+                <div class="yume-whatsapp-direct">
+                    <a href="https://wa.me/918792885644" target="_blank" class="yume-whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Chat on WhatsApp</span>
+                    </a>
+                </div>
+                
+                <div class="yume-social-icons">
+                    <a href="https://www.instagram.com/yumelearning/" target="_blank" class="yume-social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/yumelearning" target="_blank" class="yume-social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/antsskillvarsity/" target="_blank" class="yume-social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="yume-footer-bottom">
+            <p class="yume-copyright">© 2026 YuMe Learning. All rights reserved.</p>
+        </div>
+
+    </div>
+</footer>
+
+<style>
+    /* ========================================= */
+    /* FOOTER BASE STYLES - COMPACT */
+    /* ========================================= */
+    .yume-footer {
+        background: #0a0a0a;
+        color: #f5f5f7;
+        font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Montserrat', sans-serif;
+        position: relative;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .yume-footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #3a86ff, #8338ec);
+        z-index: 1;
+    }
+
+    .yume-footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* ========================================= */
+    /* TOP SECTION - COMPACT HEIGHT */
+    /* ========================================= */
+    .yume-footer-top {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        padding: 30px 0 25px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Company Info */
+    .yume-company-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .yume-footer-logo {
+        width: 150px;
+        height: auto;
+        filter: brightness(0) invert(1);
+        margin-bottom: 5px;
+    }
+
+    .yume-about {
+        margin: 2px 0;
+    }
+
+    .yume-about p {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.5;
+        color: #ccc;
+    }
+
+    .yume-location {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    .yume-location i {
+        color: #3a86ff;
+        font-size: 15px;
+        margin-top: 3px;
+        flex-shrink: 0;
+    }
+
+    .yume-location p {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.4;
+        color: #aaa;
+    }
+
+    /* Links Sections */
+    .yume-links-section h3,
+    .yume-contact-section h3 {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 18px;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        position: relative;
+        padding-bottom: 8px;
+    }
+
+    .yume-links-section h3::after,
+    .yume-contact-section h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 25px;
+       
+        background: #3a86ff;
+        border-radius: 2px;
+    }
+
+    .yume-footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .yume-footer-links li {
+        margin-bottom: 8px;
+    }
+
+    .yume-footer-links a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #ccc;
+        text-decoration: none;
+        font-size: 14px;
+        transition: all 0.2s ease;
+        padding: 2px 0;
+    }
+
+    .yume-footer-links a:hover {
+        color: #3a86ff;
+        transform: translateX(3px);
+    }
+
+    .yume-footer-links a i {
+        font-size: 10px;
+        color: #3a86ff;
+    }
+
+    /* Contact Section */
+    .yume-contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+    .yume-contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #ccc;
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.3s ease;
+        padding: 3px 0;
+    }
+
+    .yume-contact-item:hover {
+        color: #3a86ff;
+    }
+
+    .yume-contact-item i {
+        color: #3a86ff;
+        font-size: 14px;
+        width: 16px;
+    }
+
+    .yume-whatsapp-direct {
+        margin: 15px 0;
+    }
+
+    .yume-whatsapp-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(37, 211, 102, 0.1);
+        color: #25D366;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(37, 211, 102, 0.2);
+    }
+
+    .yume-whatsapp-btn:hover {
+        background: rgba(37, 211, 102, 0.2);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.1);
+    }
+
+    .yume-whatsapp-btn i {
+        font-size: 16px;
+    }
+
+    /* Social Icons */
+    .yume-social-icons {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .yume-social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        color: #fff;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .yume-social-icon:hover {
+        transform: translateY(-3px);
+        background: #3a86ff;
+        box-shadow: 0 5px 15px rgba(58, 134, 255, 0.2);
+    }
+
+    .yume-social-icon:nth-child(2):hover { background: #1877F2; }
+    .yume-social-icon:nth-child(3):hover { background: #0077B5; }
+
+    /* ========================================= */
+    /* BOTTOM SECTION - CENTERED */
+    /* ========================================= */
+    .yume-footer-bottom {
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .yume-copyright {
+        font-size: 12px;
+        color: #888;
+        margin: 0;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+    }
+
+    /* ========================================= */
+    /* MOBILE RESPONSIVE */
+    /* ========================================= */
+    @media (max-width: 992px) {
+        .yume-footer-top {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px 20px;
+            padding: 35px 0 20px;
+        }
+        
+        .yume-contact-section {
+            grid-column: span 2;
+        }
+        
+        .yume-links-section h3::after,
+        .yume-contact-section h3::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .yume-footer {
+            padding: 0 15px;
+        }
+        
+        .yume-footer-top {
+            grid-template-columns: 1fr;
+            gap: 25px;
+            padding: 30px 0 20px;
+        }
+        
+        .yume-contact-section {
+            grid-column: span 1;
+        }
+        
+        .yume-footer-bottom {
+            padding: 15px 0;
+        }
+        
+        /* Mobile Accordion */
+        .yume-links-section,
+        .yume-contact-section {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 12px;
+        }
+        
+        .yume-links-section:last-of-type,
+        .yume-contact-section:last-of-type {
+            border-bottom: none;
+        }
+        
+        .yume-links-section h3,
+        .yume-contact-section h3 {
+            cursor: pointer;
+            position: relative;
+            margin-bottom: 0;
+            padding-right: 25px;
+            user-select: none;
+        }
+        
+        .yume-links-section h3::before,
+        .yume-contact-section h3::before {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            color: #3a86ff;
+            transition: transform 0.3s ease;
+        }
+        
+        .yume-links-section.active h3::before,
+        .yume-contact-section.active h3::before {
+            content: '−';
+        }
+        
+        .yume-footer-links,
+        .yume-contact-info,
+        .yume-whatsapp-direct,
+        .yume-social-icons {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            margin: 0;
+        }
+        
+        .yume-links-section.active .yume-footer-links,
+        .yume-contact-section.active .yume-contact-info,
+        .yume-contact-section.active .yume-whatsapp-direct,
+        .yume-contact-section.active .yume-social-icons {
+            max-height: 1000px;
+            margin-top: 12px;
+        }
+        
+        .yume-company-info {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .yume-footer-top {
+            gap: 20px;
+        }
+        
+        .yume-footer-logo {
+            width: 130px;
+        }
+        
+        .yume-about p,
+        .yume-location p {
+            font-size: 12px;
+        }
+        
+        .yume-contact-item {
+            font-size: 13px;
+        }
+        
+        .yume-whatsapp-btn {
+            padding: 7px 14px;
+            font-size: 12px;
+        }
+        
+        .yume-social-icon {
+            width: 35px;
+            height: 35px;
+            font-size: 14px;
+        }
+        
+        .yume-copyright {
+            font-size: 11px;
+        }
+    }
+
+    /* ========================================= */
+    /* ANIMATIONS */
+    /* ========================================= */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .yume-footer-section {
+        animation: fadeIn 0.5s ease forwards;
+    }
+
+    .yume-footer-section:nth-child(1) { animation-delay: 0.1s; }
+    .yume-footer-section:nth-child(2) { animation-delay: 0.2s; }
+    .yume-footer-section:nth-child(3) { animation-delay: 0.3s; }
+    .yume-footer-section:nth-child(4) { animation-delay: 0.4s; }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile accordion functionality
+        if (window.innerWidth <= 768) {
+            const sectionHeaders = document.querySelectorAll('.yume-links-section h3, .yume-contact-section h3');
+            
+            // Initially close all sections on mobile (except company info)
+            document.querySelectorAll('.yume-footer-links, .yume-contact-info, .yume-whatsapp-direct, .yume-social-icons').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Open the first section by default
+            if (sectionHeaders.length > 0) {
+                sectionHeaders[0].parentElement.classList.add('active');
+                const firstSection = sectionHeaders[0].parentElement.querySelector('.yume-footer-links, .yume-contact-info, .yume-whatsapp-direct, .yume-social-icons');
+                if (firstSection) {
+                    firstSection.style.display = 'block';
+                }
+            }
+            
+            // Toggle sections on click
+            sectionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const parent = this.parentElement;
+                    const isActive = parent.classList.contains('active');
+                    
+                    // Close all sections
+                    document.querySelectorAll('.yume-links-section, .yume-contact-section').forEach(section => {
+                        section.classList.remove('active');
+                        const content = section.querySelector('.yume-footer-links, .yume-contact-info, .yume-whatsapp-direct, .yume-social-icons');
+                        if (content) {
+                            content.style.display = 'none';
+                        }
+                    });
+                    
+                    // If clicked section wasn't active, open it
+                    if (!isActive) {
+                        parent.classList.add('active');
+                        const content = parent.querySelector('.yume-footer-links, .yume-contact-info, .yume-whatsapp-direct, .yume-social-icons');
+                        if (content) {
+                            content.style.display = 'block';
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Handle resize to adjust accordion behavior
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                // On larger screens, ensure all sections are visible
+                document.querySelectorAll('.yume-footer-links, .yume-contact-info, .yume-whatsapp-direct, .yume-social-icons').forEach(section => {
+                    section.style.display = '';
+                });
+                document.querySelectorAll('.yume-links-section, .yume-contact-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+            } else {
+                // Reinitialize mobile behavior
+                document.querySelectorAll('.yume-footer-links, .yume-contact-info, .yume-whatsapp-direct, .yume-social-icons').forEach(section => {
+                    section.style.display = 'none';
+                });
+            }
+        });
+        
+        // Current year for copyright
+        const copyrightElement = document.querySelector('.yume-copyright');
+        if (copyrightElement) {
+            const currentYear = new Date().getFullYear();
+            copyrightElement.innerHTML = `© ${currentYear} YuMe Learning. All rights reserved.`;
+        }
+        
+        // Add hover effects for better UX
+        const socialIcons = document.querySelectorAll('.yume-social-icon');
+        socialIcons.forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            icon.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
         });
     });
-});
 </script>
+
 
 
 </html>

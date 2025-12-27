@@ -4,6 +4,81 @@
 
 
 
+<section class="about-us-banner" data-aos="fade-down">
+  <div class="about-us-content">
+    <h1>BridgeTech Project</h1>
+  </div>
+</section>
+
+<style>
+    .about-us-banner {
+        position: relative;
+        width: 100%;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        
+        /* Elegant gradient overlay */
+        background:
+        linear-gradient(
+            to top,
+            rgba(14, 165, 233, 0.35) 0%,
+            rgba(14, 165, 233, 0.22) 20%,
+            rgba(14, 165, 233, 0.10) 40%,
+            rgba(14, 165, 233, 0.04) 60%,
+            rgba(0, 0, 0, 0) 85%
+        ),
+        #000000;
+        
+        border-bottom: 1px solid rgba(14, 165, 233, 0.25);
+        padding: 35px 20px;
+    }
+
+        .about-us-content h1 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .about-us-content h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3a86ff, #8338ec);
+            border-radius: 2px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .about-us-banner {
+            min-height: 160px;
+            padding: 25px 15px;
+            }
+
+            .about-us-content h1 {
+            font-size: 26px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            }
+
+            .about-us-content h1::after {
+            width: 60px;
+            height: 3px;
+            }
+        }
+</style>
+
 
 
 <section class="bridgetech-project py-5" style="font-family: 'Montserrat', Arial, Helvetica, sans-serif; background-color: #f8fafc;">
