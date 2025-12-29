@@ -1,0 +1,824 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+
+
+
+
+
+<section class="enrollment-section">
+  <div class="enrollment-container">
+    <div class="enrollment-header">
+      <h2>Course Enrollment</h2>
+      <p>Fill in your details and select courses to begin your learning journey</p>
+    </div>
+
+    <form id="enrollmentForm" class="enrollment-form">
+      <!-- Personal Information Section -->
+      <div class="form-section">
+        <h3><i class="fas fa-user-circle"></i> Student Information</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="fullName">Full Name <span class="required">*</span></label>
+            <input type="text" id="fullName" name="fullName" required placeholder="John Smith">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="john@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" required placeholder="+91 9876543210">
+          </div>
+
+          <div class="form-group">
+            <label for="education">Highest Education <span class="required">*</span></label>
+            <select id="education" name="education" required>
+              <option value="">Select Education Level</option>
+              <option value="high-school">High School</option>
+              <option value="diploma">Diploma</option>
+              <option value="bachelor">Bachelor's Degree</option>
+              <option value="master">Master's Degree</option>
+              <option value="phd">PhD</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Selection Section -->
+      <div class="form-section">
+        <h3><i class="fas fa-book-open"></i> Course Selection</h3>
+        
+        <div class="course-dropdown-container">
+          <div class="course-dropdown-header" id="courseDropdownToggle">
+            <span class="course-dropdown-label">Select Courses <span class="required">*</span></span>
+            <span class="course-dropdown-icon">
+              <i class="fas fa-chevron-down"></i>
+            </span>
+          </div>
+          
+          <div class="course-dropdown-content" id="courseDropdownContent">
+            <div class="course-options">
+              <label class="course-option">
+                <input type="checkbox" name="courses[]" value="excel">
+                <div class="course-option-content">
+                  <div class="course-icon">
+                    <i class="fas fa-file-excel"></i>
+                  </div>
+                  <div class="course-info">
+                    <h4>Excel for Data Analysis</h4>
+                    <p>Powerful Excel tools for effective data analysis</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="course-option">
+                <input type="checkbox" name="courses[]" value="sql">
+                <div class="course-option-content">
+                  <div class="course-icon">
+                    <i class="fas fa-database"></i>
+                  </div>
+                  <div class="course-info">
+                    <h4>SQL for Data Analysis</h4>
+                    <p>Extract, transform and analyze data using SQL</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="course-option">
+                <input type="checkbox" name="courses[]" value="python">
+                <div class="course-option-content">
+                  <div class="course-icon">
+                    <i class="fab fa-python"></i>
+                  </div>
+                  <div class="course-info">
+                    <h4>Python Development</h4>
+                    <p>Python programming for analytics and ML</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="course-option">
+                <input type="checkbox" name="courses[]" value="visualization">
+                <div class="course-option-content">
+                  <div class="course-icon">
+                    <i class="fas fa-chart-bar"></i>
+                  </div>
+                  <div class="course-info">
+                    <h4>Data Visualization</h4>
+                    <p>Create compelling visualizations with Power BI</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="course-option">
+                <input type="checkbox" name="courses[]" value="azure">
+                <div class="course-option-content">
+                  <div class="course-icon">
+                    <i class="fab fa-microsoft"></i>
+                  </div>
+                  <div class="course-info">
+                    <h4>Azure Fundamentals</h4>
+                    <p>Cloud concepts and Microsoft Azure services</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="course-option">
+                <input type="checkbox" name="courses[]" value="ai">
+                <div class="course-option-content">
+                  <div class="course-icon">
+                    <i class="fas fa-robot"></i>
+                  </div>
+                  <div class="course-info">
+                    <h4>Azure AI Fundamentals</h4>
+                    <p>AI and ML concepts on Azure platform</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="course-option">
+                <input type="checkbox" name="courses[]" value="power-platform">
+                <div class="course-option-content">
+                  <div class="course-icon">
+                    <i class="fas fa-bolt"></i>
+                  </div>
+                  <div class="course-info">
+                    <h4>Power Platform</h4>
+                    <p>Master Power Apps, Power Automate & Power BI</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="course-option">
+                <input type="checkbox" name="courses[]" value="security">
+                <div class="course-option-content">
+                  <div class="course-icon">
+                    <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <div class="course-info">
+                    <h4>Security & Compliance</h4>
+                    <p>Security concepts across cloud solutions</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="course-option">
+                <input type="checkbox" name="courses[]" value="professional-dev">
+                <div class="course-option-content">
+                  <div class="course-icon">
+                    <i class="fas fa-user-tie"></i>
+                  </div>
+                  <div class="course-info">
+                    <h4>Professional Development</h4>
+                    <p>Enhance communication and leadership skills</p>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selected Courses Display -->
+        <div class="selected-courses-display" id="selectedCoursesDisplay">
+          <p class="no-selection">No courses selected</p>
+        </div>
+      </div>
+
+      <!-- Agreement Section -->
+      <div class="form-section agreement-section">
+        <h3><i class="fas fa-file-contract"></i> Agreement</h3>
+        
+        <div class="agreement-content">
+          <label class="agreement-checkbox">
+            <input type="checkbox" name="agreement" id="agreement" required>
+            <span class="checkmark"></span>
+            <span class="agreement-text">
+              I agree to the <a href="#" class="terms-link">Terms & Conditions</a> and <a href="#" class="privacy-link">Privacy Policy</a> of YuMe Learning
+              <span class="required">*</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Submit Buttons -->
+      <div class="form-actions">
+        <button type="button" class="btn-clear" onclick="clearForm()">
+          <i class="fas fa-eraser"></i> Clear All
+        </button>
+        <button type="submit" class="btn-submit">
+          <i class="fas fa-paper-plane"></i> Enroll Now
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<style>
+  /* ========================================= */
+  /* ENROLLMENT FORM - PROFESSIONAL DESIGN */
+  /* ========================================= */
+  .enrollment-section {
+    background: #ffffff;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Montserrat', sans-serif;
+  }
+
+  .enrollment-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eef2f7;
+  }
+
+  /* Header */
+  .enrollment-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .enrollment-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    position: relative;
+    padding-bottom: 15px;
+  }
+
+  .enrollment-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: rgb(4, 176, 223);
+    border-radius: 2px;
+  }
+
+  .enrollment-header p {
+    font-size: 16px;
+    color: #666;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Form Sections */
+  .form-section {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .form-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 20px;
+  }
+
+  .form-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .form-section h3 i {
+    color: rgb(4, 176, 223);
+    width: 24px;
+  }
+
+  /* Required Indicator */
+  .required {
+    color: #e74c3c;
+    font-weight: 500;
+  }
+
+  /* Form Grid */
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 5px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Input Fields */
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 14px 16px;
+    background: #ffffff;
+    border: 2px solid #eef2f7;
+    border-radius: 8px;
+    color: #333;
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: rgb(4, 176, 223);
+    box-shadow: 0 0 0 3px rgba(4, 176, 223, 0.1);
+  }
+
+  .form-group input::placeholder {
+    color: #95a5a6;
+    font-weight: 400;
+  }
+
+  .form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2395a5a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+  }
+
+  /* Course Dropdown */
+  .course-dropdown-container {
+    margin-bottom: 20px;
+  }
+
+  .course-dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: #ffffff;
+    border: 2px solid #eef2f7;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .course-dropdown-header:hover {
+    border-color: rgb(4, 176, 223);
+    background: #f8fcfd;
+  }
+
+  .course-dropdown-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+
+  .course-dropdown-icon {
+    color: #95a5a6;
+    transition: transform 0.3s ease;
+  }
+
+  .course-dropdown-container.active .course-dropdown-icon {
+    transform: rotate(180deg);
+    color: rgb(4, 176, 223);
+  }
+
+  .course-dropdown-container.active .course-dropdown-header {
+    border-color: rgb(4, 176, 223);
+    background: #f8fcfd;
+  }
+
+  .course-dropdown-content {
+    display: none;
+    margin-top: 10px;
+    background: #ffffff;
+    border: 2px solid #eef2f7;
+    border-radius: 8px;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .course-dropdown-container.active .course-dropdown-content {
+    display: block;
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Course Options */
+  .course-options {
+    display: grid;
+    gap: 12px;
+  }
+
+  .course-option {
+    cursor: pointer;
+  }
+
+  .course-option input[type="checkbox"] {
+    display: none;
+  }
+
+  .course-option-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 2px solid #eef2f7;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .course-option input[type="checkbox"]:checked + .course-option-content {
+    border-color: rgb(4, 176, 223);
+    background: rgba(4, 176, 223, 0.05);
+  }
+
+  .course-option:hover .course-option-content {
+    border-color: rgb(4, 176, 223);
+    transform: translateX(5px);
+  }
+
+  .course-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #f8fcfd, #e6f7ff);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: rgb(4, 176, 223);
+    flex-shrink: 0;
+  }
+
+  .course-info h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 5px 0;
+  }
+
+  .course-info p {
+    font-size: 13px;
+    color: #7f8c8d;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* Selected Courses Display */
+  .selected-courses-display {
+    min-height: 60px;
+    padding: 15px;
+    background: #f8fcfd;
+    border-radius: 8px;
+    border: 2px dashed #e0f7fa;
+  }
+
+  .selected-courses-display .no-selection {
+    color: #95a5a6;
+    text-align: center;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .selected-course-item {
+    display: inline-block;
+    background: white;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    border: 1px solid rgb(4, 176, 223);
+    color: rgb(4, 176, 223);
+    font-size: 13px;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* Agreement Section */
+  .agreement-section {
+    background: #f8fcfd;
+    border-radius: 8px;
+    padding: 25px;
+    border: 1px solid #e0f7fa;
+  }
+
+  .agreement-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .agreement-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .agreement-checkbox input[type="checkbox"] {
+    display: none;
+  }
+
+  .checkmark {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #bdc3c7;
+    border-radius: 4px;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .agreement-checkbox input[type="checkbox"]:checked + .checkmark {
+    background: rgb(4, 176, 223);
+    border-color: rgb(4, 176, 223);
+  }
+
+  .agreement-checkbox input[type="checkbox"]:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .agreement-text {
+    font-size: 14px;
+    color: #2c3e50;
+    line-height: 1.5;
+  }
+
+  .terms-link,
+  .privacy-link {
+    color: rgb(4, 176, 223);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .terms-link:hover,
+  .privacy-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Form Actions */
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .btn-submit,
+  .btn-clear {
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-submit {
+    background: rgb(4, 176, 223);
+    color: white;
+  }
+
+  .btn-submit:hover {
+    background: rgb(3, 156, 198);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(4, 176, 223, 0.3);
+  }
+
+  .btn-clear {
+    background: #f8f9fa;
+    color: #666;
+    border: 1px solid #ddd;
+  }
+
+  .btn-clear:hover {
+    background: #e9ecef;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .enrollment-container {
+      padding: 25px;
+    }
+
+    .enrollment-header h2 {
+      font-size: 26px;
+    }
+
+    .enrollment-header p {
+      font-size: 14px;
+    }
+
+    .form-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .course-option-content {
+      padding: 12px;
+    }
+
+    .course-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+    }
+
+    .course-info h4 {
+      font-size: 14px;
+    }
+
+    .course-info p {
+      font-size: 12px;
+    }
+
+    .form-actions {
+      flex-direction: column;
+    }
+
+    .btn-submit,
+    .btn-clear {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .enrollment-section {
+      padding: 30px 15px;
+    }
+
+    .enrollment-container {
+      padding: 20px;
+    }
+
+    .form-section h3 {
+      font-size: 16px;
+    }
+
+    .form-group input,
+    .form-group select {
+      padding: 12px;
+      font-size: 14px;
+    }
+
+    .agreement-section {
+      padding: 20px;
+    }
+
+    .agreement-text {
+      font-size: 13px;
+    }
+  }
+</style>
+
+<script>
+  // Initialize
+  document.addEventListener('DOMContentLoaded', function() {
+    // Course dropdown toggle
+    const dropdownToggle = document.getElementById('courseDropdownToggle');
+    const dropdownContent = document.getElementById('courseDropdownContent');
+    const dropdownContainer = document.querySelector('.course-dropdown-container');
+
+    dropdownToggle.addEventListener('click', function() {
+      dropdownContainer.classList.toggle('active');
+    });
+
+    // Update selected courses display
+    updateSelectedCoursesDisplay();
+
+    // Handle course selection
+    document.querySelectorAll('.course-option input[type="checkbox"]').forEach(checkbox => {
+      checkbox.addEventListener('change', updateSelectedCoursesDisplay);
+    });
+
+    // Form submission
+    document.getElementById('enrollmentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Basic validation
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const education = document.getElementById('education').value;
+      const agreement = document.getElementById('agreement').checked;
+      const selectedCourses = getSelectedCourses();
+      
+      if (!fullName || !email || !phone || !education) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      
+      if (selectedCourses.length === 0) {
+        alert('Please select at least one course.');
+        dropdownToggle.click(); // Open dropdown
+        return;
+      }
+      
+      if (!agreement) {
+        alert('Please agree to the Terms & Conditions and Privacy Policy.');
+        return;
+      }
+      
+      // Show success message
+      alert('Thank you for your enrollment! We will contact you shortly.');
+      clearForm();
+    });
+  });
+
+  // Get selected courses
+  function getSelectedCourses() {
+    const checkboxes = document.querySelectorAll('.course-option input[type="checkbox"]:checked');
+    return Array.from(checkboxes).map(cb => {
+      const label = cb.closest('.course-option').querySelector('h4').textContent;
+      return label;
+    });
+  }
+
+  // Update selected courses display
+  function updateSelectedCoursesDisplay() {
+    const display = document.getElementById('selectedCoursesDisplay');
+    const selectedCourses = getSelectedCourses();
+    
+    if (selectedCourses.length === 0) {
+      display.innerHTML = '<p class="no-selection">No courses selected</p>';
+      return;
+    }
+    
+    display.innerHTML = '';
+    selectedCourses.forEach(course => {
+      const courseItem = document.createElement('span');
+      courseItem.className = 'selected-course-item';
+      courseItem.textContent = course;
+      display.appendChild(courseItem);
+    });
+  }
+
+  // Clear form function
+  function clearForm() {
+    if (confirm('Clear all form data?')) {
+      document.getElementById('enrollmentForm').reset();
+      
+      // Uncheck all courses
+      document.querySelectorAll('.course-option input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      
+      // Update display
+      updateSelectedCoursesDisplay();
+      
+      // Close dropdown if open
+      const dropdownContainer = document.querySelector('.course-dropdown-container');
+      dropdownContainer.classList.remove('active');
+    }
+  }
+</script>
+
+
+
+{% endblock %}

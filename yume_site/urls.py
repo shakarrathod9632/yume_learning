@@ -25,4 +25,22 @@ urlpatterns = [
     
     path("placements/", views.placements_page, name="placements"),
     path("contact/", views.contact_page, name="contact"),
+    
+    path("faqs/", views.faqs, name="faqs"),
+    
+    path("blog/", views.blog, name="blog"),
+    path("excel_blog/", views.excel_blog, name="excel_blog"),
+    path("sql_blog/", views.sql_blog, name="sql_blog"),
+    path("python_blog/", views.python_blog, name="python_blog"),
+    path("data_visualization_blog/", views.data_visualization_blog, name="data_visualization_blog"),
+    path("azure_fundamentals_blog/", views.azure_fundamentals_blog, name="azure_fundamentals_blog"),
+    path("ai_azure_blog/", views.ai_azure_blog, name="ai_azure_blog"),
+    path("power_platform_blog/", views.power_platform_blog, name="power_platform_blog"),
+    path("security_blog/", views.security_blog, name="security_blog"),
+    path("soft_skills_blog/", views.soft_skills_blog, name="soft_skills_blog"),
+    
+    path("privacy_policy/", views.privacy_policy, name="privacy_policy"),
+    path("terms_and_conditions/", views.terms_and_conditions, name="terms_and_conditions"),
+    
+    path("enrollment_form/", views.enrollment_form, name="enrollment_form"),
 ]

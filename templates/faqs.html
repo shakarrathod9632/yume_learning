@@ -1,0 +1,329 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+
+
+<div class="container py-5">
+    <!-- FAQ Title with Center Underline -->
+    <div class="text-center mb-5 pb-3">
+        <h1 class="fw-bold display-5 mb-4 position-relative">
+            Frequently Asked Questions
+            <span class="position-absolute bottom-0 start-50 translate-middle-x" 
+                  style="width: 100px; height: 4px; background-color: #2c3e50;"></span>
+        </h1>
+    </div>
+
+    <!-- Two Column FAQ Grid -->
+    <div class="row g-4">
+        <!-- Column 1 -->
+        <div class="col-lg-6">
+            <div class="faq-accordion" id="faqColumn1">
+                
+                <!-- Question 1 -->
+                <div class="faq-item mb-3">
+                    <button class="faq-question w-100 text-start p-4 d-flex justify-content-between align-items-center" 
+                            data-bs-toggle="collapse" data-bs-target="#collapseOne" 
+                            aria-expanded="false" aria-controls="collapseOne">
+                        <span class="fw-semibold fs-5">What makes Yume Learning different? </span>
+                        <span class="faq-icon ms-3">+</span>
+                    </button>
+                    <div id="collapseOne" class="faq-answer collapse" data-bs-parent="#faqColumn1">
+                        <div class="p-4 pt-3">
+                            <p class="mb-0 text-secondary">We focus exclusively on bridging the gap between academic theory and industry requirements through hands-on training in emerging technologies. Unlike traditional programs, we emphasize practical skills over certificates.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="faq-item mb-3">
+                    <button class="faq-question w-100 text-start p-4 d-flex justify-content-between align-items-center" 
+                            data-bs-toggle="collapse" data-bs-target="#collapseTwo" 
+                            aria-expanded="false" aria-controls="collapseTwo">
+                        <span class="fw-semibold fs-5">Who is eligible for your training programs?</span>
+                        <span class="faq-icon ms-3">+</span>
+                    </button>
+                    <div id="collapseTwo" class="faq-answer collapse" data-bs-parent="#faqColumn1">
+                        <div class="p-4 pt-3">
+                            <p class="mb-0 text-secondary">Our programs are designed for recent graduates and final-year students looking to gain industry-relevant skills. We help young professionals transition from classroom learning to workplace readiness.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="faq-item mb-3">
+                    <button class="faq-question w-100 text-start p-4 d-flex justify-content-between align-items-center" 
+                            data-bs-toggle="collapse" data-bs-target="#collapseThree" 
+                            aria-expanded="false" aria-controls="collapseThree">
+                        <span class="fw-semibold fs-5">What technologies do you focus on?</span>
+                        <span class="faq-icon ms-3">+</span>
+                    </button>
+                    <div id="collapseThree" class="faq-answer collapse" data-bs-parent="#faqColumn1">
+                        <div class="p-4 pt-3">
+                            <p class="mb-0 text-secondary">We specialize in emerging technologies that have high industry demand. Our curriculum includes AI, machine learning, data science, cloud computing, and other cutting-edge fields with strong job growth potential.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="faq-item mb-3">
+                    <button class="faq-question w-100 text-start p-4 d-flex justify-content-between align-items-center" 
+                            data-bs-toggle="collapse" data-bs-target="#collapseFour" 
+                            aria-expanded="false" aria-controls="collapseFour">
+                        <span class="fw-semibold fs-5">How long are your training programs?</span>
+                        <span class="faq-icon ms-3">+</span>
+                    </button>
+                    <div id="collapseFour" class="faq-answer collapse" data-bs-parent="#faqColumn1">
+                        <div class="p-4 pt-3">
+                            <p class="mb-0 text-secondary">Program duration varies from 3 to 6 months, depending on the technology track. All programs are intensive and designed to deliver maximum practical learning in the shortest effective timeframe.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="faq-item mb-3">
+                    <button class="faq-question w-100 text-start p-4 d-flex justify-content-between align-items-center" 
+                            data-bs-toggle="collapse" data-bs-target="#collapseFive" 
+                            aria-expanded="false" aria-controls="collapseFive">
+                        <span class="fw-semibold fs-5">Do you provide placement assistance?</span>
+                        <span class="faq-icon ms-3">+</span>
+                    </button>
+                    <div id="collapseFive" class="faq-answer collapse" data-bs-parent="#faqColumn1">
+                        <div class="p-4 pt-3">
+                            <p class="mb-0 text-secondary">Yes, we have placed over 300,000 students across 12 states. Our placement team works closely with industry partners to connect trained graduates with relevant job opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="col-lg-6">
+            <div class="faq-accordion" id="faqColumn2">
+                
+                <!-- Question 6 -->
+                <div class="faq-item mb-3">
+                    <button class="faq-question w-100 text-start p-4 d-flex justify-content-between align-items-center" 
+                            data-bs-toggle="collapse" data-bs-target="#collapseSix" 
+                            aria-expanded="false" aria-controls="collapseSix">
+                        <span class="fw-semibold fs-5">What is your teaching methodology?</span>
+                        <span class="faq-icon ms-3">+</span>
+                    </button>
+                    <div id="collapseSix" class="faq-answer collapse" data-bs-parent="#faqColumn2">
+                        <div class="p-4 pt-3">
+                            <p class="mb-0 text-secondary">We use a project-based learning approach where students work on real-world scenarios. Our methodology combines expert instruction, hands-on practice, and industry case studies.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="faq-item mb-3">
+                    <button class="faq-question w-100 text-start p-4 d-flex justify-content-between align-items-center" 
+                            data-bs-toggle="collapse" data-bs-target="#collapseSeven" 
+                            aria-expanded="false" aria-controls="collapseSeven">
+                        <span class="fw-semibold fs-5">Are the trainers industry professionals?</span>
+                        <span class="faq-icon ms-3">+</span>
+                    </button>
+                    <div id="collapseSeven" class="faq-answer collapse" data-bs-parent="#faqColumn2">
+                        <div class="p-4 pt-3">
+                            <p class="mb-0 text-secondary">Absolutely. All our trainers have significant industry experience and are actively engaged in their respective fields. They bring practical insights and current industry trends into the classroom.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="faq-item mb-3">
+                    <button class="faq-question w-100 text-start p-4 d-flex justify-content-between align-items-center" 
+                            data-bs-toggle="collapse" data-bs-target="#collapseEight" 
+                            aria-expanded="false" aria-controls="collapseEight">
+                        <span class="fw-semibold fs-5">What kind of certification do you provide?</span>
+                        <span class="faq-icon ms-3">+</span>
+                    </button>
+                    <div id="collapseEight" class="faq-answer collapse" data-bs-parent="#faqColumn2">
+                        <div class="p-4 pt-3">
+                            <p class="mb-0 text-secondary">We provide industry-recognized certificates upon completion. More importantly, we focus on building a portfolio of real projects that demonstrates your skills to potential employers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="faq-item mb-3">
+                    <button class="faq-question w-100 text-start p-4 d-flex justify-content-between align-items-center" 
+                            data-bs-toggle="collapse" data-bs-target="#collapseNine" 
+                            aria-expanded="false" aria-controls="collapseNine">
+                        <span class="fw-semibold fs-5">Do you offer online or offline programs?</span>
+                        <span class="faq-icon ms-3">+</span>
+                    </button>
+                    <div id="collapseNine" class="faq-answer collapse" data-bs-parent="#faqColumn2">
+                        <div class="p-4 pt-3">
+                            <p class="mb-0 text-secondary">We offer both formats to accommodate different learning preferences. Our online programs maintain the same interactive, hands-on approach through virtual labs and live sessions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="faq-item mb-3">
+                    <button class="faq-question w-100 text-start p-4 d-flex justify-content-between align-items-center" 
+                            data-bs-toggle="collapse" data-bs-target="#collapseTen" 
+                            aria-expanded="false" aria-controls="collapseTen">
+                        <span class="fw-semibold fs-5">How can I apply for a program?</span>
+                        <span class="faq-icon ms-3">+</span>
+                    </button>
+                    <div id="collapseTen" class="faq-answer collapse" data-bs-parent="#faqColumn2">
+                        <div class="p-4 pt-3">
+                            <p class="mb-0 text-secondary">Visit our website to explore programs and fill out the application form. Our admissions team will contact you to discuss your career goals and recommend the most suitable program.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Centered Contact Section -->
+    <div class="text-center mt-3 pt-1">
+        <div class="border-top pt-3 mx-auto" style="max-width: 800px;">
+            <p class="fs-5 text-muted mb-3">Need more information?</p>
+            <a href="/contact" class="btn btn-dark btn-lg px-5 py-3 rounded-0 text-decoration-none">
+                Contact our support team
+                <span class="ms-2">→</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .faq-accordion {
+        position: relative;
+    }
+
+    .faq-item {
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        background: white;
+    }
+
+    .faq-item:hover {
+        border-color: #dee2e6;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .faq-question {
+        background: white;
+        border: none;
+        color: #2c3e50;
+        transition: all 0.3s ease;
+        position: relative;
+        cursor: pointer;
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+    }
+
+    .faq-question:hover {
+        background-color: #f8f9fa;
+        color: #1a252f;
+    }
+
+    .faq-question[aria-expanded="true"] {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .faq-question[aria-expanded="true"] .faq-icon {
+        transform: rotate(45deg);
+        color: #2c3e50;
+    }
+
+    .faq-icon {
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: #6c757d;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .faq-answer {
+        background: white;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .btn-dark {
+        background-color: #2c3e50;
+        border-color: #2c3e50;
+        transition: all 0.3s ease;
+    }
+
+    .btn-dark:hover {
+        background-color: #1a252f;
+        border-color: #1a252f;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(44, 62, 80, 0.15);
+    }
+
+    @media (max-width: 768px) {
+        .faq-question {
+            min-height: 70px;
+            padding: 1.25rem !important;
+            
+        }
+        
+        .faq-question span.fs-5 {
+            font-size: 1.1rem !important;
+        }
+        
+        .btn-lg {
+            padding: 0.75rem 2rem !important;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add click handlers for FAQ items
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                // Update icon based on expanded state
+                const icon = this.querySelector('.faq-icon');
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                
+                // Add smooth transition
+                setTimeout(() => {
+                    if (isExpanded) {
+                        icon.textContent = '+';
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        icon.textContent = '+';
+                        icon.style.transform = 'rotate(45deg)';
+                    }
+                }, 150);
+            });
+        });
+    });
+</script>
+
+
+
+
+
+
+{% endblock %}

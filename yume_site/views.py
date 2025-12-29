@@ -63,3 +63,51 @@ def placements_page(request):
 
 def contact_page(request):
     return render(request, "contact.html")
+
+
+def faqs(request):
+    return render(request, "faqs.html")
+
+def blog(request):
+    return render(request, "blog.html")
+
+def excel_blog(request):
+    return render(request, "excel_blog.html")
+
+def sql_blog(request):
+    return render(request, "sql_blog.html")
+
+def python_blog(request):
+    return render(request, "python_blog.html")
+
+def data_visualization_blog(request):
+    return render(request, "data_visualization_blog.html")
+
+def azure_fundamentals_blog(request):
+    return render(request, "azure_fundamentals_blog.html")
+
+def ai_azure_blog(request):
+    return render(request, "ai_azure_blog.html")
+
+def power_platform_blog(request):
+    return render(request, "power_platform_blog.html")
+
+def security_blog(request):
+    return render(request, "security_blog.html")
+
+def soft_skills_blog(request):
+    return render(request, "soft_skills_blog.html")
+
+
+
+
+
+def privacy_policy(request):
+    return render(request, "privacy_policy.html")
+
+def terms_and_conditions(request):
+    return render(request, "terms_and_conditions.html")
+
+
+def enrollment_form(request):
+    return render(request, "enrollment_form.html")

@@ -1,0 +1,570 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<!-- Azure AI Blog Detail Page -->
+<div class="container blog-detail-container py-4 py-lg-5">
+    <!-- Blog Header -->
+    <div class="blog-detail-header mb-4">
+        <div class="d-flex align-items-center mb-3">
+            <a href="{% url 'blog' %}" class="back-to-blog text-decoration-none d-flex align-items-center">
+                <i class="bi bi-arrow-left me-2"></i> Back to Blogs
+            </a>
+        </div>
+        
+        <div class="blog-category-date mb-3">
+            <span class="badge px-3 py-2 mb-2" style="background-color: rgb(5, 201, 254);">AI & ML</span>
+            <span class="text-muted ms-3"><i class="bi bi-calendar me-1"></i> Jan 3, 2024</span>
+            <span class="text-muted ms-3"><i class="bi bi-clock me-1"></i> 7 min read</span>
+        </div>
+        
+        <h1 class="fw-bold mb-3">Practical AI with Azure: Implementing Machine Learning Solutions</h1>
+        
+        <div class="blog-author d-flex align-items-center">
+            <div class="author-avatar me-3">
+                <div style="width: 50px; height: 50px; background-color: rgb(5, 201, 254); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">YL</div>
+            </div>
+            <div>
+                <p class="mb-1 fw-bold">Yume Learning Team</p>
+                <p class="text-muted small mb-0">AI & Machine Learning Experts</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Hero Image -->
+    <div class="blog-hero-image mb-4">
+        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80" 
+             class="img-fluid rounded" alt="Azure AI Machine Learning">
+    </div>
+
+    <!-- Blog Content -->
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Main Content -->
+            <div class="blog-content">
+                <div class="content-section mb-4">
+                    <h2 class="h3 fw-bold mb-3">AI Revolution on Azure Platform</h2>
+                    <p>Azure AI services bring artificial intelligence within reach of every developer and organization. From pre-built AI models to custom machine learning solutions, Azure provides the tools to implement practical AI applications without extensive expertise.</p>
+                    <p>At Yume Learning, our Azure AI Fundamentals course teaches you how to leverage Azure's AI services for real-world business solutions, bridging the gap between theory and practical implementation.</p>
+                </div>
+
+                <div class="content-section mb-4">
+                    <h2 class="h3 fw-bold mb-3">Key Azure AI Services to Master</h2>
+                    
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <div class="feature-card p-3 h-100 border rounded">
+                                <h3 class="h5 fw-bold mb-2"><i class="bi bi-robot me-2" style="color: rgb(5, 201, 254);"></i> Azure Machine Learning</h3>
+                                <p class="small mb-0">End-to-end platform for building, training, and deploying ML models with automated features.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-card p-3 h-100 border rounded">
+                                <h3 class="h5 fw-bold mb-2"><i class="bi bi-eye me-2" style="color: rgb(5, 201, 254);"></i> Cognitive Services</h3>
+                                <p class="small mb-0">Pre-built AI models for vision, speech, language, and decision-making applications.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="feature-card p-3 h-100 border rounded">
+                                <h3 class="h5 fw-bold mb-2"><i class="bi bi-chat-left-text me-2" style="color: rgb(5, 201, 254);"></i> Azure OpenAI Service</h3>
+                                <p class="small mb-0">Access advanced language models like GPT for natural language processing tasks.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-card p-3 h-100 border rounded">
+                                <h3 class="h5 fw-bold mb-2"><i class="bi bi-kanban me-2" style="color: rgb(5, 201, 254);"></i> Bot Services</h3>
+                                <p class="small mb-0">Build intelligent chatbots and virtual assistants for customer engagement.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section mb-4">
+                    <h2 class="h3 fw-bold mb-3">Practical AI Applications</h2>
+                    <p>Azure AI powers intelligent solutions across business functions. Real-world applications include:</p>
+                    
+                    <ul class="application-list ps-3">
+                        <li class="mb-2"><strong>Customer Service:</strong> AI chatbots for 24/7 support and query resolution</li>
+                        <li class="mb-2"><strong>Document Processing:</strong> Automated invoice processing and form recognition</li>
+                        <li class="mb-2"><strong>Predictive Analytics:</strong> Sales forecasting and customer churn prediction</li>
+                        <li class="mb-2"><strong>Image Analysis:</strong> Product quality inspection and facial recognition</li>
+                        <li><strong>Personalization:</strong> Recommendation engines for e-commerce and content</li>
+                    </ul>
+                </div>
+
+                <div class="content-section mb-4">
+                    <h2 class="h3 fw-bold mb-3">AI Career Opportunities</h2>
+                    <p>AI skills combined with Azure expertise are highly valuable. Industry data shows:</p>
+                    
+                    <div class="row g-3 text-center mb-3">
+                        <div class="col-6 col-md-4">
+                            <div class="stat-card p-2 border rounded">
+                                <h4 class="fw-bold mb-1" style="color: rgb(5, 201, 254);">71%</h4>
+                                <p class="small mb-0">Businesses use AI</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="stat-card p-2 border rounded">
+                                <h4 class="fw-bold mb-1" style="color: rgb(5, 201, 254);">₹15-30L</h4>
+                                <p class="small mb-0">AI Engineer salaries</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="stat-card p-2 border rounded">
+                                <h4 class="fw-bold mb-1" style="color: rgb(5, 201, 254);">AI-900</h4>
+                                <p class="small mb-0">Certification path</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>Our Azure AI Fundamentals course prepares you for the AI-900 certification and provides hands-on experience with Azure's AI services for practical business applications.</p>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="cta-section p-3 rounded text-center mb-4" style="background-color: rgb(5, 201, 254); color: white;">
+                    <h3 class="fw-bold mb-2">Start Your AI Journey</h3>
+                    <p class="mb-3">Join our Azure AI Fundamentals course and build intelligent solutions.</p>
+                    <a href="/courses/azure-ai-fundamentals" class="btn btn-light px-3 py-2 fw-bold" style="color: rgb(5, 201, 254);">
+                        Explore Course <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Social Share -->
+            <div class="share-section border-top border-bottom py-3 mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <h5 class="fw-bold mb-2">Share this article</h5>
+                        <p class="small text-muted mb-0">Help others discover this valuable content</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="share-buttons d-flex flex-wrap gap-2">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" 
+                               target="_blank" 
+                               class="share-btn facebook d-flex align-items-center justify-content-center">
+                                <i class="fab fa-facebook-f me-2"></i> Share
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text=Practical AI with Azure: Implementing Machine Learning Solutions - Yume Learning" 
+                               target="_blank" 
+                               class="share-btn twitter d-flex align-items-center justify-content-center">
+                                <i class="fab fa-twitter me-2"></i> Tweet
+                            </a>
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title=Practical AI with Azure: Implementing Machine Learning Solutions" 
+                               target="_blank" 
+                               class="share-btn linkedin d-flex align-items-center justify-content-center">
+                                <i class="fab fa-linkedin-in me-2"></i> Post
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Navigation -->
+            <div class="blog-navigation mb-4">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <a href="{% url 'azure_fundamentals_blog' %}" class="nav-card d-flex align-items-center p-3 border rounded text-decoration-none">
+                            <i class="bi bi-arrow-left me-3 fs-4" style="color: rgb(5, 201, 254);"></i>
+                            <div>
+                                <span class="text-muted small d-block">Previous</span>
+                                <span class="fw-bold">Azure Cloud Fundamentals</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="{% url 'power_platform_blog' %}" class="nav-card d-flex align-items-center p-3 border rounded text-decoration-none">
+                            <div class="flex-grow-1 text-end me-3">
+                                <span class="text-muted small d-block">Next</span>
+                                <span class="fw-bold">Power Platform Mastery</span>
+                            </div>
+                            <i class="bi bi-arrow-right fs-4" style="color: rgb(5, 201, 254);"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <div class="sidebar-sticky">
+                <!-- Follow Yume -->
+                <div class="sidebar-section mb-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-3">
+                            <h5 class="fw-bold mb-3">Follow Yume Learning</h5>
+                            <div class="yume-social-icons d-flex flex-wrap gap-3 mb-3">
+                                <a href="https://www.instagram.com/yumelearning/" target="_blank" class="yume-social-icon instagram" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.facebook.com/yumelearning" target="_blank" class="yume-social-icon facebook" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/company/antsskillvarsity/" target="_blank" class="yume-social-icon linkedin" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                            <p class="small text-muted mb-0">Stay updated with AI trends and courses</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Courses -->
+                <div class="sidebar-section mb-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-3">
+                            <h5 class="fw-bold mb-3">Related Courses</h5>
+                            <div class="related-course mb-3">
+                                <h6 class="fw-bold mb-1">Azure AI Fundamentals</h6>
+                                <p class="small text-muted mb-2">AI and machine learning on Azure</p>
+                                <a href="/courses/azure-ai-fundamentals" class="small fw-bold" style="color: rgb(5, 201, 254);">View Course →</a>
+                            </div>
+                            <div class="related-course mb-3">
+                                <h6 class="fw-bold mb-1">Machine Learning with Python</h6>
+                                <p class="small text-muted mb-2">Build ML models with Scikit-learn</p>
+                                <a href="/courses/machine-learning-python" class="small fw-bold" style="color: rgb(5, 201, 254);">View Course →</a>
+                            </div>
+                            <div class="related-course">
+                                <h6 class="fw-bold mb-1">Data Science Specialization</h6>
+                                <p class="small text-muted mb-2">Advanced analytics and AI</p>
+                                <a href="/courses/data-science" class="small fw-bold" style="color: rgb(5, 201, 254);">View Course →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Categories -->
+                <div class="sidebar-section">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-3">
+                            <h5 class="fw-bold mb-3">Blog Categories</h5>
+                            <div class="categories">
+                                <a href="#" class="d-block mb-2 text-decoration-none">
+                                    <span class="badge bg-light text-dark me-2">6</span> Azure
+                                </a>
+                                <a href="#" class="d-block mb-2 text-decoration-none">
+                                    <span class="badge bg-light text-dark me-2">7</span> AI & ML
+                                </a>
+                                <a href="#" class="d-block mb-2 text-decoration-none">
+                                    <span class="badge bg-light text-dark me-2">9</span> Python
+                                </a>
+                                <a href="#" class="d-block mb-2 text-decoration-none">
+                                    <span class="badge bg-light text-dark me-2">5</span> Data Science
+                                </a>
+                                <a href="#" class="d-block mb-2 text-decoration-none">
+                                    <span class="badge bg-light text-dark me-2">4</span> Cloud Computing
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .blog-detail-container {
+        max-width: 1200px;
+    }
+    
+    .back-to-blog {
+        color: rgb(5, 201, 254);
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .back-to-blog:hover {
+        color: rgb(4, 180, 230);
+        transform: translateX(-5px);
+    }
+    
+    .blog-detail-header h1 {
+        font-size: 2rem;
+        line-height: 1.3;
+        color: #1a365d;
+    }
+    
+    .blog-hero-image img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    
+    .blog-content h2 {
+        font-size: 1.5rem;
+        color: #2c3e50;
+        margin-top: 1.5rem;
+    }
+    
+    .blog-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 1rem;
+    }
+    
+    .feature-card {
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-3px);
+        border-color: rgb(5, 201, 254) !important;
+        box-shadow: 0 5px 15px rgba(5, 201, 254, 0.1);
+    }
+    
+    .application-list {
+        list-style: none;
+        padding-left: 0;
+    }
+    
+    .application-list li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #555;
+    }
+    
+    .application-list li:before {
+        content: "•";
+        color: rgb(5, 201, 254);
+        font-size: 1.2rem;
+        position: absolute;
+        left: 0;
+        top: -2px;
+    }
+    
+    .stat-card {
+        border: 1px solid rgba(5, 201, 254, 0.2);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        border-color: rgb(5, 201, 254);
+    }
+    
+    .share-section {
+        background-color: #f8f9fa;
+        border-color: #e9ecef !important;
+    }
+    
+    .share-buttons {
+        display: flex;
+        gap: 8px;
+    }
+    
+    .share-btn {
+        padding: 8px 12px;
+        border-radius: 6px;
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        flex: 1;
+        min-width: 80px;
+        text-align: center;
+    }
+    
+    .share-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .share-btn.facebook { background-color: #1877f2; }
+    .share-btn.twitter { background-color: #1da1f2; }
+    .share-btn.linkedin { background-color: #0077b5; }
+    
+    .yume-social-icons {
+        display: flex;
+        gap: 12px;
+    }
+    
+    .yume-social-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1.2rem;
+    }
+    
+    .yume-social-icon.instagram {
+        background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    }
+    
+    .yume-social-icon.facebook {
+        background-color: #1877f2;
+    }
+    
+    .yume-social-icon.linkedin {
+        background-color: #0077b5;
+    }
+    
+    .yume-social-icon:hover {
+        transform: translateY(-3px) scale(1.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .nav-card {
+        transition: all 0.3s ease;
+        color: #333;
+    }
+    
+    .nav-card:hover {
+        border-color: rgb(5, 201, 254) !important;
+        color: rgb(5, 201, 254);
+        transform: translateX(-3px);
+    }
+    
+    .nav-card:last-child:hover {
+        transform: translateX(3px);
+    }
+    
+    .sidebar-sticky {
+        position: sticky;
+        top: 20px;
+    }
+    
+    .categories a {
+        color: #555;
+        padding: 6px 0;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .categories a:hover {
+        color: rgb(5, 201, 254);
+        padding-left: 5px;
+    }
+    
+    .categories a:last-child {
+        border-bottom: none;
+    }
+    
+    /* Mobile optimization */
+    @media (max-width: 992px) {
+        .sidebar-sticky {
+            position: static;
+            margin-top: 2rem;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .blog-detail-container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        .blog-detail-header h1 {
+            font-size: 1.6rem;
+        }
+        
+        .blog-hero-image img {
+            height: 250px;
+        }
+        
+        .blog-content h2 {
+            font-size: 1.3rem;
+        }
+        
+        .blog-content p {
+            font-size: 0.95rem;
+        }
+        
+        .share-btn {
+            min-width: 70px;
+            padding: 6px 10px;
+            font-size: 0.85rem;
+        }
+        
+        .feature-card {
+            margin-bottom: 1rem;
+        }
+        
+        .nav-card {
+            padding: 1rem !important;
+        }
+        
+        .yume-social-icon {
+            width: 45px;
+            height: 45px;
+            font-size: 1.1rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .blog-detail-header h1 {
+            font-size: 1.4rem;
+        }
+        
+        .blog-hero-image img {
+            height: 200px;
+        }
+        
+        .blog-content h2 {
+            font-size: 1.2rem;
+        }
+        
+        .share-buttons {
+            flex-direction: column;
+        }
+        
+        .share-btn {
+            width: 100%;
+        }
+        
+        .stat-card h4 {
+            font-size: 1.1rem;
+        }
+        
+        .yume-social-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+        
+        .yume-social-icons {
+            justify-content: center;
+            gap: 15px;
+        }
+    }
+</style>
+
+<!-- Add Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<script>
+    // Share functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const blogTitle = document.querySelector('.blog-detail-header h1').textContent;
+        const blogUrl = window.location.href;
+        
+        // Update share URLs with current page info
+        const shareButtons = document.querySelectorAll('.share-btn');
+        
+        shareButtons.forEach(button => {
+            if (button.href.includes('facebook.com')) {
+                button.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(blogUrl)}`;
+            } else if (button.href.includes('twitter.com')) {
+                button.href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUrl)}&text=${encodeURIComponent(blogTitle + ' - Yume Learning')}`;
+            } else if (button.href.includes('linkedin.com')) {
+                button.href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(blogUrl)}&title=${encodeURIComponent(blogTitle)}&source=YumeLearning`;
+            }
+        });
+    });
+</script>
+
+
+{% endblock %}

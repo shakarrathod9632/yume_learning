@@ -1,0 +1,589 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+
+
+
+
+
+
+
+
+<!-- Python Blog Detail Page -->
+<div class="container blog-detail-container py-4 py-lg-5">
+    <!-- Blog Header -->
+    <div class="blog-detail-header mb-4">
+        <div class="d-flex align-items-center mb-3">
+            <a href="{% url 'blog' %}" class="back-to-blog text-decoration-none d-flex align-items-center">
+                <i class="bi bi-arrow-left me-2"></i> Back to Blogs
+            </a>
+        </div>
+        
+        <div class="blog-category-date mb-3">
+            <span class="badge px-3 py-2 mb-2" style="background-color: rgb(5, 201, 254);">PYTHON</span>
+            <span class="text-muted ms-3"><i class="bi bi-calendar me-1"></i> Jan 10, 2024</span>
+            <span class="text-muted ms-3"><i class="bi bi-clock me-1"></i> 8 min read</span>
+        </div>
+        
+        <h1 class="fw-bold mb-3">Python Development: From Scripting to Web Applications</h1>
+        
+        <div class="blog-author d-flex align-items-center">
+            <div class="author-avatar me-3">
+                <div style="width: 50px; height: 50px; background-color: rgb(5, 201, 254); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">YL</div>
+            </div>
+            <div>
+                <p class="mb-1 fw-bold">Yume Learning Team</p>
+                <p class="text-muted small mb-0">Python & Development Experts</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Hero Image -->
+    <div class="blog-hero-image mb-4">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&h=400&q=80" 
+             class="img-fluid rounded" alt="Python Development">
+    </div>
+
+    <!-- Blog Content -->
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Main Content -->
+            <div class="blog-content">
+                <div class="content-section mb-4">
+                    <h2 class="h3 fw-bold mb-3">Why Python Dominates Modern Development</h2>
+                    <p>Python has emerged as the most versatile programming language, powering everything from simple scripts to complex machine learning models. Its simplicity and extensive libraries make it ideal for beginners and professionals alike.</p>
+                    <p>At Yume Learning, our Python Development course focuses on practical, hands-on training. We help you master Python for real-world applications that drive career growth.</p>
+                </div>
+
+                <div class="content-section mb-4">
+                    <h2 class="h3 fw-bold mb-3">Core Python Skills to Master</h2>
+                    
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <div class="feature-card p-3 h-100 border rounded">
+                                <h3 class="h5 fw-bold mb-2"><i class="bi bi-code-slash me-2" style="color: rgb(5, 201, 254);"></i> Programming Fundamentals</h3>
+                                <p class="small mb-0">Master variables, data types, loops, functions, and object-oriented programming concepts.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-card p-3 h-100 border rounded">
+                                <h3 class="h5 fw-bold mb-2"><i class="bi bi-bar-chart me-2" style="color: rgb(5, 201, 254);"></i> Data Analysis</h3>
+                                <p class="small mb-0">Work with Pandas, NumPy for data manipulation and analysis of large datasets.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="feature-card p-3 h-100 border rounded">
+                                <h3 class="h5 fw-bold mb-2"><i class="bi bi-cpu me-2" style="color: rgb(5, 201, 254);"></i> Machine Learning</h3>
+                                <p class="small mb-0">Learn Scikit-learn, TensorFlow for building and deploying ML models.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-card p-3 h-100 border rounded">
+                                <h3 class="h5 fw-bold mb-2"><i class="bi bi-globe me-2" style="color: rgb(5, 201, 254);"></i> Web Development</h3>
+                                <p class="small mb-0">Build web applications using Django and Flask frameworks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section mb-4">
+                    <h2 class="h3 fw-bold mb-3">Python in Real-World Applications</h2>
+                    <p>Python's versatility makes it valuable across industries. Key applications include:</p>
+                    
+                    <ul class="application-list ps-3">
+                        <li class="mb-2"><strong>Data Science:</strong> Analyze data, build predictive models, and generate insights</li>
+                        <li class="mb-2"><strong>Web Development:</strong> Create scalable web applications and APIs</li>
+                        <li class="mb-2"><strong>Automation:</strong> Automate repetitive tasks and workflows</li>
+                        <li class="mb-2"><strong>AI/ML:</strong> Develop intelligent systems and algorithms</li>
+                        <li><strong>Finance:</strong> Build trading algorithms and financial models</li>
+                    </ul>
+                </div>
+
+                <div class="content-section mb-4">
+                    <h2 class="h3 fw-bold mb-3">Career Growth with Python</h2>
+                    <p>Python skills are among the most sought-after in tech. Industry data reveals:</p>
+                    
+                    <div class="row g-3 text-center mb-3">
+                        <div class="col-6 col-md-4">
+                            <div class="stat-card p-2 border rounded">
+                                <h4 class="fw-bold mb-1" style="color: rgb(5, 201, 254);">#1</h4>
+                                <p class="small mb-0">Most popular language</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="stat-card p-2 border rounded">
+                                <h4 class="fw-bold mb-1" style="color: rgb(5, 201, 254);">₹10-20L</h4>
+                                <p class="small mb-0">Average Python salary</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="stat-card p-2 border rounded">
+                                <h4 class="fw-bold mb-1" style="color: rgb(5, 201, 254);">45%</h4>
+                                <p class="small mb-0">Job growth expected</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>Our Python Development course provides comprehensive, project-based learning. You'll build real applications that showcase your skills to employers.</p>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="cta-section p-3 rounded text-center mb-4" style="background-color: rgb(5, 201, 254); color: white;">
+                    <h3 class="fw-bold mb-2">Start Your Python Journey</h3>
+                    <p class="mb-3">Join our Python Development course and build in-demand skills.</p>
+                    <a href="/courses/python-development" class="btn btn-light px-3 py-2 fw-bold" style="color: rgb(5, 201, 254);">
+                        Explore Course <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Social Share -->
+            <div class="share-section border-top border-bottom py-3 mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <h5 class="fw-bold mb-2">Share this article</h5>
+                        <p class="small text-muted mb-0">Help others discover this valuable content</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="share-buttons d-flex flex-wrap gap-2">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" 
+                               target="_blank" 
+                               class="share-btn facebook d-flex align-items-center justify-content-center">
+                                <i class="fab fa-facebook-f me-2"></i> Share
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text=Python Development: From Scripting to Web Applications - Yume Learning" 
+                               target="_blank" 
+                               class="share-btn twitter d-flex align-items-center justify-content-center">
+                                <i class="fab fa-twitter me-2"></i> Tweet
+                            </a>
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title=Python Development: From Scripting to Web Applications" 
+                               target="_blank" 
+                               class="share-btn linkedin d-flex align-items-center justify-content-center">
+                                <i class="fab fa-linkedin-in me-2"></i> Post
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Navigation -->
+            <div class="blog-navigation mb-4">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <a href="{% url 'sql_blog' %}" class="nav-card d-flex align-items-center p-3 border rounded text-decoration-none">
+                            <i class="bi bi-arrow-left me-3 fs-4" style="color: rgb(5, 201, 254);"></i>
+                            <div>
+                                <span class="text-muted small d-block">Previous</span>
+                                <span class="fw-bold">SQL for Data Analysis</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="{% url 'data_visualization_blog' %}" class="nav-card d-flex align-items-center p-3 border rounded text-decoration-none">
+                            <div class="flex-grow-1 text-end me-3">
+                                <span class="text-muted small d-block">Next</span>
+                                <span class="fw-bold">Data Visualization</span>
+                            </div>
+                            <i class="bi bi-arrow-right fs-4" style="color: rgb(5, 201, 254);"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <div class="sidebar-sticky">
+                <!-- Follow Yume -->
+                <div class="sidebar-section mb-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-3">
+                            <h5 class="fw-bold mb-3">Follow Yume Learning</h5>
+                            <div class="yume-social-icons d-flex flex-wrap gap-3 mb-3">
+                                <a href="https://www.instagram.com/yumelearning/" target="_blank" class="yume-social-icon instagram" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.facebook.com/yumelearning" target="_blank" class="yume-social-icon facebook" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/company/antsskillvarsity/" target="_blank" class="yume-social-icon linkedin" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                            <p class="small text-muted mb-0">Stay updated with courses and career tips</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Courses -->
+                <div class="sidebar-section mb-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-3">
+                            <h5 class="fw-bold mb-3">Related Courses</h5>
+                            <div class="related-course mb-3">
+                                <h6 class="fw-bold mb-1">Python Development</h6>
+                                <p class="small text-muted mb-2">Comprehensive Python programming</p>
+                                <a href="/courses/python-development" class="small fw-bold" style="color: rgb(5, 201, 254);">View Course →</a>
+                            </div>
+                            <div class="related-course mb-3">
+                                <h6 class="fw-bold mb-1">Data Science with Python</h6>
+                                <p class="small text-muted mb-2">Advanced analytics and ML</p>
+                                <a href="/courses/data-science-python" class="small fw-bold" style="color: rgb(5, 201, 254);">View Course →</a>
+                            </div>
+                            <div class="related-course">
+                                <h6 class="fw-bold mb-1">Web Development with Django</h6>
+                                <p class="small text-muted mb-2">Build web applications</p>
+                                <a href="/courses/django-development" class="small fw-bold" style="color: rgb(5, 201, 254);">View Course →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Categories -->
+                <div class="sidebar-section">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-3">
+                            <h5 class="fw-bold mb-3">Blog Categories</h5>
+                            <div class="categories">
+                                <a href="#" class="d-block mb-2 text-decoration-none">
+                                    <span class="badge bg-light text-dark me-2">6</span> Excel
+                                </a>
+                                <a href="#" class="d-block mb-2 text-decoration-none">
+                                    <span class="badge bg-light text-dark me-2">8</span> SQL
+                                </a>
+                                <a href="#" class="d-block mb-2 text-decoration-none">
+                                    <span class="badge bg-light text-dark me-2">9</span> Python
+                                </a>
+                                <a href="#" class="d-block mb-2 text-decoration-none">
+                                    <span class="badge bg-light text-dark me-2">5</span> Data Science
+                                </a>
+                                <a href="#" class="d-block mb-2 text-decoration-none">
+                                    <span class="badge bg-light text-dark me-2">4</span> Web Development
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .blog-detail-container {
+        max-width: 1200px;
+    }
+    
+    .back-to-blog {
+        color: rgb(5, 201, 254);
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .back-to-blog:hover {
+        color: rgb(4, 180, 230);
+        transform: translateX(-5px);
+    }
+    
+    .blog-detail-header h1 {
+        font-size: 2rem;
+        line-height: 1.3;
+        color: #1a365d;
+    }
+    
+    .blog-hero-image img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    
+    .blog-content h2 {
+        font-size: 1.5rem;
+        color: #2c3e50;
+        margin-top: 1.5rem;
+    }
+    
+    .blog-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 1rem;
+    }
+    
+    .feature-card {
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-3px);
+        border-color: rgb(5, 201, 254) !important;
+        box-shadow: 0 5px 15px rgba(5, 201, 254, 0.1);
+    }
+    
+    .application-list {
+        list-style: none;
+        padding-left: 0;
+    }
+    
+    .application-list li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #555;
+    }
+    
+    .application-list li:before {
+        content: "•";
+        color: rgb(5, 201, 254);
+        font-size: 1.2rem;
+        position: absolute;
+        left: 0;
+        top: -2px;
+    }
+    
+    .stat-card {
+        border: 1px solid rgba(5, 201, 254, 0.2);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        border-color: rgb(5, 201, 254);
+    }
+    
+    .share-section {
+        background-color: #f8f9fa;
+        border-color: #e9ecef !important;
+    }
+    
+    .share-buttons {
+        display: flex;
+        gap: 8px;
+    }
+    
+    .share-btn {
+        padding: 8px 12px;
+        border-radius: 6px;
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        flex: 1;
+        min-width: 80px;
+        text-align: center;
+    }
+    
+    .share-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .share-btn.facebook { background-color: #1877f2; }
+    .share-btn.twitter { background-color: #1da1f2; }
+    .share-btn.linkedin { background-color: #0077b5; }
+    
+    .yume-social-icons {
+        display: flex;
+        gap: 12px;
+    }
+    
+    .yume-social-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1.2rem;
+    }
+    
+    .yume-social-icon.instagram {
+        background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    }
+    
+    .yume-social-icon.facebook {
+        background-color: #1877f2;
+    }
+    
+    .yume-social-icon.linkedin {
+        background-color: #0077b5;
+    }
+    
+    .yume-social-icon:hover {
+        transform: translateY(-3px) scale(1.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .nav-card {
+        transition: all 0.3s ease;
+        color: #333;
+    }
+    
+    .nav-card:hover {
+        border-color: rgb(5, 201, 254) !important;
+        color: rgb(5, 201, 254);
+        transform: translateX(-3px);
+    }
+    
+    .nav-card:last-child:hover {
+        transform: translateX(3px);
+    }
+    
+    .sidebar-sticky {
+        position: sticky;
+        top: 20px;
+    }
+    
+    .categories a {
+        color: #555;
+        padding: 6px 0;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .categories a:hover {
+        color: rgb(5, 201, 254);
+        padding-left: 5px;
+    }
+    
+    .categories a:last-child {
+        border-bottom: none;
+    }
+    
+    /* Mobile optimization */
+    @media (max-width: 992px) {
+        .sidebar-sticky {
+            position: static;
+            margin-top: 2rem;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .blog-detail-container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        .blog-detail-header h1 {
+            font-size: 1.6rem;
+        }
+        
+        .blog-hero-image img {
+            height: 250px;
+        }
+        
+        .blog-content h2 {
+            font-size: 1.3rem;
+        }
+        
+        .blog-content p {
+            font-size: 0.95rem;
+        }
+        
+        .share-btn {
+            min-width: 70px;
+            padding: 6px 10px;
+            font-size: 0.85rem;
+        }
+        
+        .feature-card {
+            margin-bottom: 1rem;
+        }
+        
+        .nav-card {
+            padding: 1rem !important;
+        }
+        
+        .yume-social-icon {
+            width: 45px;
+            height: 45px;
+            font-size: 1.1rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .blog-detail-header h1 {
+            font-size: 1.4rem;
+        }
+        
+        .blog-hero-image img {
+            height: 200px;
+        }
+        
+        .blog-content h2 {
+            font-size: 1.2rem;
+        }
+        
+        .share-buttons {
+            flex-direction: column;
+        }
+        
+        .share-btn {
+            width: 100%;
+        }
+        
+        .stat-card h4 {
+            font-size: 1.1rem;
+        }
+        
+        .yume-social-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+        
+        .yume-social-icons {
+            justify-content: center;
+            gap: 15px;
+        }
+    }
+</style>
+
+<!-- Add Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<script>
+    // Share functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const blogTitle = document.querySelector('.blog-detail-header h1').textContent;
+        const blogUrl = window.location.href;
+        
+        // Update share URLs with current page info
+        const shareButtons = document.querySelectorAll('.share-btn');
+        
+        shareButtons.forEach(button => {
+            if (button.href.includes('facebook.com')) {
+                button.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(blogUrl)}`;
+            } else if (button.href.includes('twitter.com')) {
+                button.href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUrl)}&text=${encodeURIComponent(blogTitle + ' - Yume Learning')}`;
+            } else if (button.href.includes('linkedin.com')) {
+                button.href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(blogUrl)}&title=${encodeURIComponent(blogTitle)}&source=YumeLearning`;
+            }
+        });
+        
+        // Social media follow buttons
+        const socialButtons = document.querySelectorAll('.yume-social-icon');
+        socialButtons.forEach(button => {
+            // These already have hardcoded URLs in HTML
+            button.addEventListener('click', function(e) {
+                console.log('Redirecting to Yume Learning social media');
+            });
+        });
+    });
+</script>
+
+
+
+
+{% endblock %}
