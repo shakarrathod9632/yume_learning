@@ -2,18 +2,18 @@
 {% block content %}
 {% load static %}
 
-<!-- Enrollment Form Section -->
-<section class="enroll-section">
+<!-- Enquire Form Section -->
+<section class="enquire-section">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-xxl-8 col-xl-9 col-lg-10">
-        <div class="enroll-form-card">
+        <div class="enquire-form-card">
           <div class="form-header">
-            <h2>Course Enrollment</h2>
+            <h2>Enquire Now</h2>
           </div>
           
-          <!-- Enrollment Form -->
-          <form id="enrollForm" method="POST">
+          <!-- Enquiry Form -->
+          <form id="enquiryForm" method="POST">
             {% csrf_token %}
             
             <div class="form-grid">
@@ -41,54 +41,16 @@
                 </div>
               </div>
               
-              <!-- Education -->
+              <!-- Message -->
               <div class="form-group full-width">
-                <select class="form-control" id="education" name="education" required>
-                  <option value="" disabled selected>Select your highest education</option>
-                  <option value="10th">10th Grade</option>
-                  <option value="12th">12th Grade</option>
-                  <option value="diploma">Diploma</option>
-                  <option value="bsc_cs">B.Sc Computer Science</option>
-                  <option value="bsc_it">B.Sc IT</option>
-                  <option value="bca">BCA</option>
-                  <option value="bcom">B.Com</option>
-                  <option value="btech">B.Tech</option>
-                  <option value="post_graduate">Post Graduate</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              
-              <!-- Course Selection -->
-              <div class="form-group full-width">
-                <select class="form-control" id="course" name="course" required>
-                  <option value="" disabled selected>Choose a course</option>
-                  <option value="Excel for Data Analysis">Excel for Data Analysis</option>
-                  <option value="SQL for Data Analysis">SQL for Data Analysis</option>
-                  <option value="Python Development">Python Development</option>
-                  <option value="Data Visualization">Data Visualization</option>
-                  <option value="Azure Fundamentals">Azure Fundamentals</option>
-                  <option value="Azure AI Fundamentals">Azure AI Fundamentals</option>
-                  <option value="Power Platform">Power Platform</option>
-                  <option value="Security & Compliance">Security & Compliance</option>
-                  <option value="Professional Development">Professional Development</option>
-                </select>
-              </div>
-              
-              <!-- Terms and Conditions -->
-              <div class="form-group terms-group">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
-                  <label class="form-check-label" for="terms">
-                    I agree to the <a href="/terms" target="_blank">Terms & Conditions</a> 
-                    and <a href="/privacy" target="_blank">Privacy Policy</a> of YuMe Learning
-                  </label>
-                </div>
+                <textarea class="form-control" id="message" name="message" 
+                          placeholder="Your message or enquiry" rows="4" required></textarea>
               </div>
               
               <!-- Submit Button -->
               <div class="submit-section">
                 <button type="submit" class="submit-btn">
-                  Enroll Now
+                  Submit Enquiry
                 </button>
               </div>
             </div>
@@ -101,7 +63,7 @@
 
 <style>
   /* Form Section Styles */
-  .enroll-section {
+  .enquire-section {
     padding: 40px 10px;
     background-color: white;
     min-height: 85vh;
@@ -109,10 +71,10 @@
     align-items: center;
   }
 
-  .enroll-form-card {
+  .enquire-form-card {
     background: white;
     border-radius: 20px;
-    padding: 30px;
+    padding:30px;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
     border: 1px solid #e2e8f0;
     max-width: 1000px;
@@ -130,6 +92,14 @@
     color: #1a202c;
     margin-bottom: 10px;
     line-height: 1;
+  }
+
+  .form-header p {
+    color: #718096;
+    font-size: 14px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.2;
   }
 
   /* Form Layout */
@@ -154,7 +124,7 @@
     grid-column: span 2;
   }
 
-  /* Form Inputs */
+  /* Form Inputs - Darker Placeholders & Increased Width */
   .form-control {
     padding: 10px 20px;
     font-size: 15px;
@@ -168,18 +138,16 @@
     min-height: 56px;
   }
 
-  select.form-control {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 20px center;
-    background-size: 16px;
-    padding-right: 50px;
+  textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.2;
+    padding-top: 15px;
   }
 
   /* Darker Placeholder Text */
   .form-control::placeholder {
-    color: #64748b;
+    color: #64748b; /* Darker gray for better visibility */
     opacity: 0.9;
     font-weight: 400;
     font-size: 16px;
@@ -190,54 +158,6 @@
     box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
     outline: none;
     transform: translateY(-1px);
-  }
-
-  /* Terms and Conditions */
-  .terms-group {
-    background-color: #f8fafc;
-    padding: 15px 20px;
-    border-radius: 12px;
-    margin-top: 5px;
-  }
-
-  .form-check {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .form-check-input {
-    width: 18px;
-    height: 18px;
-    margin-top: 0;
-    border: 2px solid #e2e8f0;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .form-check-input:checked {
-    background-color: #2563eb;
-    border-color: #2563eb;
-  }
-
-  .form-check-input:focus {
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
-  }
-
-  .form-check-label {
-    font-size: 14px;
-    color: #475569;
-    line-height: 1.4;
-  }
-
-  .form-check-label a {
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .form-check-label a:hover {
-    text-decoration: underline;
   }
 
   /* Submit Button */
@@ -272,19 +192,56 @@
   }
 
   /* Responsive Design */
-  @media (max-width: 768px) {
-    .enroll-section {
-      padding: 30px 15px;
+  @media (max-width: 1200px) {
+    .enquire-form-card {
+      padding: 45px;
+    }
+    
+    .form-header h2 {
+      font-size: 34px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .enquire-form-card {
+      padding: 40px;
+      border-radius: 18px;
     }
 
-    .enroll-form-card {
-      padding: 25px;
+    .form-header h2 {
+      font-size: 32px;
+    }
+    
+    .form-header p {
+      font-size: 16px;
+    }
+    
+    .form-control {
+      padding: 15px 18px;
+      font-size: 16px;
+      min-height: 54px;
+    }
+    
+    .form-control::placeholder {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .enquire-section {
+      padding: 40px 15px;
+      min-height: 80vh;
+    }
+
+    .enquire-form-card {
+      padding: 35px;
       border-radius: 16px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
     }
 
     .form-row {
       grid-template-columns: 1fr;
-      gap: 18px;
+      gap: 22px;
     }
 
     .full-width {
@@ -292,64 +249,117 @@
     }
 
     .form-header h2 {
-      font-size: 26px;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .form-header p {
+      font-size: 16px;
+    }
+
+    .form-grid {
+      gap: 22px;
     }
 
     .form-control {
-      padding: 12px 16px;
-      font-size: 15px;
+      padding: 14px 16px;
+      font-size: 16px;
+      border-radius: 10px;
       min-height: 52px;
+    }
+
+    textarea.form-control {
+      min-height: 130px;
     }
 
     .form-control::placeholder {
       font-size: 15px;
     }
 
-    .terms-group {
-      padding: 12px 16px;
-    }
-
-    .form-check-label {
-      font-size: 13.5px;
-    }
-
     .submit-btn {
-      padding: 14px 20px;
-      font-size: 16px;
+      padding: 16px 30px;
+      font-size: 17px;
       max-width: 100%;
+      border-radius: 10px;
     }
   }
 
-  @media (max-width: 480px) {
-    .enroll-section {
-      padding: 20px 10px;
+  @media (max-width: 576px) {
+    .enquire-section {
+      padding: 30px 12px;
     }
 
-    .enroll-form-card {
-      padding: 20px;
+    .enquire-form-card {
+      padding: 28px;
       border-radius: 14px;
+    }
+
+    .form-header h2 {
+      font-size: 26px;
+    }
+
+    .form-header p {
+      font-size: 15px;
+    }
+
+    .form-grid {
+      gap: 20px;
+    }
+
+    .form-row {
+      gap: 20px;
+    }
+
+    .form-control {
+      padding: 13px 15px;
+      font-size: 15px;
+      min-height: 50px;
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+    }
+
+    .form-control::placeholder {
+      font-size: 14.5px;
+    }
+
+    .submit-btn {
+      padding: 15px 25px;
+      font-size: 16px;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  @media (max-width: 400px) {
+    .enquire-form-card {
+      padding: 24px 20px;
+      border-radius: 12px;
     }
 
     .form-header h2 {
       font-size: 24px;
     }
 
-    .form-grid {
-      gap: 18px;
+    .form-header p {
+      font-size: 14.5px;
     }
 
     .form-control {
-      padding: 11px 15px;
-      font-size: 14.5px;
-      min-height: 50px;
+      padding: 12px 14px;
+      font-size: 15px;
+      min-height: 48px;
     }
 
     .form-control::placeholder {
-      font-size: 14.5px;
+      font-size: 14px;
     }
 
     .submit-btn {
-      padding: 13px 18px;
+      padding: 14px 20px;
       font-size: 15.5px;
     }
   }
@@ -357,10 +367,10 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('enrollForm');
+    const form = document.getElementById('enquiryForm');
     const mobileInput = document.getElementById('mobile');
 
-    // Mobile number validation
+    // Mobile number validation - only numbers, max 10 digits
     mobileInput.addEventListener('input', function(e) {
       let value = this.value.replace(/\D/g, '');
       if (value.length > 10) {
@@ -368,7 +378,7 @@
       }
       this.value = value;
       
-      // Visual feedback
+      // Add visual feedback
       if (value.length === 10) {
         this.classList.remove('invalid');
         this.classList.add('valid');
@@ -389,58 +399,57 @@
       const lastName = document.getElementById('lastName').value.trim();
       const email = document.getElementById('email').value.trim();
       const mobile = document.getElementById('mobile').value.trim();
-      const education = document.getElementById('education').value;
-      const course = document.getElementById('course').value;
-      const terms = document.getElementById('terms').checked;
+      const message = document.getElementById('message').value.trim();
 
       let isValid = true;
 
-      // Reset validation states
-      const inputs = form.querySelectorAll('.form-control, .form-check-input');
+      // Reset all validation states
+      const inputs = form.querySelectorAll('.form-control');
       inputs.forEach(input => {
         input.classList.remove('invalid');
       });
 
-      // Validate fields
+      // Validate First Name
       if (!firstName) {
         document.getElementById('firstName').classList.add('invalid');
         isValid = false;
       }
 
+      // Validate Last Name
       if (!lastName) {
         document.getElementById('lastName').classList.add('invalid');
         isValid = false;
       }
 
-      if (!email || !validateEmail(email)) {
+      // Validate Email
+      if (!email) {
+        document.getElementById('email').classList.add('invalid');
+        isValid = false;
+      } else if (!validateEmail(email)) {
         document.getElementById('email').classList.add('invalid');
         isValid = false;
       }
 
+      // Validate Mobile
       if (!mobile || mobile.length !== 10) {
         document.getElementById('mobile').classList.add('invalid');
         isValid = false;
       }
 
-      if (!education) {
-        document.getElementById('education').classList.add('invalid');
-        isValid = false;
-      }
-
-      if (!course) {
-        document.getElementById('course').classList.add('invalid');
-        isValid = false;
-      }
-
-      if (!terms) {
-        document.getElementById('terms').classList.add('invalid');
+      // Validate Message
+      if (!message) {
+        document.getElementById('message').classList.add('invalid');
         isValid = false;
       }
 
       if (!isValid) {
+        // Scroll to first invalid field
         const firstInvalid = form.querySelector('.invalid');
         if (firstInvalid) {
-          firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          firstInvalid.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
           firstInvalid.focus();
         }
         return;
@@ -452,22 +461,20 @@
         last_name: lastName,
         email: email,
         mobile: mobile,
-        education: education,
-        course: course,
-        terms: terms
+        message: message
       };
 
-      console.log('Enrollment Data:', formData);
+      console.log('Enquiry Form Data:', formData);
       
       // Show loading state
       const submitBtn = form.querySelector('.submit-btn');
       const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Processing...';
+      submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
       
-      // Simulate form submission
+      // Simulate form submission (replace with actual Django backend call)
       setTimeout(() => {
-        alert('Thank you for enrolling! We will contact you shortly.');
+        alert('Thank you for your enquiry! We will contact you shortly.');
         
         // Reset form
         form.reset();
@@ -483,7 +490,7 @@
       }, 1500);
     });
 
-    // Email validation
+    // Email validation function
     function validateEmail(email) {
       const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return re.test(email);
@@ -508,10 +515,6 @@
       
       .valid:focus {
         box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15) !important;
-      }
-      
-      .form-check-input.invalid {
-        border-color: #ef4444 !important;
       }
     `;
     document.head.appendChild(style);

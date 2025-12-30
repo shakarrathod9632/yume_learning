@@ -43,4 +43,6 @@ urlpatterns = [
     path("terms_and_conditions/", views.terms_and_conditions, name="terms_and_conditions"),
     
     path("enrollment_form/", views.enrollment_form, name="enrollment_form"),
+    
+    path("enquire_now/", views.enquire_now, name="enquire_now"),
 ]

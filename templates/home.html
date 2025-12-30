@@ -252,64 +252,64 @@
 
 {% comment %} ABOUT US SECTION — UPDATED FOR YUME LEARNING {% endcomment %}
 
-<section class="about-us">
-  <div class="about-container">
+  <section class="about-us">
+    <div class="about-container">
 
-     <!-- IMAGE RIGHT -->
-    <div class="about-image" data-aos="fade-left" data-aos-duration="1000">
-      <img src="{% static 'images/logo.png' %}" alt="YuMe Learning" />
+      <!-- IMAGE RIGHT -->
+      <div class="about-image" data-aos="fade-left" data-aos-duration="1000">
+        <img src="{% static 'images/logo.png' %}" alt="YuMe Learning" />
+      </div>
+
+      <!-- CONTENT LEFT -->
+      <div class="about-content" data-aos="fade-right" data-aos-duration="1000">
+        <h2>About YuMe Learning</h2>
+
+        <!-- Desktop Text -->
+        <p class="desktop-text">
+          <strong>Your YuMe, Your Dream.</strong><br><br>
+          At YuMe Learning, we help young graduates take the next big step —
+          transforming classroom theory into industry-ready skills.  
+          “YuMe” comes from the Japanese word for <strong>dream</strong> — and our mission
+          is simple: turning aspirations into powerful career journeys.
+        </p>
+
+        <p class="desktop-text">
+          We focus on practical, real-world training in fast-growing technologies
+          that open the door to high-demand jobs. Since our beginning, we’ve trained
+          and placed <strong>over 300,000 students across 12 Indian states</strong> — with programs
+          built around outcomes, not just certificates.
+        </p>
+
+        {% comment %} <p class="desktop-text">
+          Our leadership team includes IIM alumni and industry veterans with decades of
+          experience in education, corporate strategy, government skilling,
+          and large-scale talent development.  
+          At YuMe, we don’t just run courses —  
+          <strong>we help you build your edge, land your first job, and start your real journey.</strong>
+        </p> {% endcomment %}
+
+        <!-- Mobile Text -->
+        <p class="mobile-text">
+          <strong>Your YuMe, Your Dream.</strong>  
+          YuMe Learning helps students move from theory to industry-ready skills.  
+          We prepare graduates with practical training in high-growth technologies.
+        </p>
+
+        <p class="mobile-text">
+          With <strong>300,000+ students trained</strong> across 12 states, we focus on outcomes
+          and real-world skills — not just certificates.  
+          Our expert leadership team brings decades of industry and education experience.
+        </p>
+
+        <a href="{% url 'about' %}">
+          <button class="readmore-button">Read More</button>
+        </a>
+      </div>
+
+    
+
     </div>
-
-    <!-- CONTENT LEFT -->
-    <div class="about-content" data-aos="fade-right" data-aos-duration="1000">
-      <h2>About YuMe Learning</h2>
-
-      <!-- Desktop Text -->
-      <p class="desktop-text">
-        <strong>Your YuMe, Your Dream.</strong><br><br>
-        At YuMe Learning, we help young graduates take the next big step —
-        transforming classroom theory into industry-ready skills.  
-        “YuMe” comes from the Japanese word for <strong>dream</strong> — and our mission
-        is simple: turning aspirations into powerful career journeys.
-      </p>
-
-      <p class="desktop-text">
-        We focus on practical, real-world training in fast-growing technologies
-        that open the door to high-demand jobs. Since our beginning, we’ve trained
-        and placed <strong>over 300,000 students across 12 Indian states</strong> — with programs
-        built around outcomes, not just certificates.
-      </p>
-
-      {% comment %} <p class="desktop-text">
-        Our leadership team includes IIM alumni and industry veterans with decades of
-        experience in education, corporate strategy, government skilling,
-        and large-scale talent development.  
-        At YuMe, we don’t just run courses —  
-        <strong>we help you build your edge, land your first job, and start your real journey.</strong>
-      </p> {% endcomment %}
-
-      <!-- Mobile Text -->
-      <p class="mobile-text">
-        <strong>Your YuMe, Your Dream.</strong>  
-        YuMe Learning helps students move from theory to industry-ready skills.  
-        We prepare graduates with practical training in high-growth technologies.
-      </p>
-
-      <p class="mobile-text">
-        With <strong>300,000+ students trained</strong> across 12 states, we focus on outcomes
-        and real-world skills — not just certificates.  
-        Our expert leadership team brings decades of industry and education experience.
-      </p>
-
-      <a href="{% url 'about' %}">
-        <button class="readmore-button">Read More</button>
-      </a>
-    </div>
-
-   
-
-  </div>
-</section>
+  </section>
 
 <style>
     .about-us {
@@ -433,8 +433,8 @@
 
 
 {% comment %} ⭐ Premium Course Section — YuMe Learning {% endcomment %}
-<div class="career-section" id="careerSectionNew">
-  <h2 class="career-title" data-aos="fade-up">
+<div class="career-section" id="careerSectionNew" data-aos="fade-up">
+  <h2 class="career-title" data-aos="fade-up" data-aos-delay="100">
     Empower Your Career With Industry-Ready Skills
   </h2>
 
@@ -1085,11 +1085,15 @@
 
 
 
-<section class="yume-projects-depth-v3">
+<section class="yume-projects-depth-v3" data-aos="fade-up">
 
       <div class="projects-header">
-        <h2>Impactful Projects Delivered</h2>
-        <p>Real-world projects crafted with quality, precision, and trusted execution.</p>
+        <h2 data-aos="fade-up" data-aos-delay="100">
+          Impactful Projects Delivered
+        </h2>
+        <p data-aos="fade-up" data-aos-delay="200">
+          Real-world projects crafted with quality, precision, and trusted execution.
+        </p>
       </div>
 
       <div class="carousel-wrap" id="yumeCarousel">
@@ -1110,9 +1114,11 @@
         <!-- Removed arrow buttons -->
       </div>
 
-      <div class="carousel-controls">
+      <div class="carousel-controls" data-aos="fade-up" data-aos-delay="800">
         <div class="dots" id="yumeDotsContainer"></div>
-        <button class="btn-know-more" onclick="location.href='/projects/'">More Projects</button>
+        <button class="btn-know-more" onclick="location.href='/projects/'">
+          More Projects
+        </button>
       </div>
 
 </section>
@@ -1718,199 +1724,219 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 <style>
-  /* SECTION BACKGROUND (professional navy → blue) */
-  .company-section {
-    padding: 36px 0;
-    background: linear-gradient(90deg, #cf175dff 0%, #6e0505 60%, #da4242ff 100%);
-    text-align: center;
-    overflow: hidden;
-  }
+    /* SECTION BACKGROUND (professional navy → blue) */
+    .company-section {
+      padding: 36px 0;
+      background: linear-gradient(90deg, #cf175dff 0%, #6e0505 60%, #da4242ff 100%);
+      text-align: center;
+      overflow: hidden;
+    }
 
-  .company-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 20px;
-    letter-spacing: 0.2px;
-  }
+    .company-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+      letter-spacing: 0.2px;
+    }
 
-  /* centered area that contains the swiper */
-  .company-slider-box {
-    width: 100%;
-    max-width: 1200px;    /* tuned so 4 items fit perfectly on desktop */
-    margin: 0 auto;
-    padding: 8px 12px;
-    box-sizing: border-box;
-  }
+    /* centered area that contains the swiper */
+    .company-slider-box {
+      width: 100%;
+      max-width: 1200px;    /* tuned so 4 items fit perfectly on desktop */
+      margin: 0 auto;
+      padding: 8px 12px;
+      box-sizing: border-box;
+    }
 
-  /* Swiper container */
-  .companySwiper {
-    width: 100%;
-    height: 140px;
-    padding-bottom: 6px;
-  }
+    /* Swiper container */
+    .companySwiper {
+      width: 100%;
+      height: 140px;
+      padding-bottom: 6px;
+    }
 
-  /* Each slide: let Swiper manage width so exactly 4 are shown */
-  .companySwiper .swiper-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    box-sizing: border-box;
-  }
+    /* Each slide: let Swiper manage width so exactly 4 are shown */
+    .companySwiper .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      box-sizing: border-box;
+    }
 
-  /* card visual */
-  .company-card {
-    width: 100%;              /* expand to slide width */
-    max-width: 260px;        /* safety cap */
-    height: 90px;
-    background: #fff;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-    transition: transform 280ms ease, box-shadow 280ms ease;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  }
+    /* card visual */
+    .company-card {
+      width: 100%;              /* expand to slide width */
+      max-width: 260px;        /* safety cap */
+      height: 90px;
+      background: #fff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      transition: transform 280ms ease, box-shadow 280ms ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
 
-  .company-card:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 16px 40px rgba(2, 99, 150, 0.18);
-  }
+    .company-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 16px 40px rgba(2, 99, 150, 0.18);
+    }
 
-  /* logo styling */
-  .company-card img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    display: block;
-  }
+    /* logo styling */
+    .company-card img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      display: block;
+    }
 
-  /* Remove accidental overflow */
-  .company-slider-box, .companySwiper {
-    overflow: hidden;
-  }
-
-
-  @media (max-width: 480px) {
-  .company-slider-box { max-width: 100%; padding: 0 8px; }
-  .company-title { font-size: 1.1rem; }
-
-  /* Adjust card size so 4 items fit nicely on mobile */
-  .company-card { 
-    max-width: 100%;
-    height: 70px;           /* slightly smaller for 4-per-view */
-    padding: 6px;
-  }
-
-  .company-card img {
-    max-height: 70%; 
-  }
-
-  .companySwiper { height: 80px; }
-}
+    /* Remove accidental overflow */
+    .company-slider-box, .companySwiper {
+      overflow: hidden;
+    }
 
 
-
-  /* Responsive breakpoints (matching Swiper breakpoints) */
-  @media (max-width: 1024px) {
-    .company-slider-box { max-width: 980px; }
-    .company-title { font-size: 1.6rem; }
-    .company-card { max-width: 220px; height: 100px; }
-    .companySwiper { height: 120px; }
-  }
-
-  @media (max-width: 768px) {
-    .company-slider-box { max-width: 720px; padding: 0 10px; }
-    .company-title { font-size: 1.4rem; }
-    .company-card { max-width: 200px; height: 96px; }
-    .companySwiper { height: 110px; }
-  }
-
-  @media (max-width: 480px) {
+    @media (max-width: 480px) {
     .company-slider-box { max-width: 100%; padding: 0 8px; }
     .company-title { font-size: 1.1rem; }
-    .company-card { max-width: 160px; height: 62px; }
-    .companySwiper { height: 90px; }
+
+    /* Adjust card size so 4 items fit nicely on mobile */
+    .company-card { 
+      max-width: 100%;
+      height: 70px;           /* slightly smaller for 4-per-view */
+      padding: 6px;
+    }
+
+    .company-card img {
+      max-height: 70%; 
+    }
+
+    .companySwiper { height: 80px; }
   }
+
+
+
+    /* Responsive breakpoints (matching Swiper breakpoints) */
+    @media (max-width: 1024px) {
+      .company-slider-box { max-width: 980px; }
+      .company-title { font-size: 1.6rem; }
+      .company-card { max-width: 220px; height: 100px; }
+      .companySwiper { height: 120px; }
+    }
+
+    @media (max-width: 768px) {
+      .company-slider-box { max-width: 720px; padding: 0 10px; }
+      .company-title { font-size: 1.4rem; }
+      .company-card { max-width: 200px; height: 96px; }
+      .companySwiper { height: 110px; }
+    }
+
+    @media (max-width: 480px) {
+      .company-slider-box { max-width: 100%; padding: 0 8px; }
+      .company-title { font-size: 1.1rem; }
+      .company-card { max-width: 160px; height: 62px; }
+      .companySwiper { height: 90px; }
+    }
 </style>
 
-<section class="company-section">
-  <h2 class="company-title">Our Students have been placed at:</h2>
+<section class="company-section" data-aos="fade-up">
 
-  <div class="company-slider-box">
+  <h2 class="company-title"
+      data-aos="fade-up"
+      data-aos-delay="100">
+    Our Students have been placed at:
+  </h2>
+
+  <div class="company-slider-box"
+       data-aos="zoom-in"
+       data-aos-delay="200"
+       data-aos-duration="1000">
+
     <div class="swiper companySwiper">
       <div class="swiper-wrapper">
 
-        <!-- Slides (use your own images - these are examples) -->
-        <div class="swiper-slide">
+        <!-- Slide 1 -->
+        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="300">
           <div class="company-card">
             <img src="{% static 'images/company/archelos.png' %}" alt="Archelos">
           </div>
         </div>
 
-        <div class="swiper-slide">
+        <!-- Slide 2 -->
+        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="350">
           <div class="company-card">
             <img src="{% static 'images/company/ola.svg' %}" alt="OLA">
           </div>
         </div>
 
-        <div class="swiper-slide">
+        <!-- Slide 3 -->
+        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="400">
           <div class="company-card">
             <img src="{% static 'images/company/bosch.png' %}" alt="Bosch">
           </div>
         </div>
 
-        <div class="swiper-slide">
+        <!-- Slide 4 -->
+        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="450">
           <div class="company-card">
             <img src="{% static 'images/company/capgemini.svg' %}" alt="Capgemini">
           </div>
         </div>
 
-        <div class="swiper-slide">
+        <!-- Slide 5 -->
+        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="500">
           <div class="company-card">
             <img src="{% static 'images/company/cognizant.jpeg' %}" alt="Cognizant">
           </div>
         </div>
 
-        <div class="swiper-slide">
+        <!-- Slide 6 -->
+        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="550">
           <div class="company-card">
             <img src="{% static 'images/company/foxconn.png' %}" alt="Foxconn">
           </div>
         </div>
 
-        <div class="swiper-slide">
+        <!-- Slide 7 -->
+        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="600">
           <div class="company-card">
             <img src="{% static 'images/company/icici.png' %}" alt="ICICI">
           </div>
         </div>
 
-        <div class="swiper-slide">
+        <!-- Slide 8 -->
+        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="650">
           <div class="company-card">
             <img src="{% static 'images/company/infosys.png' %}" alt="Infosys">
           </div>
         </div>
 
-        <div class="swiper-slide">
+        <!-- Slide 9 -->
+        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="700">
           <div class="company-card">
             <img src="{% static 'images/company/wipro.png' %}" alt="Wipro">
           </div>
         </div>
 
-        <div class="swiper-slide">
+        <!-- Slide 10 -->
+        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="750">
           <div class="company-card">
             <img src="{% static 'images/company/Sutherland_Logo.png' %}" alt="Sutherland">
           </div>
         </div>
 
-        <div class="swiper-slide">
+        <!-- Slide 11 -->
+        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="800">
           <div class="company-card">
             <img src="{% static 'images/company/quess.png' %}" alt="Quess">
           </div>
         </div>
 
-        <div class="swiper-slide">
+        <!-- Slide 12 -->
+        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="850">
           <div class="company-card">
             <img src="{% static 'images/company/bigbasket.png' %}" alt="BigBasket">
           </div>
@@ -1919,6 +1945,7 @@
       </div>
     </div>
   </div>
+
 </section>
 
 <!-- Swiper JS -->
@@ -1927,78 +1954,87 @@
 
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const swiper = new Swiper(".companySwiper", {
-    slidesPerView: 4,          // desktop default (unchanged)
-    spaceBetween: 28,
-    loop: true,
-    slidesPerGroup: 1,
-    speed: 700,
-    autoplay: {
-      delay: 2200,
-      disableOnInteraction: false
-    },
+    document.addEventListener("DOMContentLoaded", () => {
+      const swiper = new Swiper(".companySwiper", {
+        slidesPerView: 4,          // desktop default (unchanged)
+        spaceBetween: 28,
+        loop: true,
+        slidesPerGroup: 1,
+        speed: 700,
+        autoplay: {
+          delay: 2200,
+          disableOnInteraction: false
+        },
 
-    breakpoints: {
-      0:    { slidesPerView: 4, spaceBetween: 10 },   // mobile → 4 slides!
-      480:  { slidesPerView: 4, spaceBetween: 12 },   // small tablets → 4
-      768:  { slidesPerView: 3, spaceBetween: 20 },   // tablet unchanged
-      1024: { slidesPerView: 4, spaceBetween: 28 }    // laptop unchanged
-    }
-  });
+        breakpoints: {
+          0:    { slidesPerView: 4, spaceBetween: 10 },   // mobile → 4 slides!
+          480:  { slidesPerView: 4, spaceBetween: 12 },   // small tablets → 4
+          768:  { slidesPerView: 3, spaceBetween: 20 },   // tablet unchanged
+          1024: { slidesPerView: 4, spaceBetween: 28 }    // laptop unchanged
+        }
+      });
 
-  window.addEventListener('resize', () => swiper.update());
-});
+      window.addEventListener('resize', () => swiper.update());
+    });
 </script>
 
 
 
 
 <!-- ================= WHY CHOOSE US / WHY YUME SECTION ================= -->
-<section class="why-choose-us">
+<section class="why-choose-us" data-aos="fade-up">
   <div class="container">
 
-    <h2 class="why-title">Why Choose <span class="highlight">YuMe Learning</span></h2>
-    <p class="why-subtitle">Learn with flexibility, gain real skills, and build your career with confidence.</p>
+    <h2 class="why-title"
+        data-aos="fade-up"
+        data-aos-delay="100">
+      Why Choose <span class="highlight">YuMe Learning</span>
+    </h2>
+
+    <p class="why-subtitle"
+       data-aos="fade-up"
+       data-aos-delay="200">
+      Learn with flexibility, gain real skills, and build your career with confidence.
+    </p>
 
     <div class="why-grid">
 
-      <div class="why-card">
+      <div class="why-card" data-aos="fade-up" data-aos-delay="300">
         <div class="why-card-content">
           <h3>Hybrid Learning</h3>
           <p>Offline • Online • Recorded — learn at your convenience with flexible formats.</p>
         </div>
       </div>
 
-      <div class="why-card">
+      <div class="why-card" data-aos="fade-up" data-aos-delay="350">
         <div class="why-card-content">
           <h3>Industry-Aligned Curriculum</h3>
           <p>Curriculum designed according to current industry demands and real job requirements.</p>
         </div>
       </div>
 
-      <div class="why-card">
+      <div class="why-card" data-aos="fade-up" data-aos-delay="400">
         <div class="why-card-content">
           <h3>Hands-On Projects</h3>
           <p>Apply concepts on real-world datasets and build impactful projects.</p>
         </div>
       </div>
 
-      <div class="why-card">
+      <div class="why-card" data-aos="fade-up" data-aos-delay="450">
         <div class="why-card-content">
           <h3>Placement Support</h3>
           <p>End-to-end guidance, mock interviews, resume building & job assistance.</p>
         </div>
       </div>
 
-      <div class="why-card">
+      <div class="why-card" data-aos="fade-up" data-aos-delay="500">
         <div class="why-card-content">
           <h3>Expert Mentors</h3>
           <p>Learn from skilled instructors with real industry experience.</p>
         </div>
       </div>
 
-      <div class="why-card">
+      <div class="why-card" data-aos="fade-up" data-aos-delay="550">
         <div class="why-card-content">
           <h3>Proven Track Record</h3>
           <p>Thousands of students trained and placed successfully across India.</p>

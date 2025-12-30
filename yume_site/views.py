@@ -111,3 +111,6 @@ def terms_and_conditions(request):
 
 def enrollment_form(request):
     return render(request, "enrollment_form.html")
+
+def enquire_now(request):
+    return render(request, "enquire_now.html")
