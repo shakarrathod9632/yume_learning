@@ -114,3 +114,22 @@ def enrollment_form(request):
 
 def enquire_now(request):
     return render(request, "enquire_now.html")
+
+
+
+
+from django.shortcuts import render, redirect
+from .models import ContactMessage
+
+def contact_page(request):
+    if request.method == "POST":
+        ContactMessage.objects.create(
+            first_name=request.POST.get('first_name'),
+            last_name=request.POST.get('last_name'),
+            phone=request.POST.get('phone'),
+            email=request.POST.get('email'),
+            message=request.POST.get('message')
+        )
+        return redirect('contact')  # Prevent duplicate submission
+
+    return render(request, "contact.html")
