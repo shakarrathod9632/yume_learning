@@ -1,4 +1,8 @@
 from pathlib import Path
+import os
+
+
+
 
 # --------------------------------------------------
 # BASE DIRECTORY
@@ -9,11 +13,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # --------------------------------------------------
 # SECURITY SETTINGS
 # --------------------------------------------------
-SECRET_KEY = 'django-insecure-pg#j!cq4cu5a9km@m$%gs!m6h3hu4g!)p+vx&1ipsco1e04ffw'
+# SECRET_KEY = 'django-insecure-pg#j!cq4cu5a9km@m$%gs!m6h3hu4g!)p+vx&1ipsco1e04ffw'
 
-DEBUG = True
+# DEBUG = True
 
-ALLOWED_HOSTS = []
+
+SECRET_KEY = os.environ.get("SECRET_KEY", "dev-test-secret-key")
+
+DEBUG = True  # Render env will override
+
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    ".onrender.com",
+]
+
+
+# ALLOWED_HOSTS = []
 
 
 # --------------------------------------------------
@@ -36,6 +52,8 @@ INSTALLED_APPS = [
 # MIDDLEWARE
 # --------------------------------------------------
 MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -139,3 +157,10 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # DEFAULT PRIMARY KEY
 # --------------------------------------------------
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+
+
+
