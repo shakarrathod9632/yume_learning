@@ -1,0 +1,1105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+<!-- Project Detail Section -->
+<section class="aspire-project py-5" style="background-color: #f8fafc;">
+    <div class="container">
+        
+        <!-- Check if detail page exists -->
+        {% if detail_page %}
+        <!-- Project Header with Balanced Layout -->
+        <div class="row align-items-center mb-6">
+            <!-- Left Column - Text Content -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="pe-lg-4">
+                    <div class="mb-4">
+                        <span class="badge bg-primary-gradient me-2 mb-2 px-3 py-2 fs-6 fw-medium">{{ detail_page.badge_text }}</span>
+                        
+                        {% if detail_page.launch_date_badge %}
+                        <span class="badge bg-warning-gradient text-dark px-3 py-2 fs-6 fw-medium">{{ detail_page.launch_date_badge }}</span>
+                        {% endif %}
+                    </div>
+                    
+                    <h1 class="display-5 fw-bold mb-3 text-gradient">{{ project_card.project_name }}</h1>
+                    <p class="lead fs-5 text-secondary mb-4">
+                        {{ project_card.tagline }}
+                    </p>
+                    
+                    <!-- Key Metrics -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-4">
+                            <div class="text-center p-3 bg-light rounded-3">
+                                <div class="icon-circle bg-primary mx-auto mb-2">
+                                    <i class="bi bi-clock text-white"></i>
+                                </div>
+                                <div class="text-muted small mb-1">Duration</div>
+                                <div class="fw-bold fs-5">{{ detail_page.duration_hours }}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-4">
+                            <div class="text-center p-3 bg-light rounded-3">
+                                <div class="icon-circle bg-success mx-auto mb-2">
+                                    <i class="bi bi-people text-white"></i>
+                                </div>
+                                <div class="text-muted small mb-1">Students</div>
+                                <div class="fw-bold fs-5">{{ detail_page.student_count_display }}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-4">
+                            <div class="text-center p-3 bg-light rounded-3">
+                                <div class="icon-circle bg-info mx-auto mb-2">
+                                    <i class="bi bi-geo-alt text-white"></i>
+                                </div>
+                                <div class="text-muted small mb-1">Location</div>
+                                <div class="fw-bold fs-5">{{ detail_page.location }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Target Audience -->
+                    {% if detail_page.target_audience %}
+                    <div class="bg-light rounded-3 p-4 border-start border-4 border-primary">
+                        <div class="d-flex align-items-start">
+                            <div class="me-3">
+                                <i class="bi bi-mortarboard text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-2">Target Audience</h5>
+                                <p class="mb-0">{{ detail_page.target_audience|linebreaks }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Right Column - Image & Partners -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-lg overflow-hidden h-100">
+                    <!-- Image Section -->
+                    <div class="image-container position-relative">
+                        {% if detail_page.hero_image %}
+                        <img src="{{ detail_page.hero_image.url }}" 
+                            alt="{{ project_card.project_name }}" 
+                            class="card-img-top img-fluid w-100 project-hero-image">
+                        {% else %}
+                        <img src="{{ project_card.thumbnail_image.url }}" 
+                            alt="{{ project_card.project_name }}" 
+                            class="card-img-top img-fluid w-100 project-hero-image">
+                        {% endif %}
+                        <div class="image-overlay"></div>
+                        <div class="image-badge position-absolute top-0 end-0 m-3">
+                            <div class="bg-dark bg-opacity-75 text-white px-3 py-2 rounded-3">
+                                <i class="bi bi-star-fill text-warning me-1"></i>
+                                <small>Industry Aligned</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Partners Section -->
+                    {% if detail_page.show_partners %}
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold mb-4 text-center text-lg-start">Program Partners</h5>
+                        <div class="row g-3">
+                            <!-- Partner 1 -->
+                            {% if detail_page.partner_1_name %}
+                            <div class="col-md-4">
+                                <div class="partner-card text-center p-3 h-100">
+                                    <div class="partner-logo bg-primary-light p-3 rounded-3 mb-3 mx-auto">
+                                        {% if 'fa-' in detail_page.partner_1_icon %}
+                                        <i class="{{ detail_page.partner_1_icon }} fs-3 text-{{ detail_page.partner_1_color }}"></i>
+                                        {% else %}
+                                        <i class="bi {{ detail_page.partner_1_icon }} fs-2 text-{{ detail_page.partner_1_color }}"></i>
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="fw-bold text-{{ detail_page.partner_1_color }} mb-1">{{ detail_page.partner_1_name }}</h6>
+                                    <small class="text-muted">{{ detail_page.partner_1_type }}</small>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Partner 2 -->
+                            {% if detail_page.partner_2_name %}
+                            <div class="col-md-4">
+                                <div class="partner-card text-center p-3 h-100">
+                                    <div class="partner-logo bg-success-light p-3 rounded-3 mb-3 mx-auto">
+                                        {% if 'fa-' in detail_page.partner_2_icon %}
+                                        <i class="{{ detail_page.partner_2_icon }} fs-3 text-{{ detail_page.partner_2_color }}"></i>
+                                        {% else %}
+                                        <i class="bi {{ detail_page.partner_2_icon }} fs-2 text-{{ detail_page.partner_2_color }}"></i>
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="fw-bold text-{{ detail_page.partner_2_color }} mb-1">{{ detail_page.partner_2_name }}</h6>
+                                    <small class="text-muted">{{ detail_page.partner_2_type }}</small>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Partner 3 -->
+                            {% if detail_page.partner_3_name %}
+                            <div class="col-md-4">
+                                <div class="partner-card text-center p-3 h-100">
+                                    <div class="partner-logo bg-info-light p-3 rounded-3 mb-3 mx-auto">
+                                        {% if 'fa-' in detail_page.partner_3_icon %}
+                                        <i class="{{ detail_page.partner_3_icon }} fs-3 text-{{ detail_page.partner_3_color }}"></i>
+                                        {% else %}
+                                        <i class="bi {{ detail_page.partner_3_icon }} fs-2 text-{{ detail_page.partner_3_color }}"></i>
+                                        {% endif %}
+                                    </div>
+                                    <h6 class="fw-bold text-{{ detail_page.partner_3_color }} mb-1">{{ detail_page.partner_3_name }}</h6>
+                                    <small class="text-muted">{{ detail_page.partner_3_type }}</small>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <style>
+            /* Image Styling */
+            .project-hero-image {
+                height: 220px;
+                object-fit: cover;
+            }
+
+            .image-container {
+                overflow: hidden;
+            }
+
+            .image-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 60px;
+                background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+            }
+
+            /* Partner Cards */
+            .partner-card {
+                transition: transform 0.3s ease;
+                border-radius: 8px;
+            }
+
+            .partner-card:hover {
+                transform: translateY(-5px);
+                background-color: #f8f9fa;
+            }
+
+            .partner-logo {
+                width: 70px;
+                height: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Icon Circle */
+            .icon-circle {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Gradients */
+            .bg-primary-gradient {
+                background: linear-gradient(135deg, #3498db 0%, #2980b9 100%) !important;
+            }
+
+            .bg-warning-gradient {
+                background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%) !important;
+            }
+
+            /* Light Backgrounds */
+            .bg-primary-light {
+                background-color: rgba(52, 152, 219, 0.1);
+            }
+
+            .bg-success-light {
+                background-color: rgba(46, 204, 113, 0.1);
+            }
+
+            .bg-info-light {
+                background-color: rgba(52, 152, 219, 0.1);
+            }
+
+            /* Text Gradient */
+            .text-gradient {
+                background: linear-gradient(90deg, #2c3e50 0%, #3498db 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            /* Responsive Adjustments */
+            @media (max-width: 992px) {
+                .project-hero-image {
+                    height: 200px;
+                }
+                
+                .display-5 {
+                    font-size: 2.5rem;
+                }
+                
+                .lead.fs-5 {
+                    font-size: 1.1rem !important;
+                }
+                
+                .fw-bold.fs-5 {
+                    font-size: 1.25rem !important;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .project-hero-image {
+                    height: 180px;
+                }
+                
+                .display-5 {
+                    font-size: 2rem;
+                }
+                
+                .lead.fs-5 {
+                    font-size: 1rem !important;
+                }
+                
+                h1 {
+                    font-size: 1.8rem !important;
+                }
+                
+                .icon-circle {
+                    width: 40px;
+                    height: 40px;
+                }
+                
+                .partner-logo {
+                    width: 60px;
+                    height: 60px;
+                }
+                
+                .partner-logo i {
+                    font-size: 1.5rem !important;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .project-hero-image {
+                    height: 160px;
+                }
+                
+                .display-5 {
+                    font-size: 1.75rem;
+                }
+                
+                .badge {
+                    font-size: 0.8rem !important;
+                    padding: 0.4rem 0.8rem !important;
+                }
+                
+                .partner-card {
+                    padding: 1rem !important;
+                }
+                
+                .col-4 {
+                    padding-left: 0.25rem;
+                    padding-right: 0.25rem;
+                }
+                
+                .p-3 {
+                    padding: 0.75rem !important;
+                }
+                
+                .mb-4 {
+                    margin-bottom: 1rem !important;
+                }
+            }
+        </style>
+
+
+
+        <!-- Program Overview Section (Dynamic) -->
+        {% if detail_page.show_program_overview %}
+        <div class="row mb-5 mt-5">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm overflow-hidden">
+                    <div class="card-header bg-primary text-white py-3 px-4">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-info-circle fs-5 me-3"></i>
+                            <h4 class="mb-0 fw-semibold">{{ detail_page.program_overview_title|default:"Program Overview" }}</h4>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row align-items-center">
+                            <div class="col-lg-8 pe-lg-4">
+                                {% if detail_page.program_objective %}
+                                <p class="mb-3 lh-base">
+                                    {{ detail_page.program_objective|linebreaksbr }}
+                                </p>
+                                {% else %}
+                                <!-- Default content if not filled -->
+                                <p class="mb-3 lh-base">
+                                    {{ project_card.project_name }} is a structured employability and skill development initiative implemented by 
+                                    <span class="fw-semibold text-primary">{{ detail_page.implementing_partner_name|default:"YuMe Learning" }}</span>, 
+                                    {% if detail_page.partner_2_name_overview %}
+                                    in partnership with <span class="fw-semibold text-success">{{ detail_page.partner_2_name_overview }}</span>
+                                    {% if detail_page.partner_3_name_overview %}
+                                    and <span class="fw-semibold text-info">{{ detail_page.partner_3_name_overview }}</span>
+                                    {% endif %}
+                                    {% endif %}
+                                    with the objective of preparing students for careers in the IT and technology-enabled services sector.
+                                </p>
+                                <p class="mb-0 lh-base">
+                                    The program focuses on bridging the gap between academic learning and industry 
+                                    expectations through hands-on technical training, soft skills development, career readiness, and placement support.
+                                </p>
+                                {% endif %}
+                            </div>
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+                                <div class="learning-highlight bg-light p-3 rounded-3 h-100 border-start border-3 border-primary">
+                                    <div class="d-flex align-items-start">
+                                        <div class="me-3">
+                                            <i class="bi {{ detail_page.learning_approach_icon|default:'bi-person-video3' }} fs-3 text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-2">{{ detail_page.learning_approach_title|default:"Learning Approach" }}</h6>
+                                            <p class="small mb-1">{{ detail_page.learning_approach_main|default:"Primarily In-person sessions" }}</p>
+                                            {% if detail_page.learning_approach_sub %}
+                                            <p class="small text-muted mb-0">{{ detail_page.learning_approach_sub }}</p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+         <style>
+                .card {
+                    border-radius: 10px;
+                }
+
+                .card-header {
+                    border-radius: 10px 10px 0 0 !important;
+                    
+                }
+
+                .learning-highlight {
+                    background: linear-gradient(to right, #f8f9fa, #ffffff);
+                    transition: transform 0.2s ease;
+                }
+
+                .learning-highlight:hover {
+                    transform: translateY(-2px);
+                }
+
+                .lh-base {
+                    line-height: 1.6;
+                }
+
+                /* Responsive adjustments */
+                @media (max-width: 992px) {
+                    .card-body {
+                        padding: 1.5rem !important;
+                    }
+                    
+                    .learning-highlight {
+                        margin-top: 1rem;
+                        border-left: none !important;
+                        border-top: 3px solid #0d6efd !important;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .card-body {
+                        padding: 1.25rem !important;
+                    }
+                    
+                    .card-header {
+                        padding: 0.75rem 1rem !important;
+                    }
+                    
+                    h4 {
+                        font-size: 1.25rem !important;
+                    }
+                    
+                    p {
+                        font-size: 0.95rem !important;
+                    }
+                    
+                    .learning-highlight {
+                        padding: 1rem !important;
+                    }
+                    
+                    .learning-highlight h6 {
+                        font-size: 1rem !important;
+                    }
+                }
+
+                @media (max-width: 576px) {
+                    .card-body {
+                        padding: 1rem !important;
+                    }
+                    
+                    p {
+                        font-size: 0.9rem !important;
+                    }
+                    
+                    .learning-highlight p.small {
+                        font-size: 0.85rem !important;
+                    }
+                }
+        </style>
+
+
+
+                <!-- Program Components Section (Dynamic) -->
+        {% if detail_page.show_program_components %}
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="text-center mb-4 display-6 fw-bold text-dark">{{ detail_page.components_title|default:"Core Program Components" }}</h2>
+                
+                <div class="row g-4">
+                    <!-- Component 1 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-header bg-{{ detail_page.component_1_color|default:'primary' }} bg-gradient text-white border-0 py-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                        <i class="bi {{ detail_page.component_1_icon|default:'bi-code-slash' }} fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="card-title mb-0 fw-bold">{{ detail_page.component_1_title|default:"Technical Skills" }}</h4>
+                                        <small class="opacity-75">{{ detail_page.component_1_subtitle|default:"Programming & Development" }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <ul class="list-group list-group-flush">
+                                    {% if detail_page.component_1_items %}
+                                        {% for item in detail_page.component_1_items.splitlines %}
+                                            {% if item.strip %}
+                                            <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                                <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                                <span>{{ item.strip }}</span>
+                                            </li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% else %}
+                                    <!-- Default items -->
+                                    <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                        <span>Python Programming</span>
+                                    </li>
+                                    <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                        <span>Full Stack Development</span>
+                                    </li>
+                                    <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                        <span>Data Analytics</span>
+                                    </li>
+                                    <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                        <span>SQL Database Management</span>
+                                    </li>
+                                    <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                        <span>Real Dataset Problem-solving</span>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Component 2 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-header bg-{{ detail_page.component_2_color|default:'success' }} bg-gradient text-white border-0 py-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                        <i class="bi {{ detail_page.component_2_icon|default:'bi-laptop' }} fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="card-title mb-0 fw-bold">{{ detail_page.component_2_title|default:"Hands-on Projects" }}</h4>
+                                        <small class="opacity-75">{{ detail_page.component_2_subtitle|default:"Practical Experience" }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <ul class="list-group list-group-flush">
+                                    {% if detail_page.component_2_items %}
+                                        {% for item in detail_page.component_2_items.splitlines %}
+                                            {% if item.strip %}
+                                            <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                                <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                                <span>{{ item.strip }}</span>
+                                            </li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% else %}
+                                    <!-- Default items -->
+                                    <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                        <span>Weekly Lab Sessions</span>
+                                    </li>
+                                    <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                        <span>Industry Mini-Projects</span>
+                                    </li>
+                                    <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                        <span>Capstone Project</span>
+                                    </li>
+                                    <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                        <span>Team-based Simulations</span>
+                                    </li>
+                                    <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                        <span>Continuous Assessment</span>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Component 3 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-header bg-{{ detail_page.component_3_color|default:'warning' }} bg-gradient text-white border-0 py-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white bg-opacity-25 rounded-circle p-3 me-3">
+                                        <i class="bi {{ detail_page.component_3_icon|default:'bi-briefcase' }} fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="card-title mb-0 fw-bold">{{ detail_page.component_3_title|default:"Career Readiness" }}</h4>
+                                        <small class="opacity-75">{{ detail_page.component_3_subtitle|default:"Professional Development" }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <ul class="list-group list-group-flush">
+                                    {% if detail_page.component_3_items %}
+                                        {% for item in detail_page.component_3_items.splitlines %}
+                                            {% if item.strip %}
+                                            <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                                <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                                <span>{{ item.strip }}</span>
+                                            </li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% else %}
+                                    <!-- Default items -->
+                                    <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                        <span>Resume & Portfolio Building</span>
+                                    </li>
+                                    <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                        <span>LinkedIn Optimization</span>
+                                    </li>
+                                    <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                        <span>Mock Interview Sessions</span>
+                                    </li>
+                                    <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                        <span>Professional Communication</span>
+                                    </li>
+                                    <li class="list-group-item border-0 py-3 px-4 d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                                        <span>Industry Networking</span>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Add this to your CSS for better mobile experience -->
+        <style>
+                @media (max-width: 768px) {
+                    .display-6 {
+                        font-size: 1.8rem !important;
+                    }
+                    .card-header .bg-white.bg-opacity-25 {
+                        padding: 0.5rem !important;
+                    }
+                    .card-header .fs-4 {
+                        font-size: 1.2rem !important;
+                    }
+                    .list-group-item {
+                        padding: 0.75rem 1rem !important;
+                    }
+                }
+        </style>
+
+
+
+        <!-- Role & Impact Section (Dynamic) -->
+        {% if detail_page.show_role_impact %}
+        <div class="row mb-5">
+            <!-- Role of Implementing Partner -->
+            <div class="col-lg-8 mb-4 mb-lg-0">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-primary bg-gradient text-white py-3">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-briefcase fs-5 me-2"></i>
+                            <h5 class="mb-0 fw-semibold">{{ detail_page.role_title|default:"Role of YuMe Learning" }}</h5>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        {% if detail_page.role_description %}
+                        <p class="mb-4">{{ detail_page.role_description }}</p>
+                        {% else %}
+                        <p class="mb-4">As the implementing partner, YuMe Learning is responsible for comprehensive program delivery and outcome measurement across multiple regions in Karnataka.</p>
+                        {% endif %}
+                        
+                        <div class="row g-3">
+                            <!-- Role Item 1 -->
+                            {% if detail_page.role_item_1_title %}
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center p-3 border-start border-3 border-{{ detail_page.role_item_1_color|default:'primary' }} bg-light rounded mb-2">
+                                    <div class="bg-{{ detail_page.role_item_1_color|default:'primary' }} text-white rounded-circle p-2 me-3">
+                                        <i class="bi {{ detail_page.role_item_1_icon|default:'bi-gear' }}"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-semibold mb-1">{{ detail_page.role_item_1_title }}</h6>
+                                        <small class="text-muted">{{ detail_page.role_item_1_subtitle|default:"Training execution & management" }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Role Item 2 -->
+                            {% if detail_page.role_item_2_title %}
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center p-3 border-start border-3 border-{{ detail_page.role_item_2_color|default:'success' }} bg-light rounded mb-2">
+                                    <div class="bg-{{ detail_page.role_item_2_color|default:'success' }} text-white rounded-circle p-2 me-3">
+                                        <i class="bi {{ detail_page.role_item_2_icon|default:'bi-people' }}"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-semibold mb-1">{{ detail_page.role_item_2_title }}</h6>
+                                        <small class="text-muted">{{ detail_page.role_item_2_subtitle|default:"Student support & monitoring" }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Role Item 3 -->
+                            {% if detail_page.role_item_3_title %}
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center p-3 border-start border-3 border-{{ detail_page.role_item_3_color|default:'info' }} bg-light rounded">
+                                    <div class="bg-{{ detail_page.role_item_3_color|default:'info' }} text-white rounded-circle p-2 me-3">
+                                        <i class="bi {{ detail_page.role_item_3_icon|default:'bi-graph-up' }}"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-semibold mb-1">{{ detail_page.role_item_3_title }}</h6>
+                                        <small class="text-muted">{{ detail_page.role_item_3_subtitle|default:"Impact assessment & reporting" }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Role Item 4 -->
+                            {% if detail_page.role_item_4_title %}
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center p-3 border-start border-3 border-{{ detail_page.role_item_4_color|default:'warning' }} bg-light rounded">
+                                    <div class="bg-{{ detail_page.role_item_4_color|default:'warning' }} text-white rounded-circle p-2 me-3">
+                                        <i class="bi {{ detail_page.role_item_4_icon|default:'bi-geo-alt' }}"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-semibold mb-1">{{ detail_page.role_item_4_title }}</h6>
+                                        <small class="text-muted">{{ detail_page.role_item_4_subtitle|default:"Statewide program coverage" }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Program Impact -->
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100 bg-dark text-white">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="bi bi-graph-up-arrow fs-5 me-2"></i>
+                            <h5 class="mb-0 fw-semibold">{{ detail_page.impact_title|default:"Program Impact" }}</h5>
+                        </div>
+                        
+                        <div class="text-center mb-4 flex-grow-1">
+                            <div class="display-4 fs-2 fw-bold mb-1">{{ detail_page.impact_main_number|default:"2,500+" }}</div>
+                            <p class="text-light opacity-75 mb-4">{{ detail_page.impact_main_text|default:"Students Trained" }}</p>
+                            
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <div class="fs-2 fw-bold">{{ detail_page.impact_metric_1_number|default:"5+" }}</div>
+                                        <small class="text-light opacity-75">{{ detail_page.impact_metric_1_text|default:"Regions" }}</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <div class="fs-2 fw-bold">{{ detail_page.impact_metric_2_number|default:"50" }}</div>
+                                        <small class="text-light opacity-75">{{ detail_page.impact_metric_2_text|default:"Hours/Student" }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-auto">
+                            <h6 class="fw-semibold mb-3">Key Outcomes</h6>
+                            
+                            <!-- Outcome 1 -->
+                            {% if detail_page.outcome_1_label %}
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <small class="text-light">{{ detail_page.outcome_1_label }}</small>
+                                    <small class="fw-bold">{{ detail_page.outcome_1_value }}%</small>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-{{ detail_page.outcome_1_color|default:'success' }}" style="width: {{ detail_page.outcome_1_value }}%"></div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Outcome 2 -->
+                            {% if detail_page.outcome_2_label %}
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <small class="text-light">{{ detail_page.outcome_2_label }}</small>
+                                    <small class="fw-bold">{{ detail_page.outcome_2_value }}%</small>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-{{ detail_page.outcome_2_color|default:'warning' }}" style="width: {{ detail_page.outcome_2_value }}%"></div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Outcome 3 -->
+                            {% if detail_page.outcome_3_label %}
+                            <div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <small class="text-light">{{ detail_page.outcome_3_label }}</small>
+                                    <small class="fw-bold">{{ detail_page.outcome_3_value }}%</small>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-{{ detail_page.outcome_3_color|default:'info' }}" style="width: {{ detail_page.outcome_3_value }}%"></div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+
+
+                <!-- Certification & Support Section (Dynamic) -->
+        {% if detail_page.show_certification_support %}
+        <div class="row mb-5">
+            <!-- Certification Card -->
+            <div class="col-md-6 mb-3">
+                <div class="card border-0 shadow-sm h-100 border-top border-3 border-{{ detail_page.certification_color|default:'primary' }}">
+                    <div class="card-body p-3">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="bg-{{ detail_page.certification_color|default:'primary' }} bg-gradient text-white rounded-3 p-2 me-3">
+                                <i class="bi {{ detail_page.certification_icon|default:'bi-award' }} fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">{{ detail_page.certification_title|default:"Industry Certification" }}</h5>
+                                <p class="text-muted small mb-2">{{ detail_page.certification_subtitle|default:"Validated by NASSCOM Foundation" }}</p>
+                            </div>
+                        </div>
+                        
+                        <p class="small mb-3">{{ detail_page.certification_description|default:"Industry-recognized certification validating technical competencies and employability skills." }}</p>
+                        
+                       <div class="row g-2">
+                            <!-- Feature 1 -->
+                            {% if detail_page.cert_feature_1_text %}
+                            <div class="col-6">
+                                <div class="d-flex align-items-center bg-light p-2 rounded">
+                                    <i class="bi {{ detail_page.cert_feature_1_icon|default:'bi-check-circle' }} text-{{ detail_page.cert_feature_1_color|default:'success' }} me-2"></i>
+                                    <small>{{ detail_page.cert_feature_1_text }}</small>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Feature 2 -->
+                            {% if detail_page.cert_feature_2_text %}
+                            <div class="col-6">
+                                <div class="d-flex align-items-center bg-light p-2 rounded">
+                                    <i class="bi {{ detail_page.cert_feature_2_icon|default:'bi-person-check' }} text-{{ detail_page.cert_feature_2_color|default:'primary' }} me-2"></i>
+                                    <small>{{ detail_page.cert_feature_2_text }}</small>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Feature 3 -->
+                            {% if detail_page.cert_feature_3_text %}
+                            <div class="col-6">
+                                <div class="d-flex align-items-center bg-light p-2 rounded">
+                                    <i class="bi {{ detail_page.cert_feature_3_icon|default:'bi-award' }} text-{{ detail_page.cert_feature_3_color|default:'warning' }} me-2"></i>
+                                    <small>{{ detail_page.cert_feature_3_text }}</small>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Feature 4 -->
+                            {% if detail_page.cert_feature_4_text %}
+                            <div class="col-6">
+                                <div class="d-flex align-items-center bg-light p-2 rounded">
+                                    <i class="bi {{ detail_page.cert_feature_4_icon|default:'bi-briefcase' }} text-{{ detail_page.cert_feature_4_color|default:'info' }} me-2"></i>
+                                    <small>{{ detail_page.cert_feature_4_text }}</small>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Support Card -->
+            <div class="col-md-6 mb-3">
+                <div class="card border-0 shadow-sm h-100 border-top border-3 border-{{ detail_page.support_color|default:'success' }}">
+                    <div class="card-body p-3">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="bg-{{ detail_page.support_color|default:'success' }} bg-gradient text-white rounded-3 p-2 me-3">
+                                <i class="bi {{ detail_page.support_icon|default:'bi-briefcase' }} fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">{{ detail_page.support_title|default:"Placement Support" }}</h5>
+                                <p class="text-muted small mb-2">{{ detail_page.support_subtitle|default:"End-to-end Career Assistance" }}</p>
+                            </div>
+                        </div>
+                        
+                        <p class="small mb-3">{{ detail_page.support_description|default:"Comprehensive placement and internship support with industry connections." }}</p>
+                        
+                        <div class="row g-2">
+                            <!-- Feature 1 -->
+                            {% if detail_page.support_feature_1_text %}
+                            <div class="col-6">
+                                <div class="d-flex align-items-center bg-light p-2 rounded">
+                                    <i class="bi {{ detail_page.support_feature_1_icon|default:'bi-building' }} text-{{ detail_page.support_feature_1_color|default:'info' }} me-2"></i>
+                                    <small>{{ detail_page.support_feature_1_text }}</small>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Feature 2 -->
+                            {% if detail_page.support_feature_2_text %}
+                            <div class="col-6">
+                                <div class="d-flex align-items-center bg-light p-2 rounded">
+                                    <i class="bi {{ detail_page.support_feature_2_icon|default:'bi-chat-dots' }} text-{{ detail_page.support_feature_2_color|default:'warning' }} me-2"></i>
+                                    <small>{{ detail_page.support_feature_2_text }}</small>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="row g-2 mt-2">
+                            <!-- Feature 3 -->
+                            {% if detail_page.support_feature_3_text %}
+                            <div class="col-6">
+                                <div class="d-flex align-items-center bg-light p-2 rounded">
+                                    <i class="bi {{ detail_page.support_feature_3_icon|default:'bi-people' }} text-{{ detail_page.support_feature_3_color|default:'secondary' }} me-2"></i>
+                                    <small>{{ detail_page.support_feature_3_text }}</small>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Feature 4 -->
+                            {% if detail_page.support_feature_4_text %}
+                            <div class="col-6">
+                                <div class="d-flex align-items-center bg-light p-2 rounded">
+                                    <i class="bi {{ detail_page.support_feature_4_icon|default:'bi-graph-up' }} text-{{ detail_page.support_feature_4_color|default:'danger' }} me-2"></i>
+                                    <small>{{ detail_page.support_feature_4_text }}</small>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+
+
+                <!-- Sustainable Pathways Section (Dynamic) -->
+        {% if detail_page.show_sustainable_pathways %}
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card border-0 shadow-lg overflow-hidden">
+                    <div class="card-body p-4 p-md-5" style="background: linear-gradient(135deg, #b2cde9ff 0%, #e8f4fd 100%);">
+                        <div class="row align-items-center">
+                            <!-- Left Column - Main Content -->
+                            <div class="col-lg-8 mb-4 mb-lg-0">
+                                <div class="d-flex align-items-start">
+                                    <div>
+                                        <h3 class="fw-bold text-dark mb-3">{{ detail_page.pathways_title|default:"Creating Sustainable Career Pathways" }}</h3>
+                                        {% if detail_page.pathways_description %}
+                                        <p class="text-dark mb-3">{{ detail_page.pathways_description }}</p>
+                                        {% else %}
+                                        <p class="text-dark mb-3">
+                                            The ASPIRE Project is more than a training program — it is a career enablement initiative. 
+                                            By combining technical excellence, professional skills, mentorship, and industry partnerships, 
+                                            YuMe Learning, along with NASSCOM Foundation and ITC, is enabling students to transition 
+                                            successfully from classrooms to careers.
+                                        </p>
+                                        {% endif %}
+                                        <div class="d-flex flex-wrap gap-3">
+                                            <!-- Partner Badge 1 -->
+                                            {% if detail_page.partner_badge_1_name %}
+                                            <span class="badge bg-{{ detail_page.partner_badge_1_color|default:'primary' }} bg-opacity-10 text-{{ detail_page.partner_badge_1_color|default:'primary' }} px-3 py-2">
+                                                <i class="bi {{ detail_page.partner_badge_1_icon|default:'bi-building' }} me-1"></i> {{ detail_page.partner_badge_1_name }}
+                                            </span>
+                                            {% endif %}
+                                            
+                                            <!-- Partner Badge 2 -->
+                                            {% if detail_page.partner_badge_2_name %}
+                                            <span class="badge bg-{{ detail_page.partner_badge_2_color|default:'success' }} bg-opacity-10 text-{{ detail_page.partner_badge_2_color|default:'success' }} px-3 py-2">
+                                                <i class="bi {{ detail_page.partner_badge_2_icon|default:'bi-shield-check' }} me-1"></i> {{ detail_page.partner_badge_2_name }}
+                                            </span>
+                                            {% endif %}
+                                            
+                                            <!-- Partner Badge 3 -->
+                                            {% if detail_page.partner_badge_3_name %}
+                                            <span class="badge bg-{{ detail_page.partner_badge_3_color|default:'info' }} bg-opacity-10 text-{{ detail_page.partner_badge_3_color|default:'info' }} px-3 py-2">
+                                                <i class="bi {{ detail_page.partner_badge_3_icon|default:'bi-handshake' }} me-1"></i> {{ detail_page.partner_badge_3_name }}
+                                            </span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Column - Features -->
+                            <div class="col-lg-4">
+                                <div class="bg-white rounded-3 shadow-sm p-4 border">
+                                    <h6 class="fw-bold text-dark mb-3 text-center">{{ detail_page.highlights_title|default:"Program Highlights" }}</h6>
+                                    
+                                    <!-- Highlight 1 -->
+                                    {% if detail_page.highlight_1_text %}
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="bg-{{ detail_page.highlight_1_color|default:'success' }} bg-opacity-10 p-2 rounded-circle me-3">
+                                            <i class="bi bi-check-lg text-{{ detail_page.highlight_1_color|default:'success' }}"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold small mb-0">{{ detail_page.highlight_1_text }}</div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    
+                                    <!-- Highlight 2 -->
+                                    {% if detail_page.highlight_2_text %}
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="bg-{{ detail_page.highlight_2_color|default:'primary' }} bg-opacity-10 p-2 rounded-circle me-3">
+                                            <i class="bi bi-check-lg text-{{ detail_page.highlight_2_color|default:'primary' }}"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold small mb-0">{{ detail_page.highlight_2_text }}</div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    
+                                    <!-- Highlight 3 -->
+                                    {% if detail_page.highlight_3_text %}
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-{{ detail_page.highlight_3_color|default:'warning' }} bg-opacity-10 p-2 rounded-circle me-3">
+                                            <i class="bi bi-check-lg text-{{ detail_page.highlight_3_color|default:'warning' }}"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold small mb-0">{{ detail_page.highlight_3_text }}</div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        
+    </div>
+</section>
+
+
+
+
+
+
+
+<style>
+    .project-hero {
+        border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .project-description {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #475569;
+    }
+    
+    .feature-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .project-sidebar .card {
+        border-radius: 12px;
+    }
+    
+    .related-projects .card {
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    
+    .related-projects .card:hover {
+        transform: translateY(-5px);
+    }
+</style> 
+
+
+
+
+
+
+
+{% endblock %}

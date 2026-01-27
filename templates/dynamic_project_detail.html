@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+
+{% block title %}{{ project.title }} - Additional Project{% endblock %}
+
+{% block content %}
+<section class="aspire-project py-5" style="background-color: #f8fafc;">
+    <div class="container">
+        <!-- Project Header -->
+        <div class="row align-items-center mb-6">
+            <!-- Left Column - Text Content -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="pe-lg-4">
+                    <div class="mb-4">
+                        <!-- Category Badge -->
+                        <span class="badge bg-primary-gradient me-2 mb-2 px-3 py-2 fs-6 fw-medium">
+                            {{ project.category }}
+                        </span>
+                        
+                        <!-- Duration Badge -->
+                        <span class="badge bg-warning-gradient text-dark px-3 py-2 fs-6 fw-medium">
+                            {{ project.duration }}
+                        </span>
+                        
+                        <!-- Dynamic Badge -->
+                        <span class="badge bg-info text-white px-3 py-2 fs-6 fw-medium">
+                            <i class="fas fa-plus-circle me-1"></i> Additional Project
+                        </span>
+                    </div>
+                    
+                    <!-- Title -->
+                    <h1 class="display-5 fw-bold mb-3 text-gradient">{{ project.title }}</h1>
+                    
+                    <!-- Tagline -->
+                    <p class="lead fs-5 text-secondary mb-4">
+                        {{ project.tagline }}
+                    </p>
+                    
+                    <!-- Key Metrics -->
+                    <div class="row g-3 mb-4">
+                        <!-- Duration -->
+                        <div class="col-4">
+                            <div class="text-center p-3 bg-light rounded-3">
+                                <div class="icon-circle bg-primary mx-auto mb-2">
+                                    <i class="bi bi-clock text-white"></i>
+                                </div>
+                                <div class="text-muted small mb-1">Duration</div>
+                                <div class="fw-bold fs-5">{{ project.duration }}</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Students -->
+                        <div class="col-4">
+                            <div class="text-center p-3 bg-light rounded-3">
+                                <div class="icon-circle bg-success mx-auto mb-2">
+                                    <i class="bi bi-people text-white"></i>
+                                </div>
+                                <div class="text-muted small mb-1">Students</div>
+                                <div class="fw-bold fs-5">{{ project.student_count }}+</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Location -->
+                        <div class="col-4">
+                            <div class="text-center p-3 bg-light rounded-3">
+                                <div class="icon-circle bg-info mx-auto mb-2">
+                                    <i class="bi bi-geo-alt text-white"></i>
+                                </div>
+                                <div class="text-muted small mb-1">Location</div>
+                                <div class="fw-bold fs-5">{{ project.location }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Target Audience -->
+                    {% if project.target_audience %}
+                    <div class="bg-light rounded-3 p-4 border-start border-4 border-primary">
+                        <div class="d-flex align-items-start">
+                            <div class="me-3">
+                                <i class="bi bi-mortarboard text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-2">Target Audience</h5>
+                                <p class="mb-0">{{ project.target_audience }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Right Column - Image & Partners -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-lg overflow-hidden h-100">
+                    <!-- Image Section -->
+                    <div class="image-container position-relative">
+                        <img src="{{ project.image.url }}" 
+                            alt="{{ project.title }}" 
+                            class="card-img-top img-fluid w-100 project-hero-image">
+                        <div class="image-overlay"></div>
+                        <div class="image-badge position-absolute top-0 end-0 m-3">
+                            <div class="bg-dark bg-opacity-75 text-white px-3 py-2 rounded-3">
+                                <i class="bi bi-star-fill text-warning me-1"></i>
+                                <small>Industry Aligned</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Partners Section -->
+                    {% if project.partners_list %}
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold mb-4 text-center text-lg-start">Program Partners</h5>
+                        <div class="row g-3">
+                            {% for partner in project.partners_list %}
+                            <div class="col-md-4">
+                                <div class="partner-card text-center p-3 h-100">
+                                    <div class="partner-logo bg-light p-3 rounded-3 mb-3 mx-auto">
+                                        <i class="bi bi-building fs-2 text-primary"></i>
+                                    </div>
+                                    <h6 class="fw-bold text-primary mb-1">{{ partner.name }}</h6>
+                                    <small class="text-muted">{{ partner.type }}</small>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Detailed Description -->
+        <div class="detailed-description mt-6">
+            <div class="section-header mb-4">
+                <h2 class="fw-bold mb-3">Project Details</h2>
+            </div>
+            
+            <div class="content">
+                {{ project.detailed_description|linebreaks }}
+            </div>
+        </div>
+        
+        <!-- Back Button -->
+        <div class="text-center mt-6">
+            <a href="{% url 'project_list_page' %}" class="btn btn-primary btn-lg">
+                <i class="fas fa-arrow-left me-2"></i> Back to All Projects
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -2,102 +2,7 @@
 {% block content %}
 {% load static %}
 
-<!-- Enrollment Form Section -->
-<section class="enroll-section">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-xxl-8 col-xl-9 col-lg-10">
-        <div class="enroll-form-card">
-          <div class="form-header">
-            <h2>Course Enrollment</h2>
-          </div>
-          
-          <!-- Enrollment Form -->
-          <form id="enrollForm" method="POST">
-            {% csrf_token %}
-            
-            <div class="form-grid">
-              <!-- Personal Information -->
-              <div class="form-row">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="firstName" name="first_name" 
-                         placeholder="First name" required>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="lastName" name="last_name" 
-                         placeholder="Last name" required>
-                </div>
-              </div>
-              
-              <!-- Contact Information -->
-              <div class="form-row">
-                <div class="form-group">
-                  <input type="email" class="form-control" id="email" name="email" 
-                         placeholder="Email address" required>
-                </div>
-                <div class="form-group">
-                  <input type="tel" class="form-control" id="mobile" name="mobile" 
-                         placeholder="Mobile number (10 digits)" required>
-                </div>
-              </div>
-              
-              <!-- Education -->
-              <div class="form-group full-width">
-                <select class="form-control" id="education" name="education" required>
-                  <option value="" disabled selected>Select your highest education</option>
-                  <option value="10th">10th Grade</option>
-                  <option value="12th">12th Grade</option>
-                  <option value="diploma">Diploma</option>
-                  <option value="bsc_cs">B.Sc Computer Science</option>
-                  <option value="bsc_it">B.Sc IT</option>
-                  <option value="bca">BCA</option>
-                  <option value="bcom">B.Com</option>
-                  <option value="btech">B.Tech</option>
-                  <option value="post_graduate">Post Graduate</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              
-              <!-- Course Selection -->
-              <div class="form-group full-width">
-                <select class="form-control" id="course" name="course" required>
-                  <option value="" disabled selected>Choose a course</option>
-                  <option value="Excel for Data Analysis">Excel for Data Analysis</option>
-                  <option value="SQL for Data Analysis">SQL for Data Analysis</option>
-                  <option value="Python Development">Python Development</option>
-                  <option value="Data Visualization">Data Visualization</option>
-                  <option value="Azure Fundamentals">Azure Fundamentals</option>
-                  <option value="Azure AI Fundamentals">Azure AI Fundamentals</option>
-                  <option value="Power Platform">Power Platform</option>
-                  <option value="Security & Compliance">Security & Compliance</option>
-                  <option value="Professional Development">Professional Development</option>
-                </select>
-              </div>
-              
-              <!-- Terms and Conditions -->
-              <div class="form-group terms-group">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
-                  <label class="form-check-label" for="terms">
-                    I agree to the <a href="/terms" target="_blank">Terms & Conditions</a> 
-                    and <a href="/privacy" target="_blank">Privacy Policy</a> of YuMe Learning
-                  </label>
-                </div>
-              </div>
-              
-              <!-- Submit Button -->
-              <div class="submit-section">
-                <button type="submit" class="submit-btn">
-                  Enroll Now
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <style>
   /* Form Section Styles */
@@ -353,169 +258,225 @@
       font-size: 15.5px;
     }
   }
+
+
+
+  .form-message {
+    margin-top: 20px;
+}
+
+.success-msg {
+    background: #e6fffa;
+    color: #065f46;
+    padding: 12px 16px;
+    border-left: 5px solid #10b981;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.error-msg {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 12px 16px;
+    border-left: 5px solid #ef4444;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
 </style>
 
+<!-- Enrollment Form Section -->
+<section class="enroll-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xxl-8 col-xl-9 col-lg-10">
+        <div class="enroll-form-card">
+          <div class="form-header">
+            <h2>Course Enrollment</h2>
+          </div>
+
+          
+          <!-- Enrollment Form -->
+          <form id="enrollForm" method="POST">
+            {% csrf_token %}
+      
+            <div class="form-grid">
+              <!-- Personal Information -->
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="firstName" name="first_name" 
+                         placeholder="First name" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="lastName" name="last_name" 
+                         placeholder="Last name" required>
+                </div>
+              </div>
+              
+              <!-- Contact Information -->
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="email" name="email" 
+                         placeholder="Email address" required>
+                </div>
+                <div class="form-group">
+                  <input type="tel" class="form-control" id="mobile" name="mobile" 
+                         placeholder="Mobile number (10 digits)" required>
+                </div>
+              </div>
+              
+              <!-- Education -->
+              <div class="form-group full-width">
+                <select class="form-control" id="education" name="education" required>
+                  <option value="" disabled selected>Select your highest education</option>
+                  <option value="10th">10th Grade</option>
+                  <option value="12th">12th Grade</option>
+                  <option value="diploma">Diploma</option>
+                  <option value="bsc_cs">B.Sc Computer Science</option>
+                  <option value="bsc_it">B.Sc IT</option>
+                  <option value="bca">BCA</option>
+                  <option value="bcom">B.Com</option>
+                  <option value="btech">B.Tech</option>
+                  <option value="post_graduate">Post Graduate</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <!-- Course Selection -->
+              <div class="form-group full-width">
+                <select class="form-control" id="course" name="course" required>
+                  <option value="" disabled selected>Choose a course</option>
+                  <option value="Excel for Data Analysis">Excel for Data Analysis</option>
+                  <option value="SQL for Data Analysis">SQL for Data Analysis</option>
+                  <option value="Python Development">Python Development</option>
+                  <option value="Data Visualization">Data Visualization</option>
+                  <option value="Azure Fundamentals">Azure Fundamentals</option>
+                  <option value="Azure AI Fundamentals">Azure AI Fundamentals</option>
+                  <option value="Power Platform">Power Platform</option>
+                  <option value="Security & Compliance">Security & Compliance</option>
+                  <option value="Professional Development">Professional Development</option>
+                </select>
+              </div>
+              
+              <!-- Terms and Conditions -->
+              <div class="form-group terms-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
+                  <label class="form-check-label" for="terms">
+                    I agree to the <a href="/terms" target="_blank">Terms & Conditions</a> 
+                    and <a href="/privacy" target="_blank">Privacy Policy</a> of YuMe Learning
+                  </label>
+                </div>
+              </div>
+              
+              <!-- Submit Button -->
+              <div class="submit-section">
+                <button type="submit" class="submit-btn">
+                  Enroll Now
+                </button>
+              </div>
+            </div>
+          </form>
+          <div id="formMessage" class="form-message"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('enrollForm');
-    const mobileInput = document.getElementById('mobile');
+document.getElementById("enrollForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-    // Mobile number validation
-    mobileInput.addEventListener('input', function(e) {
-      let value = this.value.replace(/\D/g, '');
-      if (value.length > 10) {
-        value = value.substring(0, 10);
-      }
-      this.value = value;
-      
-      // Visual feedback
-      if (value.length === 10) {
-        this.classList.remove('invalid');
-        this.classList.add('valid');
-      } else if (value.length > 0) {
-        this.classList.remove('valid');
-        this.classList.add('invalid');
-      } else {
-        this.classList.remove('valid', 'invalid');
-      }
-    });
+    const form = this;
+    const formMessage = document.getElementById("formMessage");
 
-    // Form submission
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      // Get form values
-      const firstName = document.getElementById('firstName').value.trim();
-      const lastName = document.getElementById('lastName').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const mobile = document.getElementById('mobile').value.trim();
-      const education = document.getElementById('education').value;
-      const course = document.getElementById('course').value;
-      const terms = document.getElementById('terms').checked;
-
-      let isValid = true;
-
-      // Reset validation states
-      const inputs = form.querySelectorAll('.form-control, .form-check-input');
-      inputs.forEach(input => {
-        input.classList.remove('invalid');
-      });
-
-      // Validate fields
-      if (!firstName) {
-        document.getElementById('firstName').classList.add('invalid');
-        isValid = false;
-      }
-
-      if (!lastName) {
-        document.getElementById('lastName').classList.add('invalid');
-        isValid = false;
-      }
-
-      if (!email || !validateEmail(email)) {
-        document.getElementById('email').classList.add('invalid');
-        isValid = false;
-      }
-
-      if (!mobile || mobile.length !== 10) {
-        document.getElementById('mobile').classList.add('invalid');
-        isValid = false;
-      }
-
-      if (!education) {
-        document.getElementById('education').classList.add('invalid');
-        isValid = false;
-      }
-
-      if (!course) {
-        document.getElementById('course').classList.add('invalid');
-        isValid = false;
-      }
-
-      if (!terms) {
-        document.getElementById('terms').classList.add('invalid');
-        isValid = false;
-      }
-
-      if (!isValid) {
-        const firstInvalid = form.querySelector('.invalid');
-        if (firstInvalid) {
-          firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          firstInvalid.focus();
+    fetch("{% url 'enrollment_form' %}", {
+        method: "POST",
+        headers: {
+            "X-Requested-With": "XMLHttpRequest"
+        },
+        body: new FormData(form)
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "success") {
+            formMessage.innerHTML =
+                `<div class="success-msg">${data.message}</div>`;
+            form.reset();
+        } else {
+            formMessage.innerHTML =
+                `<div class="error-msg">${data.message}</div>`;
         }
-        return;
+    })
+    .catch(() => {
+        formMessage.innerHTML =
+            `<div class="error-msg">Server error. Try again later.</div>`;
+    });
+});
+</script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('enrollForm');
+  const mobileInput = document.getElementById('mobile');
+
+  // Mobile number validation (ONLY UI)
+  mobileInput.addEventListener('input', function () {
+    let value = this.value.replace(/\D/g, '');
+    if (value.length > 10) value = value.substring(0, 10);
+    this.value = value;
+
+    this.classList.toggle('valid', value.length === 10);
+    this.classList.toggle('invalid', value.length > 0 && value.length !== 10);
+  });
+
+  form.addEventListener('submit', function (e) {
+    let isValid = true;
+
+    const fields = [
+      'firstName', 'lastName', 'email', 'mobile', 'education', 'course'
+    ];
+
+    fields.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        el.classList.add('invalid');
+        isValid = false;
+      } else {
+        el.classList.remove('invalid');
       }
-
-      // Prepare data for backend
-      const formData = {
-        first_name: firstName,
-        last_name: lastName,
-        email: email,
-        mobile: mobile,
-        education: education,
-        course: course,
-        terms: terms
-      };
-
-      console.log('Enrollment Data:', formData);
-      
-      // Show loading state
-      const submitBtn = form.querySelector('.submit-btn');
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Processing...';
-      submitBtn.disabled = true;
-      
-      // Simulate form submission
-      setTimeout(() => {
-        alert('Thank you for enrolling! We will contact you shortly.');
-        
-        // Reset form
-        form.reset();
-        
-        // Reset validation states
-        inputs.forEach(input => {
-          input.classList.remove('valid', 'invalid');
-        });
-        
-        // Restore button
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }, 1500);
     });
 
-    // Email validation
-    function validateEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(email);
+    const terms = document.getElementById('terms');
+    if (!terms.checked) {
+      terms.classList.add('invalid');
+      isValid = false;
+    } else {
+      terms.classList.remove('invalid');
     }
 
-    // Add validation styles
-    const style = document.createElement('style');
-    style.textContent = `
-      .invalid {
-        border-color: #ef4444 !important;
-        background-color: rgba(239, 68, 68, 0.03) !important;
-      }
-      
-      .invalid:focus {
-        box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15) !important;
-      }
-      
-      .valid {
-        border-color: #10b981 !important;
-        background-color: rgba(16, 185, 129, 0.03) !important;
-      }
-      
-      .valid:focus {
-        box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15) !important;
-      }
-      
-      .form-check-input.invalid {
-        border-color: #ef4444 !important;
-      }
-    `;
-    document.head.appendChild(style);
+    // ❌ Stop submission only if invalid
+    if (!isValid) {
+      e.preventDefault();
+    }
+    // ✅ If valid → form submits naturally to Django
   });
+
+  // Styles
+  const style = document.createElement('style');
+  style.innerHTML = `
+    .invalid {
+      border-color: #ef4444 !important;
+    }
+    .valid {
+      border-color: #10b981 !important;
+    }
+  `;
+  document.head.appendChild(style);
+});
 </script>
+
 
 {% endblock %}

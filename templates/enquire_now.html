@@ -55,6 +55,7 @@
               </div>
             </div>
           </form>
+          <div id="enquiryFormMessage" class="form-message"></div>
         </div>
       </div>
     </div>
@@ -62,6 +63,30 @@
 </section>
 
 <style>
+
+
+  .form-message {
+      margin-top: 18px;
+  }
+
+  .success-msg {
+      background-color: #ecfdf5;
+      color: #065f46;
+      padding: 14px 18px;
+      border-left: 6px solid #10b981;
+      border-radius: 8px;
+      font-weight: 600;
+  }
+
+  .error-msg {
+      background-color: #fee2e2;
+      color: #991b1b;
+      padding: 14px 18px;
+      border-left: 6px solid #ef4444;
+      border-radius: 8px;
+      font-weight: 600;
+  }
+
   /* Form Section Styles */
   .enquire-section {
     padding: 40px 10px;
@@ -366,159 +391,36 @@
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('enquiryForm');
-    const mobileInput = document.getElementById('mobile');
+document.getElementById("enquiryForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-    // Mobile number validation - only numbers, max 10 digits
-    mobileInput.addEventListener('input', function(e) {
-      let value = this.value.replace(/\D/g, '');
-      if (value.length > 10) {
-        value = value.substring(0, 10);
-      }
-      this.value = value;
-      
-      // Add visual feedback
-      if (value.length === 10) {
-        this.classList.remove('invalid');
-        this.classList.add('valid');
-      } else if (value.length > 0) {
-        this.classList.remove('valid');
-        this.classList.add('invalid');
-      } else {
-        this.classList.remove('valid', 'invalid');
-      }
-    });
+    const form = this;
+    const messageBox = document.getElementById("enquiryFormMessage");
 
-    // Form submission
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      // Get form values
-      const firstName = document.getElementById('firstName').value.trim();
-      const lastName = document.getElementById('lastName').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const mobile = document.getElementById('mobile').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      let isValid = true;
-
-      // Reset all validation states
-      const inputs = form.querySelectorAll('.form-control');
-      inputs.forEach(input => {
-        input.classList.remove('invalid');
-      });
-
-      // Validate First Name
-      if (!firstName) {
-        document.getElementById('firstName').classList.add('invalid');
-        isValid = false;
-      }
-
-      // Validate Last Name
-      if (!lastName) {
-        document.getElementById('lastName').classList.add('invalid');
-        isValid = false;
-      }
-
-      // Validate Email
-      if (!email) {
-        document.getElementById('email').classList.add('invalid');
-        isValid = false;
-      } else if (!validateEmail(email)) {
-        document.getElementById('email').classList.add('invalid');
-        isValid = false;
-      }
-
-      // Validate Mobile
-      if (!mobile || mobile.length !== 10) {
-        document.getElementById('mobile').classList.add('invalid');
-        isValid = false;
-      }
-
-      // Validate Message
-      if (!message) {
-        document.getElementById('message').classList.add('invalid');
-        isValid = false;
-      }
-
-      if (!isValid) {
-        // Scroll to first invalid field
-        const firstInvalid = form.querySelector('.invalid');
-        if (firstInvalid) {
-          firstInvalid.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' 
-          });
-          firstInvalid.focus();
+    fetch("{% url 'enquire_now' %}", {
+        method: "POST",
+        headers: {
+            "X-Requested-With": "XMLHttpRequest"
+        },
+        body: new FormData(form)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "success") {
+            messageBox.innerHTML =
+                `<div class="success-msg">${data.message}</div>`;
+            form.reset();
+        } else {
+            messageBox.innerHTML =
+                `<div class="error-msg">${data.message}</div>`;
         }
-        return;
-      }
-
-      // Prepare data for backend
-      const formData = {
-        first_name: firstName,
-        last_name: lastName,
-        email: email,
-        mobile: mobile,
-        message: message
-      };
-
-      console.log('Enquiry Form Data:', formData);
-      
-      // Show loading state
-      const submitBtn = form.querySelector('.submit-btn');
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
-      
-      // Simulate form submission (replace with actual Django backend call)
-      setTimeout(() => {
-        alert('Thank you for your enquiry! We will contact you shortly.');
-        
-        // Reset form
-        form.reset();
-        
-        // Reset validation states
-        inputs.forEach(input => {
-          input.classList.remove('valid', 'invalid');
-        });
-        
-        // Restore button
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }, 1500);
+    })
+    .catch(() => {
+        messageBox.innerHTML =
+            `<div class="error-msg">Server error. Please try again later.</div>`;
     });
-
-    // Email validation function
-    function validateEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(email);
-    }
-
-    // Add validation styles
-    const style = document.createElement('style');
-    style.textContent = `
-      .invalid {
-        border-color: #ef4444 !important;
-        background-color: rgba(239, 68, 68, 0.03) !important;
-      }
-      
-      .invalid:focus {
-        box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15) !important;
-      }
-      
-      .valid {
-        border-color: #10b981 !important;
-        background-color: rgba(16, 185, 129, 0.03) !important;
-      }
-      
-      .valid:focus {
-        box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15) !important;
-      }
-    `;
-    document.head.appendChild(style);
-  });
+});
 </script>
+
 
 {% endblock %}

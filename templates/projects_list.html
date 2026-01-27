@@ -1,0 +1,360 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Impactful Projects{% endblock %}
+{% block meta_description %}Explore our impactful education transformation projects through industry-aligned skill development programs{% endblock %}
+
+{% block content %}
+<!-- Projects Section -->
+<section id="projects" class="projects-section py-5">
+  <div class="container">
+
+    <div class="row g-4">
+      {% for project in projects %}
+        <div class="col-lg-6">
+          <div class="project-card">
+
+            <div class="project-image-container">
+              <img src="{{ project.image.url }}" class="project-img" alt="{{ project.title }}">
+              <div class="image-overlay"></div>
+            </div>
+
+            <div class="project-header">
+              <div class="project-tag">
+                <span class="tag">{{ project.category }}</span>
+                <span class="project-duration">
+                  <i class="far fa-clock me-1"></i>{{ project.duration }}
+                </span>
+              </div>
+              <h3 class="project-name">{{ project.title }}</h3>
+            </div>
+
+            <div class="project-content">
+              <p class="project-description">
+                {{ project.description|truncatechars:150 }}
+              </p>
+
+              <div class="project-action">
+                <a href="{% url 'project_detail' project.slug %}" class="view-details-btn">
+                  <span>View Project Details</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      {% empty %}
+        <p class="text-center">No projects available</p>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Add your existing CSS here */
+    :root {
+        --primary-blue: #2563eb;
+        --blue-light: #dbeafe;
+        --blue-dark: #1e40af;
+        --success-green: #10b981;
+        --info-blue: #0ea5e9;
+        --warning-orange: #f59e0b;
+        --danger-red: #dc2626;
+        --purple-color: #8b5cf6;
+        --dark-gray: #1e293b;
+        --medium-gray: #475569;
+        --light-gray: #f8fafc;
+        --border-gray: #e2e8f0;
+        --shadow-color: rgba(0, 0, 0, 0.08);
+    }
+    
+    .projects-section {
+        background: white;
+    }
+
+    /* Section Header */
+    .section-header {
+        position: relative;
+        margin-bottom: 3rem;
+    }
+
+    .section-title {
+        color: var(--dark-gray);
+        font-weight: 700;
+        display: inline-block;
+        position: relative;
+    }
+
+    .title-underline {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary-blue), var(--info-blue));
+        border-radius: 2px;
+    }
+
+    /* Project Card */
+    .project-card {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px var(--shadow-color);
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--border-gray);
+    }
+
+    .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        border-color: var(--blue-light);
+    }
+
+    /* Project Image */
+    .project-image-container {
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .project-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card:hover .project-img {
+        transform: scale(1.08);
+    }
+
+    .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .image-overlay {
+        opacity: 0.5;
+    }
+
+    /* Project Header */
+    .project-header {
+        padding: 1.5rem 1.5rem 0;
+    }
+
+    .project-tag {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+    }
+
+    .tag {
+        padding: 0.35rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        color: white;
+    }
+
+    .tag.tech-training {
+        background: linear-gradient(135deg, var(--primary-blue), var(--info-blue));
+    }
+
+    .tag.govt-karnataka {
+        background: linear-gradient(135deg, #059669, #10b981);
+    }
+
+    .tag.intensive-program {
+        background: linear-gradient(135deg, var(--danger-red), #ef4444);
+    }
+
+    .tag.employability {
+        background: linear-gradient(135deg, var(--purple-color), #a78bfa);
+    }
+
+    .project-duration {
+        color: var(--medium-gray);
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    .project-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--dark-gray);
+        margin: 0;
+        line-height: 1.3;
+    }
+
+    /* Project Content */
+    .project-content {
+        padding: 0 1.5rem 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project-description {
+        color: var(--medium-gray);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Project Features */
+    .project-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        justify-content: center;
+    }
+
+    .feature-tag {
+        padding: 0.4rem 0.8rem;
+        background: var(--light-gray);
+        color: var(--medium-gray);
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        border: 1px solid var(--border-gray);
+        transition: all 0.3s ease;
+    }
+
+    .project-card:hover .feature-tag {
+        background: white;
+        border-color: var(--blue-light);
+        color: var(--primary-blue);
+    }
+
+    /* Action Button */
+    .project-action {
+        margin-top: auto;
+        text-align: center;
+    }
+
+    .view-details-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        background: linear-gradient(135deg, var(--primary-blue), var(--blue-dark));
+        color: white;
+        padding: 0.875rem 2rem;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .view-details-btn:hover {
+        background: linear-gradient(135deg, var(--blue-dark), var(--primary-blue));
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        color: white;
+        text-decoration: none;
+    }
+
+    .view-details-btn i {
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+    }
+
+    .view-details-btn:hover i {
+        transform: translateX(4px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .section-title {
+            font-size: 2rem;
+        }
+        
+        .project-image-container {
+            height: 200px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .projects-section {
+            padding: 3rem 1rem;
+        }
+        
+        .section-header {
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            font-size: 1.75rem;
+        }
+        
+        .project-card {
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-header {
+            padding: 1.25rem 1.25rem 0;
+        }
+        
+        .project-content {
+            padding: 0 1.25rem 1.25rem;
+        }
+        
+        .view-details-btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+            max-width: 240px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .project-tag {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .project-name {
+            font-size: 1.25rem;
+        }
+        
+        .project-image-container {
+            height: 180px;
+        }
+        
+        .project-features {
+            justify-content: center;
+        }
+        
+        .view-details-btn {
+            max-width: 100%;
+        }
+    }
+</style>
+{% endblock %} 

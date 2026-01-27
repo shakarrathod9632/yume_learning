@@ -1,10 +1,18 @@
 from django.urls import path
 from . import views
+from .views import courses_page, course_detail
+
+from .views import projects_page
+
 
 urlpatterns = [
     path("", views.home_page, name="home"),
     path("about/", views.about_page, name="about"),
     path("courses/", views.courses_page, name="courses"),
+    
+    path('courses/<str:course_url>/', course_detail, name='course_detail'),
+
+
 
     path("courses/excel-data-analysis/", views.excel_course, name="excel"),
     path("courses/sql-data-analysis/", views.sql_course, name="sql"),
@@ -18,17 +26,39 @@ urlpatterns = [
 
     path("projects/", views.projects_page, name="projects"),
     
-     path('projects/aspire_project/', views.aspire_project, name='aspire_project'),
+    path('projects/aspire_project/', views.aspire_project, name='aspire_project'),
     path('projects/kjk_project/', views.kjk_project, name='kjk_project'),
     path('projects/naan-mudhalvan_project/', views.naan_mudhalvan_project, name='naan_mudhalvan_project'),
     path('projects/bridgetech_project/', views.bridgetech_project, name='bridgetech_project'),
+    
+    
+    
+    #   path("projects/", views.projects_page, name="projects"),
+    # path('projects/<slug:slug>/', views.project_detail, name='project_detail'),
+    
+    # # Keep old URLs for backward compatibility (redirect to new dynamic URLs)
+    # path('projects/aspire_project/', views.aspire_project_redirect, name='aspire_project'),
+    # path('projects/kjk_project/', views.kjk_project_redirect, name='kjk_project'),
+    # path('projects/naan-mudhalvan_project/', views.naan_mudhalvan_redirect, name='naan_mudhalvan_project'),
+    # path('projects/bridgetech_project/', views.bridgetech_project_redirect, name='bridgetech_project'),
+    
+    
+    
+    # path("projects/", views.projects_list, name="projects"),
+    # path("projects/<slug:slug>/", views.project_detail, name="project_detail"),
+    
+    # path("projects/", projects_page, name="projects"),
+    # path("projects/<slug:slug>/", project_detail, name="project_detail"),
     
     path("placements/", views.placements_page, name="placements"),
     path("contact/", views.contact_page, name="contact"),
     
     path("faqs/", views.faqs, name="faqs"),
     
+     # Blog URLs
     path("blog/", views.blog, name="blog"),
+    path("blog/dynamic/<slug:slug>/", views.dynamic_blog_detail, name="dynamic_blog_detail"),
+    
     path("excel_blog/", views.excel_blog, name="excel_blog"),
     path("sql_blog/", views.sql_blog, name="sql_blog"),
     path("python_blog/", views.python_blog, name="python_blog"),
@@ -45,4 +75,17 @@ urlpatterns = [
     path("enrollment_form/", views.enrollment_form, name="enrollment_form"),
     
     path("enquire_now/", views.enquire_now, name="enquire_now"),
+    
+    
+    # path("projects/", views.projects_page, name="projects"),
+    # path("projects/<slug:slug>/", views.project_detail, name="project_detail"),
+    
+     # Main projects page with cards
+    path('', views.projects_page, name='projects_page'),
+    
+    # Project detail page
+    path('<slug:slug>/', views.project_detail, name='project_detail'),
+    
+    
+ 
 ]

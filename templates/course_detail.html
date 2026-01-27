@@ -1,0 +1,733 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<section class="about-us-banner" data-aos="fade-down">
+  <div class="about-us-content">
+    <h1>{{ course.title }}</h1>
+  </div>
+</section>
+
+
+<style>
+    .about-us-banner {
+        position: relative;
+        width: 100%;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        
+        /* Elegant gradient overlay */
+        background:
+        linear-gradient(
+            to top,
+            rgba(14, 165, 233, 0.35) 0%,
+            rgba(14, 165, 233, 0.22) 20%,
+            rgba(14, 165, 233, 0.10) 40%,
+            rgba(14, 165, 233, 0.04) 60%,
+            rgba(0, 0, 0, 0) 85%
+        ),
+        #000000;
+        
+        border-bottom: 1px solid rgba(14, 165, 233, 0.25);
+        padding: 35px 20px;
+    }
+
+        .about-us-content h1 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .about-us-content h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3a86ff, #8338ec);
+            border-radius: 2px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .about-us-banner {
+            min-height: 160px;
+            padding: 25px 15px;
+            }
+
+            .about-us-content h1 {
+            font-size: 26px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            }
+
+            .about-us-content h1::after {
+            width: 60px;
+            height: 3px;
+            }
+        }
+</style>
+
+
+
+<section class="course-detail py-5">
+    <div class="container">
+       <!-- Hero Section with Course Info -->
+        <div class="row align-items-center mb-5">
+
+        <div class="col-lg-8" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
+            <div class="mb-4">
+                <span class="badge bg-primary bg-gradient px-3 py-2 mb-3 d-inline-flex align-items-center" data-aos="fade-down" data-aos-delay="300" data-aos-duration="700">
+                    <i class="bi bi-star-fill me-2"></i> Industry-Standard Curriculum
+                </span>
+
+                <h1 class="display-4 fw-bold text-dark mb-3" style="font-size: 2.7rem;" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
+                    {{ course.title }}:
+                    <span class="text-primary d-block" data-aos="fade-left" data-aos-delay="500">
+                        {{ course.subtitle }}
+                    </span>
+                </h1>
+
+                <p class="lead text-muted mb-4" style="font-size: 1.2rem;" data-aos="fade-up" data-aos-delay="600" data-aos-duration="900">
+                    {{ course.overview }}
+                </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="700">
+                <div class="d-flex align-items-center" data-aos="zoom-in" data-aos-delay="750">
+                    <div class="bg-primary bg-opacity-10 rounded-circle p-2 me-3" data-aos="bounce-in" data-aos-delay="800">
+                        <i class="bi bi-calendar-check text-primary fs-4"></i>
+                    </div>
+                    <div data-aos="fade-left" data-aos-delay="850">
+                        <h6 class="fw-bold mb-1">Duration</h6>
+                        <p class="text-muted mb-0">{{ course.duration }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="800">
+                <div class="d-flex align-items-center" data-aos="zoom-in" data-aos-delay="850">
+                    <div class="bg-success bg-opacity-10 rounded-circle p-2 me-3" data-aos="bounce-in" data-aos-delay="900">
+                        <i class="bi bi-clock-history text-success fs-4"></i>
+                    </div>
+                    <div data-aos="fade-left" data-aos-delay="950">
+                        <h6 class="fw-bold mb-1">Total Hours</h6>
+                        <p class="text-muted mb-0">{{ course.total_hours }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="900">
+                <div class="d-flex align-items-center" data-aos="zoom-in" data-aos-delay="950">
+                    <div class="bg-warning bg-opacity-10 rounded-circle p-2 me-3" data-aos="bounce-in" data-aos-delay="1000">
+                        <i class="bi bi-bar-chart text-warning fs-4"></i>
+                    </div>
+                    <div data-aos="fade-left" data-aos-delay="1050">
+                        <h6 class="fw-bold mb-1">Level</h6>
+                        <p class="text-muted mb-0">{{ course.level }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="1000">
+                <div class="d-flex align-items-center" data-aos="zoom-in" data-aos-delay="1050">
+                    <div class="bg-info bg-opacity-10 rounded-circle p-2 me-3" data-aos="bounce-in" data-aos-delay="1100">
+                        <i class="bi bi-laptop text-info fs-4"></i>
+                    </div>
+                    <div data-aos="fade-left" data-aos-delay="1150">
+                        <h6 class="fw-bold mb-1">Format</h6>
+                        <p class="text-muted mb-0">{{ course.format }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+         <!-- Enrollment Card -->
+            <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-left" data-aos-delay="300" data-aos-duration="800">
+                <div class="card border-0 shadow-lg" data-aos="flip-right" data-aos-delay="400" data-aos-duration="700">
+
+                    <div class="card-header bg-primary text-white py-4" data-aos="fade-down" data-aos-delay="500">
+                        <h4 class="fw-bold mb-0 text-center" data-aos="zoom-in" data-aos-delay="550">
+                            <i class="bi bi-lightning-charge me-2"></i>
+                            Course Enrollment
+                        </h4>
+                    </div>
+
+                    <div class="card-body p-4">
+
+                        <div class="text-center mb-4" data-aos="fade-up" data-aos-delay="600">
+                            <h5 class="fw-bold text-dark mb-2" data-aos="fade-down" data-aos-delay="650">
+                                Start Your Learning Journey
+                            </h5>
+                            <p class="text-muted" data-aos="fade-up" data-aos-delay="700">
+                                Limited seats available for next batch
+                            </p>
+                        </div>
+
+                        <div class="d-grid gap-3">
+                            <a href="{% url 'enrollment_form' %}"
+                            class="btn btn-primary btn-lg fw-bold" 
+                            data-aos="fade-up" 
+                            data-aos-delay="750"
+                            data-aos-anchor-placement="top-bottom">
+                                <i class="bi bi-cart-check me-2"></i>
+                                Enroll Now
+                            </a>
+
+                            <a href="https://wa.me/{{ course.whatsapp_number }}?text=Hi%20I'm%20interested%20in%20{{ course.title|urlencode }}%20course"
+                            target="_blank"
+                            class="btn btn-success btn-lg fw-bold"
+                            data-aos="fade-up" 
+                            data-aos-delay="800"
+                            data-aos-anchor-placement="top-bottom">
+                                <i class="bi bi-whatsapp me-2"></i>
+                                Chat on WhatsApp
+                            </a>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-top text-center" data-aos="fade-up" data-aos-delay="850">
+                            <small class="text-muted" data-aos="fade-in" data-aos-delay="900">
+                                <i class="bi bi-telephone me-1"></i>
+                                For queries: {{ course.contact_number }}
+                            </small>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+       <!-- Course Highlights -->
+        {% if course.highlights.all %}
+        <div class="row mb-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card-body">
+                        <div class="row g-4">
+
+                            {% for highlight in course.highlights.all %}
+                            {% if highlight.is_active %}
+                            <div class="col-md-3" 
+                                 data-aos="fade-up" 
+                                 data-aos-delay="{{ forloop.counter0|add:4 }}00"
+                                 data-aos-duration="600">
+                                <div class="text-center p-3">
+                                    <div class="bg-primary bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                        style="width: 70px; height: 70px;"
+                                        data-aos="zoom-in" 
+                                        data-aos-delay="{{ forloop.counter0|add:5 }}00">
+                                        <i class="{{ highlight.icon_class }} fs-3 text-white"></i>
+                                    </div>
+                                    <h5 class="fw-bold mb-2" 
+                                        data-aos="fade-down" 
+                                        data-aos-delay="{{ forloop.counter0|add:5.5 }}00">
+                                        {{ highlight.title }}
+                                    </h5>
+                                    <p class="text-muted small mb-0"
+                                       data-aos="fade-up" 
+                                       data-aos-delay="{{ forloop.counter0|add:6 }}00">
+                                        {{ highlight.description }}
+                                    </p>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+
+<!-- ========================= -->
+<!-- Detailed Curriculum -->
+<!-- ========================= -->
+<div class="row mb-5" data-aos="fade-up" data-aos-duration="600">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm" data-aos="fade-in" data-aos-duration="500">
+            <div class="card-header bg-white border-0 py-4">
+                <h2 class="h2 fw-bold mb-0" data-aos="fade-down" data-aos-delay="100" data-aos-duration="400">
+                    <i class="bi bi-journal-text text-primary me-2"></i>
+                    Detailed Curriculum Breakdown
+                </h2>
+                <p class="text-muted mb-0 mt-2" data-aos="fade-up" data-aos-delay="150" data-aos-duration="400">
+                    Comprehensive structured learning path
+                </p>
+            </div>
+
+            <div class="card-body p-0">
+                <div class="accordion accordion-flush" id="curriculumAccordion">
+
+                    {% for month in curriculum_months %}
+                    <div class="accordion-item border-bottom" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:2 }}00" data-aos-duration="400">
+
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold py-4 {% if not forloop.first %}collapsed{% endif %}"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#month{{ month.id }}">
+                                <div class="d-flex w-100 align-items-center">
+                                    <span class="badge bg-{{ month.badge_color }} me-3 px-3 py-2">
+                                        {{ month.title }}
+                                    </span>
+                                    <div>
+                                        <h5 class="mb-1">{{ month.subtitle }}</h5>
+                                        <p class="text-muted small mb-0">
+                                            {{ month.meta_info }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </button>
+                        </h2>
+
+                        <div id="month{{ month.id }}"
+                            class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
+                            data-bs-parent="#curriculumAccordion">
+
+                            <div class="accordion-body p-4">
+                                <div class="row">
+
+                                    {% for section in month.sections.all %}
+                                    <div class="col-md-6" data-aos="fade-left" data-aos-delay="{{ forloop.parentloop.counter0|add:3 }}00" data-aos-duration="300">
+                                        <h6 class="fw-bold text-{{ month.badge_color }} mb-3">
+                                            {{ section.title }}
+                                        </h6>
+
+                                        <ul class="list-unstyled">
+                                            {% for topic in section.topics.all %}
+                                            <li class="mb-2 d-flex align-items-start" data-aos="fade-in" data-aos-delay="{{ forloop.parentloop.parentloop.counter0|add:4 }}00" data-aos-duration="200">
+                                                <i class="bi bi-check-circle-fill text-success me-2 mt-1"></i>
+                                                <span>{{ topic.title }}</span>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Learning Outcomes & Tools - Balanced Height Version -->
+<div class="row g-0 g-lg-4 mb-5">
+
+    <!-- Learning Outcomes -->
+    <div class="col-lg-7 position-relative" data-aos="fade-right" data-aos-duration="500">
+        <div class="position-relative z-1 p-4 p-md-5 h-100">
+            <h3 class="h3 fw-bold mb-3 pb-2 border-bottom" data-aos="fade-down" data-aos-delay="100" data-aos-duration="400">
+                Learning Outcomes & Career Benefits
+            </h3>
+
+            <div class="position-relative mt-4">
+                <!-- Connecting line -->
+                <div class="position-absolute start-0 top-0 h-100 ms-3"
+                     style="width: 3px; background: linear-gradient(to bottom, var(--bs-primary), var(--bs-success));"
+                     data-aos="height-grow" 
+                     data-aos-delay="200"
+                     data-aos-duration="600"
+                     data-aos-anchor-placement="top-bottom">
+                </div>
+
+                <div class="ms-5">
+
+                    {% for outcome in course.learning_outcomes.all %}
+                    <div class="position-relative mb-4" data-aos="fade-left" data-aos-delay="{{ forloop.counter0|add:3 }}00" data-aos-duration="400">
+                        <div class="position-absolute start-0 translate-middle-x" style="margin-left: -28px;" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:3.2 }}00">
+                            <div class="rounded-circle bg-white border border-3 border-{{ outcome.color }}
+                                        d-flex align-items-center justify-content-center"
+                                 style="width: 24px; height: 24px;">
+                                <div class="rounded-circle bg-{{ outcome.color }}"
+                                     style="width: 12px; height: 12px;"
+                                     data-aos="pulse" 
+                                     data-aos-delay="{{ forloop.counter0|add:3.5 }}00"
+                                     data-aos-duration="300">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:3.3 }}00">
+                            <h4 class="h5 fw-bold mb-2">{{ outcome.title }}</h4>
+                            <p class="text-muted mb-0 small">
+                                {{ outcome.description }}
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Diagonal background shape -->
+        <div class="position-absolute top-0 end-0 w-50 h-100 d-none d-lg-block"
+             style="background: linear-gradient(135deg, rgba(13, 110, 253, 0.05) 0%, rgba(25, 135, 84, 0.05) 100%);
+                    clip-path: polygon(100% 0, 0% 100%, 100% 100%);"
+             data-aos="slide-left" 
+             data-aos-delay="100"
+             data-aos-duration="700">
+        </div>
+    </div>
+
+    <!-- Tools Covered -->
+    <div class="col-lg-5 bg-light d-flex align-items-stretch" data-aos="fade-left" data-aos-delay="200" data-aos-duration="500">
+        <div class="p-4 p-md-5 w-100">
+            <h3 class="h3 fw-bold mb-3 pb-0 border-bottom" data-aos="fade-down" data-aos-delay="300" data-aos-duration="400">
+                Tools & Technologies
+            </h3>
+
+            <div class="row g-3 mt-4">
+
+                {% for tool in course.tools.all %}
+                <div class="col-12" data-aos="flip-up" data-aos-delay="{{ forloop.counter0|add:4 }}00" data-aos-duration="400">
+                    <div class="p-3 border-start border-4 border-{{ tool.color }}
+                                bg-white rounded-end h-100">
+                        <h4 class="h6 fw-bold mb-1 text-uppercase small" data-aos="fade-in" data-aos-delay="{{ forloop.counter0|add:4.2 }}00">
+                            {{ tool.name }}
+                        </h4>
+                        <p class="text-muted small mb-0" data-aos="fade-in" data-aos-delay="{{ forloop.counter0|add:4.4 }}00">
+                            {{ tool.description }}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<!-- Certification & FAQ -->
+<div class="row g-4 mb-5">
+
+    <!-- Certification -->
+    <div class="col-lg-6" data-aos="fade-right" data-aos-duration="600">
+        <div class="card h-100 border-0 shadow-sm" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="500">
+            <div class="card-header bg-white border-0 py-4">
+                <h3 class="h4 fw-bold mb-0" data-aos="fade-down" data-aos-delay="200" data-aos-duration="400">
+                    <i class="bi bi-award-fill text-warning me-2"></i>
+                    Certification & Placement Support
+                </h3>
+            </div>
+
+            <div class="card-body p-4">
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center mb-4 mb-md-0">
+                        <div class="bg-warning bg-opacity-10 rounded-3 p-4 d-inline-block"
+                             data-aos="bounce-in" 
+                             data-aos-delay="300"
+                             data-aos-duration="500">
+                            <i class="bi bi-award fs-1 text-warning"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <h5 class="fw-bold mb-3" data-aos="fade-left" data-aos-delay="350" data-aos-duration="400">
+                            Dual Certification Program
+                        </h5>
+
+                        <ul class="list-unstyled">
+                            {% for item in course.certification_points.all %}
+                            <li class="mb-2 d-flex align-items-start" 
+                                data-aos="fade-up" 
+                                data-aos-delay="{{ forloop.counter0|add:4 }}00"
+                                data-aos-duration="400">
+                                <i class="bi bi-check-circle-fill text-success me-2 mt-1"
+                                   data-aos="pulse" 
+                                   data-aos-delay="{{ forloop.counter0|add:4.2 }}00"
+                                   data-aos-duration="300"></i>
+                                <span>{{ item.text }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100" data-aos-duration="600">
+        <div class="card h-100 border-0 shadow-sm" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="500">
+            <div class="card-header bg-white border-0 py-4">
+                <h3 class="h4 fw-bold mb-0" data-aos="fade-down" data-aos-delay="300" data-aos-duration="400">
+                    <i class="bi bi-question-circle-fill text-info me-2"></i>
+                    Frequently Asked Questions
+                </h3>
+            </div>
+
+            <div class="card-body p-4">
+                <div class="accordion accordion-flush" id="faqAccordion">
+
+                    {% for faq in course.faqs.all %}
+                    <div class="accordion-item border-bottom" 
+                         data-aos="fade-up" 
+                         data-aos-delay="{{ forloop.counter0|add:4 }}00"
+                         data-aos-duration="400">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faq{{ forloop.counter }}">
+                                {{ faq.question }}
+                            </button>
+                        </h2>
+
+                        <div id="faq{{ forloop.counter }}"
+                             class="accordion-collapse collapse"
+                             data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                {{ faq.answer }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Career Opportunities -->
+<div class="row mb-5" data-aos="fade-up" data-aos-duration="600">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="500">
+            <div class="card-header bg-primary text-white border-0 py-4">
+                <h3 class="h3 fw-bold mb-0" data-aos="fade-down" data-aos-delay="200" data-aos-duration="400">
+                    <i class="bi bi-briefcase-fill me-2" data-aos="bounce" data-aos-delay="250"></i>
+                    Career Opportunities After Completion
+                </h3>
+            </div>
+
+            <div class="card-body p-4">
+                <div class="row g-4">
+
+                    {% for career in course.career_opportunities.all %}
+                    <div class="col-md-3" 
+                         data-aos="fade-up" 
+                         data-aos-delay="{{ forloop.counter0|add:3 }}00"
+                         data-aos-duration="500">
+                        <div class="text-center p-3">
+                            <div class="bg-light rounded-3 p-3 mb-3"
+                                 data-aos="flip-left" 
+                                 data-aos-delay="{{ forloop.counter0|add:3.2 }}00"
+                                 data-aos-duration="400">
+                                
+                                {% if career.icon_type == "data" %}
+                                    <i class="bi bi-graph-up fs-3 text-primary" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:3.4 }}00"></i>
+                                {% elif career.icon_type == "finance" %}
+                                    <i class="bi bi-cash-stack fs-3 text-success" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:3.4 }}00"></i>
+                                {% elif career.icon_type == "business" %}
+                                    <i class="bi bi-bar-chart-line fs-3 text-warning" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:3.4 }}00"></i>
+                                {% elif career.icon_type == "speed" %}
+                                    <i class="bi bi-speedometer2 fs-3 text-info" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:3.4 }}00"></i>
+                                {% elif career.icon_type == "intelligence" %}
+                                    <i class="bi bi-lightbulb fs-3 text-primary" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:3.4 }}00"></i>
+                                {% elif career.icon_type == "corporate" %}
+                                    <i class="bi bi-building fs-3 text-success" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:3.4 }}00"></i>
+                                {% elif career.icon_type == "reporting" %}
+                                    <i class="bi bi-clipboard-data fs-3 text-warning" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:3.4 }}00"></i>
+                                {% elif career.icon_type == "tech" %}
+                                    <i class="bi bi-laptop fs-3 text-info" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:3.4 }}00"></i>
+                                {% endif %}
+
+                            </div>
+
+                            <h6 class="fw-bold mb-2" 
+                                data-aos="fade-down" 
+                                data-aos-delay="{{ forloop.counter0|add:3.6 }}00"
+                                data-aos-duration="300">
+                                {{ career.title }}
+                            </h6>
+
+                            <p class="text-muted small mb-0"
+                               data-aos="fade-up" 
+                               data-aos-delay="{{ forloop.counter0|add:3.8 }}00"
+                               data-aos-duration="300">
+                                {{ career.description }}
+                            </p>
+
+                            <small class="text-primary"
+                                   data-aos="fade-in" 
+                                   data-aos-delay="{{ forloop.counter0|add:4 }}00"
+                                   data-aos-duration="300">
+                                {{ career.tag }}
+                            </small>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    <style>
+                /* Minimal responsive adjustments */
+                @media (max-width: 992px) {
+                    .border-start {
+                        border-left-width: 2px !important;
+                    }
+                }
+
+                /* Ensure equal height containers */
+                .h-100 > .row {
+                    min-height: 100%;
+                }
+    </style>
+       
+
+    <style>
+        .course-detail {
+            background: white;
+        }
+        
+        .card {
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .bg-gradient {
+            background: linear-gradient(135deg, var(--bs-primary) 0%, #0056b3 100%) !important;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(13, 110, 253, 0.05);
+            color: var(--bs-primary);
+            box-shadow: none;
+        }
+        
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(13, 110, 253, 0.2);
+        }
+        
+        .accordion-body {
+            background-color: rgba(13, 110, 253, 0.02);
+        }
+        
+        .badge {
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            border-radius: 10px;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+        }
+        
+        .btn-success {
+            border-radius: 10px;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+        }
+        
+        .border-white-25 {
+            border-color: rgba(255, 255, 255, 0.25) !important;
+        }
+        
+        @media (max-width: 992px) {
+            .display-4 {
+                font-size: 2.5rem;
+            }
+            
+            .card-body {
+                padding: 1.5rem !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .display-4 {
+                font-size: 2rem;
+            }
+            
+            .lead {
+                font-size: 1.1rem;
+            }
+            
+            .btn-lg {
+                padding: 0.75rem 1.5rem !important;
+                font-size: 1rem;
+            }
+            
+            .row.g-0 {
+                flex-direction: column;
+            }
+            
+            .col-lg-4.bg-primary {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .display-4 {
+                font-size: 1.75rem;
+            }
+            
+            .h1, .h2, .h3 {
+                font-size: 1.5rem;
+            }
+            
+            .d-flex.w-100.align-items-center {
+                flex-direction: column;
+                align-items: flex-start !important;
+            }
+            
+            .d-flex.w-100.align-items-center .badge {
+                margin-bottom: 0.5rem;
+                margin-right: 0 !important;
+            }
+            
+            .accordion-button {
+                padding: 1rem !important;
+            }
+        }
+    </style>
+</section>
+
+
+{% endblock %}

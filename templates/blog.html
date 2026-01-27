@@ -348,6 +348,54 @@
         </div>
     </div>
 
+    {% if dynamic_blogs %}
+    <!-- Dynamic Blogs Section -->
+    <div class="dynamic-blogs-section mt-5 pt-5 border-top">
+      
+
+        <div class="row g-4">
+            {% for blog in dynamic_blogs %}
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-card card border-0 h-100">
+                    <div class="card-img-container position-relative overflow-hidden">
+                        {% if blog.featured_image %}
+                        <img src="{{ blog.featured_image.url }}" 
+                            class="card-img-top" 
+                            alt="{{ blog.title }}"
+                            style="height: 250px; object-fit: cover;">
+                        {% else %}
+                        <img src="{% static 'images/blog_default.jpg' %}" 
+                            class="card-img-top" 
+                            alt="{{ blog.title }}"
+                            style="height: 250px; object-fit: cover;">
+                        {% endif %}
+                        <div class="image-overlay"></div>
+                        <div class="blog-category position-absolute top-0 start-0 m-3">
+                            <span class="badge px-3 py-2" style="background-color: {{ blog.category_color }};">
+                                {{ blog.category_display }}
+                            </span>
+                        </div>
+                        <div class="blog-date position-absolute bottom-0 start-0 m-3 text-white fw-semibold">
+                            <i class="bi bi-calendar me-1"></i>{{ blog.publish_date|date:"M d, Y" }}
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold mb-3">{{ blog.title }}</h5>
+                        <p class="card-text text-muted mb-4">{{ blog.excerpt|truncatechars:120 }}</p>
+                        <div class="blog-footer d-flex justify-content-between align-items-center pt-3 border-top">
+                            <span class="text-muted small"><i class="bi bi-clock me-1"></i>{{ blog.read_time }}</span>
+                            <a href="{% url 'dynamic_blog_detail' blog.slug %}" class="blog-read-btn small fw-medium">
+                                Read Article <i class="bi bi-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
     <!-- Load More Button -->
     <div class="text-center mt-5">
         <button class="btn blog-load-btn px-5 py-3" id="loadMoreBtn">

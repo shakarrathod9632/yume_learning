@@ -185,7 +185,7 @@
             margin: 0;
             padding-bottom: 10px;
             display: inline-block;
-            border-bottom: 2px solid #4c5df0;
+            border-bottom: 2px solid rgb(5, 201, 254);
         }
 
         /* Tagline */
@@ -245,7 +245,7 @@
         }
 
         .yume-text strong {
-            color: #4c5df0;
+            color: rgb(5, 201, 254);
             font-weight: 600;
         }
 
@@ -463,7 +463,7 @@
         margin: 0;
         padding-bottom: 8px;
         display: inline-block;
-        border-bottom: 2px solid #2563eb;
+        border-bottom: 2px solid rgb(5, 201, 254);
     }
 
     /* ============================================
@@ -516,7 +516,7 @@
     }
 
     .highlight-mobile {
-        color: #2563eb;
+        color: rgb(5, 201, 254);
         font-weight: 700;
     }
 
@@ -557,7 +557,7 @@
        READ MORE BUTTON
     ============================================= */
     .read-more-btn-mobile {
-        background: #2563eb;
+        background: rgb(5, 201, 254);
         color: white;
         border: none;
         border-radius: 8px;
@@ -572,7 +572,7 @@
     }
 
     .read-more-btn-mobile:hover {
-        background: #1d4ed8;
+        background: rgb(5, 201, 254);
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
     }
@@ -843,7 +843,7 @@
         margin: 0;
         padding-bottom: 8px;
         display: inline-block;
-        border-bottom: 2px solid #2563eb;
+        border-bottom: 2px solid rgb(5, 201, 254);
     }
 
     /* ============================================
@@ -922,7 +922,7 @@
     }
 
     .cofounder-highlight {
-        color: #2563eb;
+        color: rgb(5, 201, 254);
         font-weight: 700;
     }
 
@@ -937,7 +937,7 @@
        READ MORE BUTTON
     ============================================= */
     .cofounder-read-more-btn {
-        background: #2563eb;
+        background: rgb(5, 201, 254);
         color: white;
         border: none;
         border-radius: 8px;
@@ -952,7 +952,7 @@
     }
 
     .cofounder-read-more-btn:hover {
-        background: #1d4ed8;
+        background: rgb(5, 201, 254);
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
     }
@@ -1122,13 +1122,14 @@
 
 
 <!-- =============      ADVISOR SECTION START   ================= -->
+{% for advisor in advisors %}
 <section class="advisor-section" data-aos="fade-up">
     <div class="advisor-container">
         
         <!-- Section Header -->
         <div class="advisor-header">
             <h2 data-aos="zoom-in" data-aos-delay="100">
-                Advisor & Mentor
+                {{ advisor.title|default:"Advisor & Mentor" }}
             </h2>
         </div>
 
@@ -1140,54 +1141,56 @@
                 <h3 class="advisor-name" 
                     data-aos="fade-right" 
                     data-aos-delay="200">
-                    Dr. Ravi Shankar
+                    {{ advisor.name }}
                 </h3>
 
-                <div class="advisor-bio">
-                    <p data-aos="fade-up" data-aos-delay="300">
-                        Dr. Ravi Shankar is a <span class="advisor-highlight">global thought leader</span> in framing 
-                        accreditation and certification standards for <span class="advisor-highlight">Data Science & AI-ML</span>. 
-                        He specializes in <span class="advisor-highlight">IR4.0 technologies</span> and its application to 
-                        solve business problems across Education, Pharma, Insurance and IT sectors. He crafts strategic 
-                        learning journeys and delivers <span class="advisor-highlight">AI-ML programs for CXOs</span> in 
-                        Healthcare, BFSI and Retail/CPG.
-                    </p>
+                <!-- Subtitle/Role Section -->
+                {% if advisor.subtitle %}
+                <p class="advisor-subtitle" 
+                   data-aos="fade-up" 
+                   data-aos-delay="300">
+                    {{ advisor.subtitle|upper }}
+                </p>
+                {% endif %}
 
+                <div class="advisor-bio">
+                    <!-- First Paragraph -->
+                    {% if advisor.bio_part1 %}
                     <p data-aos="fade-up" data-aos-delay="400">
-                        Currently a <span class="advisor-highlight">Visiting Professor</span> at leading business 
-                        institutes including <span class="advisor-highlight">ISB</span> and 
-                        <span class="advisor-highlight">Singapore Management University</span>. He specializes in 
-                        teaching <span class="advisor-highlight">Strategic AI Leadership</span>, 
-                        <span class="advisor-highlight">AI Business Adoption</span>, Computer Vision and Deep Learning. 
-                        He also consults and drives Data Science–driven Digital Transformation initiatives at 
-                        Fortune 1000 companies.
+                        {{ advisor.get_highlighted_bio_part1|safe }}
                     </p>
+                    {% endif %}
+                    
+                    <!-- Second Paragraph -->
+                    {% if advisor.bio_part2 %}
+                    <p data-aos="fade-up" data-aos-delay="500">
+                        {{ advisor.get_highlighted_bio_part2|safe }}
+                    </p>
+                    {% endif %}
 
                     <!-- Hidden Content -->
-                    <div id="moreContentRavi" class="advisor-more-content">
-                        <p data-aos="fade-up" data-aos-delay="500">
-                            He is actively involved in transforming the sugarcane industry from a 
-                            <span class="advisor-highlight">net-zero perspective</span>. He is also the co-founder of 
-                            <span class="advisor-highlight">Gram Paathshala</span>, <span class="advisor-highlight">Bharat Mandi</span> 
-                            and <span class="advisor-highlight">NextWave Tech</span>. His past work includes leadership roles at 
-                            ICAR, AMEX, Blackstone, Dell, GE Healthcare and PwC.
-                        </p>
-
+                    {% if advisor.has_more_content %}
+                    <div id="moreContent{{ advisor.id }}" class="advisor-more-content">
+                        {% if advisor.bio_hidden1 %}
                         <p data-aos="fade-up" data-aos-delay="600">
-                            A seasoned <span class="advisor-highlight">AgTech mentor</span> associated with multiple 
-                            accelerators & incubators including UASB, C-CAMP, Ah Ventures, and the 
-                            <span class="advisor-highlight">Karnataka Digital Economy Mission (KDEM)</span>. He contributes 
-                            to national agricultural research and policy as an Advisory Board Member at NDRI, IIHR, 
-                            MoFPI, ICRISAT, and others.
+                            {{ advisor.get_highlighted_bio_hidden1|safe }}
                         </p>
+                        {% endif %}
+                        
+                        {% if advisor.bio_hidden2 %}
+                        <p data-aos="fade-up" data-aos-delay="700">
+                            {{ advisor.get_highlighted_bio_hidden2|safe }}
+                        </p>
+                        {% endif %}
                     </div>
-
+                    
                     <button class="advisor-read-more-btn" 
-                            id="toggleBtnRavi" 
+                            id="toggleBtn{{ advisor.id }}" 
                             data-aos="fade-up" 
-                            data-aos-delay="700">
+                            data-aos-delay="800">
                         Read More
                     </button>
+                    {% endif %}
                 </div>
             </div>
 
@@ -1196,14 +1199,13 @@
                  data-aos="zoom-in-left"
                  data-aos-delay="250"
                  data-aos-duration="1000">
-                <img src="{% static 'images/ravi_shankar.jpg' %}" 
-                     alt="Dr. Ravi Shankar"
+                <img src="{{ advisor.image.url }}" 
+                     alt="{{ advisor.name }}"
                      class="advisor-profile-img">
             </div>
         </div>
     </div>
 </section>
-
 
 <style>
     /* ============================================
@@ -1224,10 +1226,23 @@
     }
 
     /* ============================================
+       SUBTITLE STYLES (NEW)
+    ============================================= */
+    .advisor-subtitle {
+        font-size: 0.8rem;
+        color: #64748b;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-align: center;
+        letter-spacing: 1px;
+        line-height: 1.4;
+        padding: 0 2px;
+    }
+
+    /* ============================================
        MAIN SECTION
     ============================================= */
     .advisor-section {
-       
         width: 100%;
         overflow: hidden;
     }
@@ -1252,7 +1267,7 @@
         margin: 0;
         padding-bottom: 8px;
         display: inline-block;
-        border-bottom: 2px solid #2563eb;
+        border-bottom: 2px solid rgb(5, 201, 254);
     }
 
     /* ============================================
@@ -1278,7 +1293,7 @@
         font-size: 1.4rem;
         font-weight: 700;
         color: #0f172a;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         line-height: 1.2;
     }
 
@@ -1295,7 +1310,7 @@
     }
 
     .advisor-highlight {
-        color: #2563eb;
+        color: rgb(5, 201, 254);
         font-weight: 700;
     }
 
@@ -1338,7 +1353,7 @@
     .advisor-read-more-btn {
         margin-top: 10px;
         padding: 10px 22px;
-        background: #2563eb;
+        background: rgb(5, 201, 254);
         color: white;
         border: none;
         border-radius: 6px;
@@ -1353,7 +1368,7 @@
     }
 
     .advisor-read-more-btn:hover {
-        background: #1d4ed8;
+        background: rgb(5, 201, 254);
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
     }
@@ -1369,6 +1384,12 @@
         
         .advisor-header h2 {
             font-size: 1.8rem;
+        }
+        
+        .advisor-subtitle {
+            font-size: 0.82rem;
+            text-align: left;
+            margin-bottom: 25px;
         }
         
         /* Switch to Content LEFT | Image RIGHT layout */
@@ -1389,6 +1410,7 @@
         .advisor-name {
             font-size: 1.6rem;
             text-align: left;
+            margin-bottom: 5px;
         }
         
         /* Image on RIGHT side for tablet/desktop */
@@ -1441,6 +1463,10 @@
             font-size: 1.8rem;
         }
         
+        .advisor-subtitle {
+            font-size: 0.84rem;
+        }
+        
         .advisor-bio p {
             font-size: 0.88rem;
             line-height: 1.7;
@@ -1457,6 +1483,11 @@
         
         .advisor-name {
             font-size: 1.25rem;
+        }
+        
+        .advisor-subtitle {
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
         }
         
         .advisor-bio p {
@@ -1492,6 +1523,10 @@
             font-size: 1.1rem;
         }
         
+        .advisor-subtitle {
+            font-size: 0.7rem;
+        }
+        
         .advisor-bio p {
             font-size: 0.8rem;
             line-height: 1.5;
@@ -1507,8 +1542,38 @@
     }
 </style>
 
-
 <script>
+    // Dynamic script for each advisor
+    document.getElementById("toggleBtn{{ advisor.id }}")?.addEventListener("click", function () {
+        const moreContent = document.getElementById("moreContent{{ advisor.id }}");
+        const btn = this;
+
+        if (moreContent.classList.contains("advisor-more-content")) {
+            // Show more content
+            moreContent.classList.remove("advisor-more-content");
+            moreContent.style.display = "block";
+            btn.textContent = "Read Less";
+            
+            // Refresh AOS for new elements
+            if (typeof AOS !== 'undefined') {
+                setTimeout(() => {
+                    AOS.refresh();
+                }, 100);
+            }
+        } else {
+            // Hide content
+            moreContent.classList.add("advisor-more-content");
+            moreContent.style.display = "none";
+            btn.textContent = "Read More";
+        }
+    });
+</script>
+{% endfor %}
+<!-- =============      ADVISOR SECTION END   ================= -->
+
+
+
+{% comment %} <script>
     document.getElementById("toggleBtnRavi").addEventListener("click", function () {
         const moreContent = document.getElementById("moreContentRavi");
         const btn = this;
@@ -1532,7 +1597,7 @@
             btn.textContent = "Read More";
         }
     });
-</script>
+</script> {% endcomment %}
 
 <!-- =============   ADVISOR SECTION END  =============== -->
 
@@ -1576,232 +1641,232 @@
 </section>
 
 <style>
-/* ============================================
-   RESET & BASE STYLES
-============================================ */
-.yume-learn,
-.yume-card,
-.yume-title,
-.yume-desc,
-.yume-sub,
-.yume-grid,
-.item {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Montserrat", Arial, Helvetica, sans-serif;
-}
+    /* ============================================
+    RESET & BASE STYLES
+    ============================================ */
+    .yume-learn,
+    .yume-card,
+    .yume-title,
+    .yume-desc,
+    .yume-sub,
+    .yume-grid,
+    .item {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    }
 
-/* ============================================
-   SECTION BASE WITH WHITE BACKGROUND
-============================================ */
-.yume-learn {
-    padding: 40px 0;
-    background: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-/* ============================================
-   WIDER, HIGH-LEVEL CARD
-============================================ */
-.yume-card {
-    width: 88%;
-    max-width: 920px;
-    background: #ffffff;
-    padding: 32px 36px;
-    border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    text-align: start;
-    border: 1px solid #f0f0f0;
-}
-
-/* ============================================
-   TITLE
-============================================ */
-.yume-title {
-    font-size: 30px;
-    font-weight: 700;
-    margin-bottom: 18px;
-    color: #111;
-    line-height: 1.3;
-}
-.yume-title span {
-    color: #4c5df0;
-}
-
-/* ============================================
-   PARAGRAPHS
-============================================ */
-.yume-desc {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    margin-bottom: 12px;
-    color: #333;
-}
-
-/* ============================================
-   HIGHLIGHT WORDS
-============================================ */
-.highlight {
-    color: #4c5df0;
-    font-weight: 600;
-}
-
-/* ============================================
-   SUBTITLE
-============================================ */
-.yume-sub {
-    font-size: 1.1rem;
-    margin: 20px 0 16px;
-    font-weight: 700;
-    color: #111;
-}
-
-/* ============================================
-   2-COLUMN COMPACT GRID
-============================================ */
-.yume-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px 20px;
-}
-
-/* ============================================
-   GRID ITEMS
-============================================ */
-.yume-grid .item {
-    font-size: 0.84rem;
-    line-height: 1.5;
-    color: #333;
-    text-align: left;
-    position: relative;
-    padding-left: 16px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
-
-/* ============================================
-   PREMIUM BULLET
-============================================ */
-.yume-grid .item::before {
-    content: "•";
-    color: #4c5df0;
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-/* ============================================
-   TABLET VIEW (768px and below)
-============================================ */
-@media (max-width: 768px) {
+    /* ============================================
+    SECTION BASE WITH WHITE BACKGROUND
+    ============================================ */
     .yume-learn {
-        padding: 35px 0;
+        padding: 40px 0;
+        background: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
     }
-    
+
+    /* ============================================
+    WIDER, HIGH-LEVEL CARD
+    ============================================ */
     .yume-card {
-        width: 90%;
-        padding: 28px 24px;
+        width: 88%;
+        max-width: 920px;
+        background: #ffffff;
+        padding: 32px 36px;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        text-align: start;
+        border: 1px solid #f0f0f0;
     }
-    
+
+    /* ============================================
+    TITLE
+    ============================================ */
     .yume-title {
-        font-size: 28px;
-        margin-bottom: 16px;
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 18px;
+        color: #111;
+        line-height: 1.3;
     }
-    
+    .yume-title span {
+        color: rgb(5, 201, 254);
+    }
+
+    /* ============================================
+    PARAGRAPHS
+    ============================================ */
     .yume-desc {
-        font-size: 0.84rem;
-        line-height: 1.55;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        margin-bottom: 12px;
+        color: #333;
     }
-    
+
+    /* ============================================
+    HIGHLIGHT WORDS
+    ============================================ */
+    .highlight {
+        color: rgb(5, 201, 254);
+        font-weight: 600;
+    }
+
+    /* ============================================
+    SUBTITLE
+    ============================================ */
     .yume-sub {
-        font-size: 1.05rem;
-        margin: 18px 0 14px;
+        font-size: 1.1rem;
+        margin: 20px 0 16px;
+        font-weight: 700;
+        color: #111;
     }
-    
+
+    /* ============================================
+    2-COLUMN COMPACT GRID
+    ============================================ */
     .yume-grid {
-        gap: 8px 16px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px 20px;
     }
-    
-    .yume-grid .item {
-        font-size: 0.83rem;
-        line-height: 1.45;
-    }
-}
 
-/* ============================================
-   MOBILE VIEW (480px and below)
-============================================ */
-@media (max-width: 480px) {
-    .yume-learn {
-        padding: 30px 0;
-    }
-    
-    .yume-card {
-        width: 92%;
-        padding: 24px 20px;
-        border-radius: 14px;
-    }
-    
-    .yume-title {
-        font-size: 24px;
-        margin-bottom: 14px;
-    }
-    
-    .yume-desc {
-        font-size: 0.82rem;
+    /* ============================================
+    GRID ITEMS
+    ============================================ */
+    .yume-grid .item {
+        font-size: 0.84rem;
         line-height: 1.5;
+        color: #333;
+        text-align: left;
+        position: relative;
+        padding-left: 16px;
+        padding-top: 2px;
+        padding-bottom: 2px;
     }
-    
-    .yume-sub {
-        font-size: 1rem;
-        margin: 16px 0 12px;
+
+    /* ============================================
+    PREMIUM BULLET
+    ============================================ */
+    .yume-grid .item::before {
+        content: "•";
+        color: rgb(5, 201, 254);
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 1.2rem;
+        font-weight: bold;
     }
-    
-    /* Switch to single column on very small screens */
-    @media (max-width: 400px) {
+
+    /* ============================================
+    TABLET VIEW (768px and below)
+    ============================================ */
+    @media (max-width: 768px) {
+        .yume-learn {
+            padding: 35px 0;
+        }
+        
+        .yume-card {
+            width: 90%;
+            padding: 28px 24px;
+        }
+        
+        .yume-title {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+        
+        .yume-desc {
+            font-size: 0.84rem;
+            line-height: 1.55;
+        }
+        
+        .yume-sub {
+            font-size: 1.05rem;
+            margin: 18px 0 14px;
+        }
+        
         .yume-grid {
-            grid-template-columns: 1fr;
-            gap: 10px;
+            gap: 8px 16px;
         }
         
         .yume-grid .item {
-            padding-left: 18px;
+            font-size: 0.83rem;
+            line-height: 1.45;
         }
     }
-}
 
-/* ============================================
-   EXTRA SMALL MOBILE (360px and below)
-============================================ */
-@media (max-width: 360px) {
-    .yume-card {
-        width: 94%;
-        padding: 20px 18px;
+    /* ============================================
+    MOBILE VIEW (480px and below)
+    ============================================ */
+    @media (max-width: 480px) {
+        .yume-learn {
+            padding: 30px 0;
+        }
+        
+        .yume-card {
+            width: 92%;
+            padding: 24px 20px;
+            border-radius: 14px;
+        }
+        
+        .yume-title {
+            font-size: 24px;
+            margin-bottom: 14px;
+        }
+        
+        .yume-desc {
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+        
+        .yume-sub {
+            font-size: 1rem;
+            margin: 16px 0 12px;
+        }
+        
+        /* Switch to single column on very small screens */
+        @media (max-width: 400px) {
+            .yume-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .yume-grid .item {
+                padding-left: 18px;
+            }
+        }
     }
-    
-    .yume-title {
-        font-size: 22px;
+
+    /* ============================================
+    EXTRA SMALL MOBILE (360px and below)
+    ============================================ */
+    @media (max-width: 360px) {
+        .yume-card {
+            width: 94%;
+            padding: 20px 18px;
+        }
+        
+        .yume-title {
+            font-size: 22px;
+        }
+        
+        .yume-desc {
+            font-size: 0.8rem;
+        }
+        
+        .yume-sub {
+            font-size: 0.95rem;
+        }
+        
+        .yume-grid .item {
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
     }
-    
-    .yume-desc {
-        font-size: 0.8rem;
-    }
-    
-    .yume-sub {
-        font-size: 0.95rem;
-    }
-    
-    .yume-grid .item {
-        font-size: 0.8rem;
-        line-height: 1.4;
-    }
-}
 </style>
 
 

@@ -3,7 +3,7 @@
 {% block content %}
 
 <!-- ===================== PROFESSIONAL HERO CAROUSEL ===================== -->
-<div class="hero-carousel-container">
+{% comment %} <div class="hero-carousel-container">
   <div class="hero-carousel-track">
 
     <!-- Clone Last Slide -->
@@ -65,10 +65,62 @@
   <!-- Navigation -->
   <button class="hero-nav-btn hero-prev">❮</button>
   <button class="hero-nav-btn hero-next">❯</button>
+</div>  {% endcomment %}
+
+
+<div class="hero-carousel-container">
+  <div class="hero-carousel-track">
+
+    {% if hero_slides|length > 1 %}
+      <!-- ===== Clone Last Slide ===== -->
+      <div class="hero-slide hero-clone">
+        <img src="{{ hero_slides.last.image.url }}" class="hero-slide-img" />
+        <div class="hero-overlay">
+          <h2>{{ hero_slides.last.title }}</h2>
+          <p>{{ hero_slides.last.subtitle }}</p>
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- ===== Actual Slides ===== -->
+    {% for slide in hero_slides %}
+      <div class="hero-slide">
+        <img src="{{ slide.image.url }}" class="hero-slide-img" />
+        <div class="hero-overlay">
+          <h2>{{ slide.title }}</h2>
+          <p>{{ slide.subtitle }}</p>
+        </div>
+      </div>
+    {% empty %}
+      <div class="hero-slide">
+        <div class="hero-overlay">
+          <h2>No Slides Available</h2>
+          <p>Please add hero slides from admin.</p>
+        </div>
+      </div>
+    {% endfor %}
+
+    {% if hero_slides|length > 1 %}
+      <!-- ===== Clone First Slide ===== -->
+      <div class="hero-slide hero-clone">
+        <img src="{{ hero_slides.first.image.url }}" class="hero-slide-img" />
+        <div class="hero-overlay">
+          <h2>{{ hero_slides.first.title }}</h2>
+          <p>{{ hero_slides.first.subtitle }}</p>
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+
+  <!-- Navigation -->
+  <button class="hero-nav-btn hero-prev">❮</button>
+  <button class="hero-nav-btn hero-next">❯</button>
 </div>
 
+
 <style>
-      /* =================== MAIN CONTAINER =================== */
+    /* =================== MAIN CONTAINER =================== */
     .hero-carousel-container {
       position: relative;
       width: 100%;
@@ -90,7 +142,7 @@
       position: relative;
     }
 
-    /* PERFECT FIT IMAGES */
+    /* =================== IMAGE =================== */
     .hero-slide-img {
       width: 100%;
       height: 100%;
@@ -98,7 +150,22 @@
       object-position: center;
     }
 
-    /* CENTERED OVERLAY */
+    /* =================== LIGHT-CONTROL OVERLAY (PRO LEVEL) =================== */
+    .hero-slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.15) 35%,
+        rgba(0,0,0,0.15) 65%,
+        rgba(0,0,0,0.6) 100%
+      );
+      z-index: 1;
+    }
+
+    /* =================== TEXT =================== */
     .hero-overlay {
       position: absolute;
       top: 50%;
@@ -106,146 +173,144 @@
       transform: translate(-50%, -50%);
       text-align: center;
       width: 90%;
-      color: #ffffff;
-      text-shadow: 0 0 15px rgba(0,0,0,0.75);
+      z-index: 2;
     }
 
+    /* =================== TYPOGRAPHY-FIRST APPROACH =================== */
     .hero-overlay h2 {
-      font-size: 3rem;
-      font-weight: 700;
-      color: white;
+      font-size: 3.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.15;
+
+      /* layered shadow = clarity */
+      text-shadow:
+        0 2px 6px rgba(0,0,0,0.55),
+        0 8px 25px rgba(0,0,0,0.75);
     }
 
     .hero-overlay p {
-      font-size: 1.2rem;
-      margin-top: 8px;
-      color: #e9ebecff;
-      font-weight: 600;
+      font-size: 1.25rem;
+      margin-top: 12px;
+      font-weight: 500;
+      color: #f1f3f5;
+      text-shadow:
+        0 2px 6px rgba(0,0,0,0.55),
+        0 6px 20px rgba(0,0,0,0.7);
     }
 
-    /* =================== ARROWS =================== */
+    /* =================== NAV BUTTONS =================== */
     .hero-nav-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0,0,0,0.25);
-      padding: 8px 12px;
+      background: rgba(0,0,0,0.28);
+      padding: 8px 14px;
       border: none;
       color: white;
       font-size: 20px;
       cursor: pointer;
-      border-radius: 4px;
+      border-radius: 6px;
       opacity: 0;
       transition: .25s ease;
+      z-index: 5;
     }
 
     .hero-carousel-container:hover .hero-nav-btn {
       opacity: 1;
     }
 
-    .hero-prev { left: 15px; }
-    .hero-next { right: 15px; }
+    .hero-prev { left: 18px; }
+    .hero-next { right: 18px; }
 
     /* =================== RESPONSIVE =================== */
     @media (max-width: 768px) {
-      .hero-carousel-container {
-        height: 65vh;
-      }
+      .hero-carousel-container { height: 65vh; }
 
-      .hero-overlay h2 {
-        font-size: 2rem;
-      }
+      .hero-overlay h2 { font-size: 2rem; }
+      .hero-overlay p { font-size: 1rem; }
 
-      .hero-overlay p {
-        font-size: 1rem;
-      }
-
-      .hero-nav-btn {
-        display: none;
-      }
+      .hero-nav-btn { display: none; }
     }
 
     @media (max-width: 480px) {
-      .hero-carousel-container {
-        height: 60vh;
-      }
+      .hero-carousel-container { height: 60vh; }
 
-      .hero-overlay h2 {
-        font-size: 1.6rem;
-      }
-
-      .hero-overlay p {
-        font-size: 0.85rem;
-      }
+      .hero-overlay h2 { font-size: 1.6rem; }
+      .hero-overlay p { font-size: 0.85rem; }
     }
-
 </style>
+
+
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-  const heroTrack = document.querySelector(".hero-carousel-track");
-  const heroSlides = document.querySelectorAll(".hero-slide");
-  const heroPrevBtn = document.querySelector(".hero-prev");
-  const heroNextBtn = document.querySelector(".hero-next");
+    document.addEventListener("DOMContentLoaded", () => {
+    const heroTrack = document.querySelector(".hero-carousel-track");
+    const heroSlides = document.querySelectorAll(".hero-slide");
+    const heroPrevBtn = document.querySelector(".hero-prev");
+    const heroNextBtn = document.querySelector(".hero-next");
 
-  let heroIndex = 1;
+    let heroIndex = 1;
 
-  function heroGetWidth() {
-    return heroSlides[0].clientWidth;
-  }
-
-  function heroSetPosition() {
-    heroTrack.style.transition = "none";
-    heroTrack.style.transform = `translateX(${-heroGetWidth() * heroIndex}px)`;
-  }
-
-  heroSetPosition();
-
-  function heroMove() {
-    heroTrack.style.transition = ".8s ease";
-    heroTrack.style.transform = `translateX(${-heroGetWidth() * heroIndex}px)`;
-  }
-
-  heroNextBtn.addEventListener("click", () => {
-    if (heroIndex >= heroSlides.length - 1) return;
-    heroIndex++;
-    heroMove();
-  });
-
-  heroPrevBtn.addEventListener("click", () => {
-    if (heroIndex <= 0) return;
-    heroIndex--;
-    heroMove();
-  });
-
-  heroTrack.addEventListener("transitionend", () => {
-    if (heroSlides[heroIndex].classList.contains("hero-clone")) {
-      heroIndex = heroIndex === 0 ? heroSlides.length - 2 : 1;
-      heroSetPosition();
+    function heroGetWidth() {
+      return heroSlides[0].clientWidth;
     }
-  });
 
-  let heroAuto = setInterval(() => {
-    heroIndex++;
-    heroMove();
-  }, 6000);
-
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      clearInterval(heroAuto);
-    } else {
-      heroSetPosition();
-      heroAuto = setInterval(() => {
-        heroIndex++;
-        heroMove();
-      }, 6000);
+    function heroSetPosition() {
+      heroTrack.style.transition = "none";
+      heroTrack.style.transform = `translateX(${-heroGetWidth() * heroIndex}px)`;
     }
-  });
 
-  window.addEventListener("resize", () => {
     heroSetPosition();
+
+    function heroMove() {
+      heroTrack.style.transition = ".8s ease";
+      heroTrack.style.transform = `translateX(${-heroGetWidth() * heroIndex}px)`;
+    }
+
+    heroNextBtn.addEventListener("click", () => {
+      if (heroIndex >= heroSlides.length - 1) return;
+      heroIndex++;
+      heroMove();
+    });
+
+    heroPrevBtn.addEventListener("click", () => {
+      if (heroIndex <= 0) return;
+      heroIndex--;
+      heroMove();
+    });
+
+    heroTrack.addEventListener("transitionend", () => {
+      if (heroSlides[heroIndex].classList.contains("hero-clone")) {
+        heroIndex = heroIndex === 0 ? heroSlides.length - 2 : 1;
+        heroSetPosition();
+      }
+    });
+
+    let heroAuto = setInterval(() => {
+      heroIndex++;
+      heroMove();
+    }, 6000);
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        clearInterval(heroAuto);
+      } else {
+        heroSetPosition();
+        heroAuto = setInterval(() => {
+          heroIndex++;
+          heroMove();
+        }, 6000);
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      heroSetPosition();
+    });
   });
-});
-</script>
+</script> 
+
+<!-- ===================== PROFESSIONAL HERO CAROUSEL Ends here ===================== -->
 
 
 
@@ -1985,60 +2050,44 @@
 <section class="why-choose-us" data-aos="fade-up">
   <div class="container">
 
-    <h2 class="why-title"
-        data-aos="fade-up"
-        data-aos-delay="100">
+    <h2 class="why-title" data-aos="fade-up" data-aos-delay="100">
       Why Choose <span class="highlight">YuMe Learning</span>
     </h2>
 
-    <p class="why-subtitle"
-       data-aos="fade-up"
-       data-aos-delay="200">
+    <p class="why-subtitle" data-aos="fade-up" data-aos-delay="200">
       Learn with flexibility, gain real skills, and build your career with confidence.
     </p>
 
-    <div class="why-grid">
+    <div class="why-row">
 
-      <div class="why-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="why-card-content">
-          <h3>Hybrid Learning</h3>
-          <p>Offline • Online • Recorded — learn at your convenience with flexible formats.</p>
-        </div>
+      <div class="why-feature" data-aos="fade-up" data-aos-delay="300">
+        <h3>Hybrid Learning</h3>
+        <p>Offline • Online • Recorded — learn at your convenience.</p>
       </div>
 
-      <div class="why-card" data-aos="fade-up" data-aos-delay="350">
-        <div class="why-card-content">
-          <h3>Industry-Aligned Curriculum</h3>
-          <p>Curriculum designed according to current industry demands and real job requirements.</p>
-        </div>
+      <div class="why-feature" data-aos="fade-up" data-aos-delay="350">
+        <h3>Industry-Aligned Curriculum</h3>
+        <p>Curriculum designed as per current job requirements.</p>
       </div>
 
-      <div class="why-card" data-aos="fade-up" data-aos-delay="400">
-        <div class="why-card-content">
-          <h3>Hands-On Projects</h3>
-          <p>Apply concepts on real-world datasets and build impactful projects.</p>
-        </div>
+      <div class="why-feature" data-aos="fade-up" data-aos-delay="400">
+        <h3>Hands-On Projects</h3>
+        <p>Work on real-world datasets and impactful projects.</p>
       </div>
 
-      <div class="why-card" data-aos="fade-up" data-aos-delay="450">
-        <div class="why-card-content">
-          <h3>Placement Support</h3>
-          <p>End-to-end guidance, mock interviews, resume building & job assistance.</p>
-        </div>
+      <div class="why-feature" data-aos="fade-up" data-aos-delay="450">
+        <h3>Placement Support</h3>
+        <p>Mock interviews, resumes & complete job assistance.</p>
       </div>
 
-      <div class="why-card" data-aos="fade-up" data-aos-delay="500">
-        <div class="why-card-content">
-          <h3>Expert Mentors</h3>
-          <p>Learn from skilled instructors with real industry experience.</p>
-        </div>
+      <div class="why-feature" data-aos="fade-up" data-aos-delay="500">
+        <h3>Expert Mentors</h3>
+        <p>Learn from instructors with real industry experience.</p>
       </div>
 
-      <div class="why-card" data-aos="fade-up" data-aos-delay="550">
-        <div class="why-card-content">
-          <h3>Proven Track Record</h3>
-          <p>Thousands of students trained and placed successfully across India.</p>
-        </div>
+      <div class="why-feature" data-aos="fade-up" data-aos-delay="550">
+        <h3>Proven Track Record</h3>
+        <p>Thousands of learners placed successfully across India.</p>
       </div>
 
     </div>
@@ -2046,107 +2095,96 @@
   </div>
 </section>
 
+
 <style>
-/* ========== WHY CHOOSE US ========== */
+  /* ========== WHY CHOOSE US (HORIZONTAL) ========== */
 .why-choose-us {
-  background: white;
-  padding: 45px 20px;
+  background: #ffffff;
+  padding: 50px 20px;
   font-family: "Montserrat", Arial, sans-serif;
 }
 
 .container {
   max-width: 1100px;
   margin: auto;
-  text-align: center;
 }
 
-/* Title */
+/* TITLE */
 .why-title {
+  text-align: center;
   font-size: 2rem;
-  margin-bottom: 6px;
   font-weight: 700;
-}
-.why-title .highlight {
-  color: #0066ff;
+  margin-bottom: 6px;
 }
 
-/* Subtitle */
+.why-title .highlight {
+  color: rgb(5, 201, 254);
+}
+
+/* SUBTITLE */
 .why-subtitle {
+  text-align: center;
   font-size: 0.95rem;
   color: #666;
-  margin-bottom: 35px;
+  margin-bottom: 32px;
 }
 
 /* GRID */
-.why-grid {
+.why-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 26px 32px;
 }
 
-/* CARD */
-.why-card {
-  background: #fff;
-  border-radius: 12px;
-  border: 1px solid #e5e5e5;
-  transition: 0.25s ease;
-  height: 110px; /* ensures perfect centering */
-  display: flex;
-  align-items: center; /* center vertically */
-  justify-content: center; /* center horizontally */
-  padding: 0 12px;
+/* FEATURE ITEM */
+.why-feature {
+  position: relative;
+  padding-left: 16px;
 }
 
-/* CONTENT WRAPPER */
-.why-card-content {
-  text-align: center; /* center content */
-  max-width: 80%;
+/* ACCENT LINE */
+.why-feature::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 3px;
+  height: 42px;
+  background: rgb(5, 201, 254);
+  border-radius: 2px;
 }
 
-/* Heading inside card */
-.why-card h3 {
+/* TEXT */
+.why-feature h3 {
   font-size: 1rem;
+  font-weight: 600;
   margin-bottom: 6px;
   color: #222;
-  font-weight: 600;
 }
 
-/* Paragraph */
-.why-card p {
-  font-size: 0.8rem;
+.why-feature p {
+  font-size: 0.82rem;
   color: #555;
-  line-height: 1.35;
-}
-
-/* Hover effect – clean & light */
-.why-card:hover {
-  border-color: #cbdcff;
-  box-shadow: 0 4px 16px rgba(0, 50, 255, 0.08);
-  transform: translateY(-4px);
+  line-height: 1.4;
 }
 
 /* ========== RESPONSIVE ========== */
-@media (max-width: 992px) {
-  .why-grid {
+@media (max-width: 900px) {
+  .why-row {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .why-card {
-    height: 160px;
   }
 }
 
 @media (max-width: 600px) {
-  .why-grid {
+  .why-row {
     grid-template-columns: 1fr;
   }
+
   .why-title {
-    font-size: 1.65rem;
-  }
-  .why-card {
-    height: auto;
-    padding: 18px 10px;
+    font-size: 1.7rem;
   }
 }
+
 </style>
 
 
