@@ -7,19 +7,17 @@ import dj_database_url
 # --------------------------------------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # --------------------------------------------------
 # SECURITY SETTINGS
 # --------------------------------------------------
-SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key")
+SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key")  # Use environment variable on Render
 
-DEBUG = os.environ.get("DEBUG", "True") == "True"
+DEBUG = os.environ.get("DEBUG", "False") == "True"  # Set DEBUG=False in production
 
 ALLOWED_HOSTS = os.environ.get(
     "ALLOWED_HOSTS",
     "127.0.0.1,localhost,.onrender.com"
 ).split(",")
-
 
 # --------------------------------------------------
 # APPLICATIONS
@@ -38,7 +36,6 @@ INSTALLED_APPS = [
     'yume_site',
 ]
 
-
 # --------------------------------------------------
 # MIDDLEWARE
 # --------------------------------------------------
@@ -54,12 +51,10 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-
 # --------------------------------------------------
 # URL CONFIGURATION
 # --------------------------------------------------
 ROOT_URLCONF = 'yume_backend.urls'
-
 
 # --------------------------------------------------
 # TEMPLATES
@@ -80,37 +75,25 @@ TEMPLATES = [
     },
 ]
 
-
 # --------------------------------------------------
 # WSGI
 # --------------------------------------------------
 WSGI_APPLICATION = 'yume_backend.wsgi.application'
 
-
 # --------------------------------------------------
 # DATABASE CONFIGURATION
 # --------------------------------------------------
-
-# 1️⃣ If DATABASE_URL exists (Render), use it
-# 2️⃣ Otherwise use LOCAL PostgreSQL (your current DB)
-
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default="postgresql://postgres:sakku@123@localhost:5432/yume_learning",
-#         conn_max_age=600,
-#         ssl_require=False
-#     )
-# }
-
-
+# Use DATABASE_URL from Render if available, otherwise fallback to local database
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.environ.get("DATABASE_URL"),  # Render will provide this env var
+        default=os.environ.get(
+            "DATABASE_URL",
+            "postgresql://postgres:sakku@123@localhost:5432/yume_learning"
+        ),
         conn_max_age=600,
-        ssl_require=True
+        ssl_require=True  # Render requires SSL for PostgreSQL
     )
 }
-
 
 # --------------------------------------------------
 # PASSWORD VALIDATION
@@ -122,7 +105,6 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-
 # --------------------------------------------------
 # INTERNATIONALIZATION
 # --------------------------------------------------
@@ -130,7 +112,6 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
-
 
 # --------------------------------------------------
 # STATIC FILES
@@ -142,9 +123,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
 
 # --------------------------------------------------
 # MEDIA FILES
@@ -152,12 +131,10 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-
 # --------------------------------------------------
 # DEFAULT PRIMARY KEY
 # --------------------------------------------------
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 
 
