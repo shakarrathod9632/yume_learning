@@ -99,17 +99,17 @@ WSGI_APPLICATION = 'yume_backend.wsgi.application'
 
 # --------------------------------------------------
 # DATABASE (PostgreSQL)
-# --------------------------------------------------
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'yume_learning',
-        'USER': 'postgres',
-        'PASSWORD': 'sakku@123',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+# # --------------------------------------------------
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'yume_learning',
+#         'USER': 'postgres',
+#         'PASSWORD': 'sakku@123',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 
 MEDIA_URL = '/media/'
