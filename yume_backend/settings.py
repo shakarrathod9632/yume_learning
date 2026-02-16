@@ -94,11 +94,20 @@ WSGI_APPLICATION = 'yume_backend.wsgi.application'
 # 1️⃣ If DATABASE_URL exists (Render), use it
 # 2️⃣ Otherwise use LOCAL PostgreSQL (your current DB)
 
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default="postgresql://postgres:sakku@123@localhost:5432/yume_learning",
+#         conn_max_age=600,
+#         ssl_require=False
+#     )
+# }
+
+
 DATABASES = {
     'default': dj_database_url.config(
-        default="postgresql://postgres:sakku@123@localhost:5432/yume_learning",
+        default=os.environ.get("DATABASE_URL"),  # Render will provide this env var
         conn_max_age=600,
-        ssl_require=False
+        ssl_require=True
     )
 }
 
