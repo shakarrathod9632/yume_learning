@@ -11,20 +11,21 @@ def home_page(request):
 
 
 from django.shortcuts import render
-from .models import Advisor
+from .models import Advisor, GalleryImage
 
 def about_page(request):
-    """About page with dynamic advisors"""
-    advisors = Advisor.objects.filter(is_active=True).order_by('display_order', 'created_at')
+    """About page with dynamic advisors and gallery"""
     
-    # If no advisors are active, return empty list
-    if not advisors.exists():
-        advisors = []
+    advisors = Advisor.objects.filter(is_active=True).order_by('display_order', 'created_at')
+    gallery_images = GalleryImage.objects.filter(is_active=True).order_by('display_order', 'created_at')
     
     context = {
-        "advisors": advisors
+        "advisors": advisors,
+        "gallery_images": gallery_images,
     }
     return render(request, "about.html", context)
+
+
 
 
 

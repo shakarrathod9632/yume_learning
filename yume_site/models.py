@@ -2425,8 +2425,46 @@ class Advisor(models.Model):
         return bool(self.bio_hidden1 or self.bio_hidden2)
     
     
+from django.db import models
+from django.utils.text import slugify
 
 
+from django.db import models
+
+
+class GalleryImage(models.Model):
+    """Gallery images for about page - simplified"""
+    
+    image = models.ImageField(
+        upload_to='gallery/',
+        help_text="Upload gallery image (recommended size: 800x600px)"
+    )
+    
+    alt_text = models.CharField(
+        max_length=200,
+        blank=True,
+        help_text="Alternative text for accessibility (optional)"
+    )
+    
+    display_order = models.IntegerField(
+        default=0,
+        help_text="Order in which images appear (0 = first)"
+    )
+    
+    is_active = models.BooleanField(
+        default=True,
+        help_text="Show this image in gallery"
+    )
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['display_order', '-created_at']
+        verbose_name = "Gallery Image"
+        verbose_name_plural = "Gallery Images"
+    
+    def __str__(self):
+        return f"Gallery Image {self.id}"
 
 class PlacementsSection(models.Model):
     """Main placements section model"""

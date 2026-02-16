@@ -103,7 +103,7 @@
            data-aos="fade-right"
            data-aos-delay="200"
            data-aos-duration="1000">
-        <img src="{% static 'images/about.jpg' %}"
+        <img src="{% static 'images/about-us.jpg' %}"
              alt="YuMe Learning"
              class="yume-img">
       </div>
@@ -157,7 +157,6 @@
 </section>
 
 <style>
-       /* --- YOUR ORIGINAL CSS (UNCHANGED) --- */
 
         /* Section Container */
         .yume-section {
@@ -203,18 +202,25 @@
             align-items: flex-start;
         }
 
-        /* Image */
+        /* ✅ UPDATED IMAGE SYSTEM */
         .yume-image {
-            flex: 0 0 300px;
+            flex: 0 0 340px;
+            width: 100%;
+            height: 100%;
+            
+            border-radius: 12px;
             overflow: hidden;
-            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f7fa;
         }
 
         .yume-img {
-            width: 100%;
-            height: 290px;
-            object-fit: cover;
-            border-radius: 8px;
+            max-width: 550px;
+            height: 340px;
+            object-fit: contain;   /* show full image */
+            object-position: center;
             transition: transform 0.35s ease;
         }
 
@@ -249,26 +255,20 @@
             font-weight: 600;
         }
 
-        /* --- MOBILE RESPONSIVE IMPROVEMENTS BELOW --- */
-
-        /* Tablets & Small Screens */
+        /* Tablets */
         @media (max-width: 900px) {
             .yume-content {
                 flex-direction: column;
                 gap: 25px;
             }
-            
+
             .yume-image {
-                flex: 0 0 auto;
                 width: 100%;
                 max-width: 420px;
+                height: 280px;
                 margin: 0 auto;
             }
-            
-            .yume-img {
-                height: 240px; /* slightly taller for better viewing */
-            }
-            
+
             .yume-header h2 {
                 font-size: 1.6rem;
             }
@@ -279,38 +279,28 @@
             }
 
             .yume-text {
-                text-align: justify; /* cleaner reading on mobile */
+                text-align: justify;
             }
         }
 
-        /* Mobile Phones */
+        /* Mobile */
         @media (max-width: 480px) {
             .yume-section {
                 padding: 28px 0;
             }
-            
+
             .yume-header h2 {
                 font-size: 1.35rem;
             }
 
             .yume-tagline {
                 font-size: 0.88rem;
-                line-height: 1.4;
                 padding: 0 10px;
             }
 
-            .yume-content {
-                gap: 20px;
-            }
-
             .yume-image {
+                height: 240px;
                 max-width: 100%;
-                margin: 0 auto;
-            }
-
-            .yume-img {
-                height: 220px; /* taller & balanced */
-                border-radius: 10px;
             }
 
             .yume-text p {
@@ -326,6 +316,7 @@
         }
 
 </style>
+
 
 <!-- ========  YUME ABOUT SECTION  ENDS ===== -->
 
@@ -1601,6 +1592,1343 @@
 
 <!-- =============   ADVISOR SECTION END  =============== -->
 
+{% comment %} 
+<!-- ============================================= -->
+<!-- PREMIUM GALLERY SECTION - 3 COLUMNS           -->
+<!-- ============================================= -->
+
+<section class="gallery-section" id="gallery">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header text-center" data-aos="fade-up">
+            
+            <h2 class="section-title">
+                Capturing Our <span class="primary-text">Journey</span>
+            </h2>
+        </div>
+
+        <!-- Gallery Grid - 3 Columns -->
+        <div class="row g-4">
+            <!-- Image 1 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="gallery-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Students in classroom" 
+                             class="gallery-img"
+                             loading="lazy">
+                        <div class="image-overlay">
+                            <button class="zoom-btn" onclick="openLightbox(0)">
+                                <i class="bi bi-arrow-up-right-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 2 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="gallery-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Coding workshop" 
+                             class="gallery-img"
+                             loading="lazy">
+                        <div class="image-overlay">
+                            <button class="zoom-btn" onclick="openLightbox(1)">
+                                <i class="bi bi-arrow-up-right-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 3 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="gallery-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Robotics lab" 
+                             class="gallery-img"
+                             loading="lazy">
+                        <div class="image-overlay">
+                            <button class="zoom-btn" onclick="openLightbox(2)">
+                                <i class="bi bi-arrow-up-right-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 4 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="gallery-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Tech fest" 
+                             class="gallery-img"
+                             loading="lazy">
+                        <div class="image-overlay">
+                            <button class="zoom-btn" onclick="openLightbox(3)">
+                                <i class="bi bi-arrow-up-right-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 5 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="gallery-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Award ceremony" 
+                             class="gallery-img"
+                             loading="lazy">
+                        <div class="image-overlay">
+                            <button class="zoom-btn" onclick="openLightbox(4)">
+                                <i class="bi bi-arrow-up-right-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 6 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="gallery-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Science fair" 
+                             class="gallery-img"
+                             loading="lazy">
+                        <div class="image-overlay">
+                            <button class="zoom-btn" onclick="openLightbox(5)">
+                                <i class="bi bi-arrow-up-right-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- View All Button -->
+        <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="700">
+            <a href="#" class="btn-view-all">
+                <span>Explore Full Gallery</span>
+                <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================= -->
+<!-- LIGHTBOX MODAL                                -->
+<!-- ============================================= -->
+
+<div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-overlay" onclick="closeLightbox()"></div>
+    <div class="lightbox-container">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <i class="bi bi-x"></i>
+        </button>
+        <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">
+            <i class="bi bi-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">
+            <i class="bi bi-chevron-right"></i>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="Gallery" class="lightbox-image" id="lightboxImage">
+        </div>
+    </div>
+</div>
+
+<style>
+/* ============================================= */
+/* PREMIUM GALLERY STYLES - 3 COLUMNS            */
+/* ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
+
+/* CSS Variables */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #60a5fa;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Styles */
+.gallery-section {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    padding: 80px 0;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Section Header */
+.section-header {
+    margin-bottom: 50px;
+}
+
+.section-tag {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: rgba(37, 99, 235, 0.08);
+    padding: 6px 16px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 12px;
+}
+
+.primary-text {
+    color: var(--primary);
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: var(--gray-600);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Gallery Card */
+.gallery-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.gallery-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+}
+
+.image-wrapper {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--gray-100);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.gallery-card:hover .gallery-img {
+    transform: scale(1.08);
+}
+
+/* Image Overlay */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, 
+        rgba(37, 99, 235, 0.9) 0%,
+        rgba(37, 99, 235, 0.4) 50%,
+        transparent 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-card:hover .image-overlay {
+    opacity: 1;
+}
+
+/* Zoom Button */
+.zoom-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--white);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(0.8) translateY(20px);
+    transition: var(--transition);
+}
+
+.gallery-card:hover .zoom-btn {
+    transform: scale(1) translateY(0);
+}
+
+.zoom-btn i {
+    font-size: 1.8rem;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.zoom-btn:hover {
+    background: var(--primary);
+    transform: scale(1.1) translateY(0) !important;
+}
+
+.zoom-btn:hover i {
+    color: var(--white);
+}
+
+/* View All Button */
+.btn-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 36px;
+    background: var(--white);
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 40px;
+    border: 2px solid var(--primary);
+    transition: var(--transition);
+}
+
+.btn-view-all i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-view-all:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+}
+
+.btn-view-all:hover i {
+    transform: translateX(6px);
+    color: var(--white);
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+.lightbox-modal.active {
+    display: block;
+}
+
+.lightbox-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.lightbox-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.lightbox-content {
+    max-width: 1200px;
+    max-height: 85vh;
+    position: relative;
+    z-index: 10000;
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: var(--radius-md);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox-nav:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .gallery-section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .zoom-btn {
+        width: 52px;
+        height: 52px;
+    }
+    
+    .zoom-btn i {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-section {
+        padding: 50px 0;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .image-overlay {
+        background: linear-gradient(to top, 
+            rgba(37, 99, 235, 0.8) 0%,
+            rgba(37, 99, 235, 0.3) 50%,
+            transparent 100%);
+    }
+    
+    .lightbox-close {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-section {
+        padding: 40px 0;
+    }
+    
+    .container {
+        padding: 0 16px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-tag {
+        font-size: 0.8rem;
+        padding: 4px 12px;
+    }
+    
+    .zoom-btn {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .zoom-btn i {
+        font-size: 1.3rem;
+    }
+    
+    .btn-view-all {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 24px;
+    }
+    
+    .lightbox-nav {
+        display: none;
+    }
+    
+    .lightbox-close {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* Loading Animation */
+.gallery-img {
+    opacity: 0;
+    animation: fadeScale 0.5s ease forwards;
+}
+
+@keyframes fadeScale {
+    from {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+</style>
+
+<script>
+// =============================================
+// LIGHTBOX FUNCTIONALITY
+// =============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImage = document.getElementById('lightboxImage');
+    
+    // Gallery images
+    const galleryImages = [
+        'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+    ];
+    
+    let currentIndex = 0;
+
+    window.openLightbox = function(index) {
+        currentIndex = index;
+        updateLightboxImage();
+        lightboxModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        document.addEventListener('keydown', handleKeyPress);
+    };
+
+    window.closeLightbox = function() {
+        lightboxModal.classList.remove('active');
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', handleKeyPress);
+    };
+
+    function updateLightboxImage() {
+        lightboxImage.src = galleryImages[currentIndex];
+        lightboxImage.alt = 'Gallery image ' + (currentIndex + 1);
+    }
+
+    window.changeImage = function(direction) {
+        currentIndex += direction;
+        
+        if (currentIndex < 0) {
+            currentIndex = galleryImages.length - 1;
+        } else if (currentIndex >= galleryImages.length) {
+            currentIndex = 0;
+        }
+        
+        lightboxImage.style.opacity = '0';
+        setTimeout(() => {
+            updateLightboxImage();
+            lightboxImage.style.opacity = '1';
+        }, 200);
+    };
+
+    function handleKeyPress(e) {
+        if (!lightboxModal.classList.contains('active')) return;
+        
+        switch(e.key) {
+            case 'Escape':
+                closeLightbox();
+                break;
+            case 'ArrowLeft':
+                changeImage(-1);
+                break;
+            case 'ArrowRight':
+                changeImage(1);
+                break;
+        }
+    }
+
+    // Touch swipe
+    let touchStartX = 0;
+    
+    lightboxModal.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightboxModal.addEventListener('touchend', e => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > 50) {
+            changeImage(diff > 0 ? 1 : -1);
+        }
+    }, { passive: true });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.gallery-card, .section-header, .btn-view-all').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+});
+</script> {% endcomment %}
+
+
+
+
+
+{% comment %} <!-- ============================================= -->
+<!-- PURE IMAGE GALLERY - 3 COLUMNS                -->
+<!-- ============================================= -->
+
+<section class="gallery-section" id="gallery">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">
+                Capturing Our <span class="primary-text">Journey</span>
+                <span class="title-underline"></span>
+            </h2>
+        </div>
+
+        <!-- Gallery Grid - 3 Columns -->
+        {% if gallery_images %}
+        <div class="row g-4 justify-content-center">
+            {% for image in gallery_images %}
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:1 }}00">
+                <div class="gallery-card">
+                    <div class="image-wrapper">
+                        <img src="{{ image.image.url }}" 
+                             alt="{{ image.alt_text|default:'Gallery image' }}" 
+                             class="gallery-img"
+                             loading="lazy">
+                        <div class="image-overlay">
+                            <button class="zoom-btn" onclick="openLightbox({{ forloop.counter0 }})">
+                                <i class="bi bi-arrow-up-right-circle-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- View All Button -->
+        <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="700">
+            <a href="#" class="btn-view-all">
+                <span>Explore Full Gallery</span>
+                <i class="bi bi-arrow-right-circle"></i>
+            </a>
+        </div>
+        {% else %}
+        <!-- No images message -->
+        <div class="text-center py-4">
+            <p class="text-muted">Gallery images coming soon...</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- ============================================= -->
+<!-- LIGHTBOX MODAL                                -->
+<!-- ============================================= -->
+
+<div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-overlay" onclick="closeLightbox()"></div>
+    <div class="lightbox-container">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <i class="bi bi-x-lg"></i>
+        </button>
+        <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">
+            <i class="bi bi-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">
+            <i class="bi bi-chevron-right"></i>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="Gallery" class="lightbox-image" id="lightboxImage">
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+
+        // =============================================
+        // LIGHTBOX FUNCTIONALITY
+        // =============================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightboxModal = document.getElementById('lightboxModal');
+            const lightboxImage = document.getElementById('lightboxImage');
+            
+            // Gallery images from Django template
+            const galleryImages = [
+                {% for image in gallery_images %}
+                "{{ image.image.url }}",
+                {% endfor %}
+            ];
+            
+            let currentIndex = 0;
+
+            window.openLightbox = function(index) {
+                if (galleryImages.length === 0) return;
+                
+                currentIndex = index;
+                updateLightboxImage();
+                lightboxModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                document.addEventListener('keydown', handleKeyPress);
+            };
+
+            window.closeLightbox = function() {
+                lightboxModal.classList.remove('active');
+                document.body.style.overflow = '';
+                document.removeEventListener('keydown', handleKeyPress);
+            };
+
+            function updateLightboxImage() {
+                lightboxImage.src = galleryImages[currentIndex];
+            }
+
+            window.changeImage = function(direction) {
+                if (galleryImages.length === 0) return;
+                
+                currentIndex += direction;
+                
+                if (currentIndex < 0) {
+                    currentIndex = galleryImages.length - 1;
+                } else if (currentIndex >= galleryImages.length) {
+                    currentIndex = 0;
+                }
+                
+                lightboxImage.style.opacity = '0';
+                setTimeout(() => {
+                    updateLightboxImage();
+                    lightboxImage.style.opacity = '1';
+                }, 200);
+            };
+
+            function handleKeyPress(e) {
+                if (!lightboxModal.classList.contains('active')) return;
+                
+                switch(e.key) {
+                    case 'Escape':
+                        closeLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        changeImage(-1);
+                        break;
+                    case 'ArrowRight':
+                        changeImage(1);
+                        break;
+                }
+            }
+
+            // Touch swipe for mobile
+            let touchStartX = 0;
+            
+            lightboxModal.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            lightboxModal.addEventListener('touchend', e => {
+                const touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > 50) {
+                    changeImage(diff > 0 ? 1 : -1);
+                }
+            }, { passive: true });
+
+            // Scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.gallery-card, .section-header, .btn-view-all').forEach(el => {
+                if (el) {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
+                    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    observer.observe(el);
+                }
+            });
+        });
+</script>
+
+<style>
+        /* ============================================= */
+        /* PURE IMAGE GALLERY STYLES - 3 COLUMNS         */
+        /* ============================================= */
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
+
+        /* CSS Variables */
+        :root {
+            --primary: rgb(5, 201, 254);
+            --primary-dark: #04b0e0;
+            --primary-light: #7ae2ff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Base Styles */
+        .gallery-section {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Section Header */
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .primary-text {
+            color: var(--primary);
+        }
+
+        .title-underline {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(5, 201, 254, 0.3);
+        }
+
+        /* Gallery Card */
+        .gallery-card {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .image-wrapper {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: var(--gray-100);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-card:hover .gallery-img {
+            transform: scale(1.08);
+        }
+
+        /* Image Overlay - Bottom to Top Half Overlay */
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%; /* Only half the image height */
+            background: linear-gradient(to top, 
+                rgba(5, 201, 254, 0.95) 0%,
+                rgba(5, 201, 254, 0.4) 70%,
+                transparent 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: transform 0.4s ease, opacity 0.3s ease;
+        }
+
+        .gallery-card:hover .image-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Zoom Button - Smaller and Professional */
+        .zoom-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--white);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: scale(0.8);
+            transition: var(--transition);
+            margin-bottom: 20px; /* Position it higher in the half overlay */
+        }
+
+        .gallery-card:hover .zoom-btn {
+            transform: scale(1);
+        }
+
+        .zoom-btn i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .zoom-btn:hover {
+            background: var(--primary);
+            transform: scale(1.1) !important;
+            box-shadow: 0 6px 16px rgba(5, 201, 254, 0.4);
+        }
+
+        .zoom-btn:hover i {
+            color: var(--white);
+        }
+
+        /* Optional subtle shine effect on icon hover */
+        .zoom-btn:hover i {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        /* View All Button */
+        .btn-view-all {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(5, 201, 254, 0.3);
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-view-all i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-view-all:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(5, 201, 254, 0.4);
+        }
+
+        .btn-view-all:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+        }
+
+        .lightbox-modal.active {
+            display: block;
+        }
+
+        .lightbox-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .lightbox-content {
+            max-width: 1000px;
+            max-height: 85vh;
+            position: relative;
+            z-index: 10000;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            background: var(--primary);
+            transform: rotate(180deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .gallery-section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .zoom-btn {
+                width: 44px;
+                height: 44px;
+            }
+            
+            .zoom-btn i {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-section {
+                padding: 50px 0;
+            }
+            
+            .container {
+                padding: 0 20px;
+                max-width: 100%;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            /* Adjust overlay height for mobile */
+            .image-overlay {
+                height: 45%;
+            }
+            
+            .zoom-btn {
+                width: 42px;
+                height: 42px;
+            }
+            
+            .zoom-btn i {
+                font-size: 1.2rem;
+            }
+            
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery-section {
+                padding: 40px 0;
+            }
+            
+            .container {
+                padding: 0 16px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .title-underline {
+                width: 80px;
+                height: 3px;
+            }
+            
+            /* Adjust overlay height for mobile */
+            .image-overlay {
+                height: 40%;
+            }
+            
+            .zoom-btn {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .zoom-btn i {
+                font-size: 1.1rem;
+            }
+            
+            .btn-view-all {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 24px;
+                font-size: 1rem;
+            }
+            
+            .lightbox-nav {
+                display: none;
+            }
+        }
+
+        /* Loading Animation */
+        .gallery-img {
+            opacity: 0;
+            animation: fadeScale 0.5s ease forwards;
+        }
+
+        @keyframes fadeScale {
+            from {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+</style> {% endcomment %}
 
 
 
@@ -1867,6 +3195,713 @@
             line-height: 1.4;
         }
     }
+</style>
+
+
+
+
+
+<!-- ============================================= -->
+<!-- PURE IMAGE GALLERY - 3 COLUMNS                -->
+<!-- ============================================= -->
+
+<section class="gallery-section" id="gallery">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">
+                Capturing Our <span class="primary-text">Journey</span>
+                <span class="title-underline"></span>
+            </h2>
+        </div>
+
+        <!-- Gallery Grid - 3 Columns -->
+        {% if gallery_images %}
+        <div class="row g-4 justify-content-center" id="galleryGrid">
+            {% for image in gallery_images %}
+            <div class="col-lg-4 col-md-6 gallery-item {% if forloop.counter > 9 %}hidden-item{% endif %}" 
+                 data-aos="fade-up" 
+                 data-aos-delay="{{ forloop.counter|add:1 }}00"
+                 data-index="{{ forloop.counter0 }}">
+                <div class="gallery-card">
+                    <div class="image-wrapper">
+                        <img src="{{ image.image.url }}" 
+                             alt="{{ image.alt_text|default:'Gallery image' }}" 
+                             class="gallery-img"
+                             loading="lazy">
+                        <div class="image-overlay">
+                            <button class="zoom-btn" onclick="openLightbox({{ forloop.counter0 }})">
+                                <i class="bi bi-zoom-in"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-5" id="loadMoreContainer" data-aos="fade-up" data-aos-delay="700">
+            <button class="btn-view-all" id="loadMoreBtn">
+                <span>Explore Full Gallery</span>
+                <i class="bi bi-arrow-down-circle"></i>
+            </button>
+        </div>
+        {% else %}
+        <!-- No images message -->
+        <div class="text-center py-4">
+            <p class="text-muted">Gallery images coming soon...</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- ============================================= -->
+<!-- LIGHTBOX MODAL                                -->
+<!-- ============================================= -->
+
+<div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-overlay" onclick="closeLightbox()"></div>
+    <div class="lightbox-container">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <i class="bi bi-x-lg"></i>
+        </button>
+        <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">
+            <i class="bi bi-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">
+            <i class="bi bi-chevron-right"></i>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="Gallery" class="lightbox-image" id="lightboxImage">
+        </div>
+    </div>
+</div>
+
+
+<script>
+        // =============================================
+        // LIGHTBOX AND LOAD MORE FUNCTIONALITY
+        // =============================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightboxModal = document.getElementById('lightboxModal');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const hiddenItems = document.querySelectorAll('.hidden-item');
+            
+            // Gallery images from Django template
+            const galleryImages = [
+                {% for image in gallery_images %}
+                "{{ image.image.url }}",
+                {% endfor %}
+            ];
+            
+            let currentIndex = 0;
+            let itemsPerPage = 9;
+            let currentlyVisible = itemsPerPage;
+
+            // Load More Functionality
+            if (loadMoreBtn) {
+                // Hide load more button if all items are visible
+                if (hiddenItems.length === 0) {
+                    loadMoreBtn.style.display = 'none';
+                }
+
+                loadMoreBtn.addEventListener('click', function() {
+                    // Show next 9 items or all remaining
+                    const hiddenArray = Array.from(hiddenItems);
+                    let itemsToShow = hiddenArray.slice(0, 9);
+                    
+                    itemsToShow.forEach(item => {
+                        item.classList.remove('hidden-item');
+                        item.style.animation = 'fadeIn 0.5s ease forwards';
+                    });
+                    
+                    currentlyVisible += itemsToShow.length;
+                    
+                    // Hide button if no more hidden items
+                    if (currentlyVisible >= galleryImages.length) {
+                        loadMoreBtn.style.display = 'none';
+                    }
+                });
+            }
+
+            // Lightbox Functions
+            window.openLightbox = function(index) {
+                if (galleryImages.length === 0) return;
+                
+                currentIndex = index;
+                updateLightboxImage();
+                lightboxModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                document.addEventListener('keydown', handleKeyPress);
+            };
+
+            window.closeLightbox = function() {
+                lightboxModal.classList.remove('active');
+                document.body.style.overflow = '';
+                document.removeEventListener('keydown', handleKeyPress);
+            };
+
+            function updateLightboxImage() {
+                lightboxImage.src = galleryImages[currentIndex];
+            }
+
+            window.changeImage = function(direction) {
+                if (galleryImages.length === 0) return;
+                
+                currentIndex += direction;
+                
+                if (currentIndex < 0) {
+                    currentIndex = galleryImages.length - 1;
+                } else if (currentIndex >= galleryImages.length) {
+                    currentIndex = 0;
+                }
+                
+                lightboxImage.style.opacity = '0';
+                setTimeout(() => {
+                    updateLightboxImage();
+                    lightboxImage.style.opacity = '1';
+                }, 200);
+            };
+
+            function handleKeyPress(e) {
+                if (!lightboxModal.classList.contains('active')) return;
+                
+                switch(e.key) {
+                    case 'Escape':
+                        closeLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        changeImage(-1);
+                        break;
+                    case 'ArrowRight':
+                        changeImage(1);
+                        break;
+                }
+            }
+
+            // Touch swipe for mobile
+            let touchStartX = 0;
+            
+            lightboxModal.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            lightboxModal.addEventListener('touchend', e => {
+                const touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > 50) {
+                    changeImage(diff > 0 ? 1 : -1);
+                }
+            }, { passive: true });
+
+            // Scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.gallery-card, .section-header, .btn-view-all').forEach(el => {
+                if (el) {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
+                    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    observer.observe(el);
+                }
+            });
+        });
+</script>
+
+<style>
+        /* ============================================= */
+        /* PURE IMAGE GALLERY STYLES - 3 COLUMNS         */
+        /* ============================================= */
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
+
+        /* CSS Variables */
+        :root {
+            --primary: rgb(5, 201, 254);
+            --primary-dark: #04b0e0;
+            --primary-light: #7ae2ff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Base Styles */
+        .gallery-section {
+            background: var(--white);
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Section Header */
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .primary-text {
+            color: var(--primary);
+        }
+
+        .title-underline {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(5, 201, 254, 0.3);
+        }
+
+        /* Gallery Card */
+        .gallery-card {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .image-wrapper {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: var(--gray-100);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-card:hover .gallery-img {
+            transform: scale(1.08);
+        }
+
+        /* Hidden items for load more */
+        .hidden-item {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Image Overlay - Bottom to Top Half Overlay */
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, 
+                rgba(5, 201, 254, 0.95) 0%,
+                rgba(5, 201, 254, 0.4) 70%,
+                transparent 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: transform 0.4s ease, opacity 0.3s ease;
+        }
+
+        .gallery-card:hover .image-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Professional Zoom Button - New Design */
+        .zoom-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transform: scale(0.8) translateY(20px);
+            transition: var(--transition);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .zoom-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--primary);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease;
+            z-index: 1;
+        }
+
+        .gallery-card:hover .zoom-btn {
+            transform: scale(1) translateY(0);
+        }
+
+        .zoom-btn i {
+            font-size: 1.6rem;
+            color: white;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .zoom-btn:hover {
+            transform: scale(1.1) translateY(0) !important;
+            border-color: var(--primary);
+        }
+
+        .zoom-btn:hover::before {
+            width: 150%;
+            height: 150%;
+        }
+
+        .zoom-btn:hover i {
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        /* View All Button */
+        .btn-view-all {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(5, 201, 254, 0.3);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-view-all i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-view-all:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(5, 201, 254, 0.4);
+        }
+
+        .btn-view-all:hover i {
+            transform: translateY(3px);
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+        }
+
+        .lightbox-modal.active {
+            display: block;
+        }
+
+        .lightbox-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .lightbox-content {
+            max-width: 1000px;
+            max-height: 85vh;
+            position: relative;
+            z-index: 10000;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            background: var(--primary);
+            transform: rotate(180deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .gallery-section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .zoom-btn {
+                width: 50px;
+                height: 50px;
+                border-radius: 14px;
+            }
+            
+            .zoom-btn i {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-section {
+                padding: 50px 0;
+            }
+            
+            .container {
+                padding: 0 20px;
+                max-width: 100%;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .image-overlay {
+                height: 45%;
+            }
+            
+            .zoom-btn {
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+            }
+            
+            .zoom-btn i {
+                font-size: 1.3rem;
+            }
+            
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery-section {
+                padding: 40px 0;
+            }
+            
+            .container {
+                padding: 0 16px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .title-underline {
+                width: 80px;
+                height: 3px;
+            }
+            
+            .image-overlay {
+                height: 40%;
+            }
+            
+            .zoom-btn {
+                width: 44px;
+                height: 44px;
+                border-radius: 10px;
+            }
+            
+            .zoom-btn i {
+                font-size: 1.2rem;
+            }
+            
+            .btn-view-all {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 24px;
+                font-size: 1rem;
+            }
+            
+            .lightbox-nav {
+                display: none;
+            }
+        }
+
+        /* Loading Animation */
+        .gallery-img {
+            opacity: 0;
+            animation: fadeScale 0.5s ease forwards;
+        }
+
+        @keyframes fadeScale {
+            from {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 </style>
 
 

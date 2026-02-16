@@ -322,7 +322,7 @@
 
       <!-- IMAGE RIGHT -->
       <div class="about-image" data-aos="fade-left" data-aos-duration="1000">
-        <img src="{% static 'images/logo.png' %}" alt="YuMe Learning" />
+        <img src="{% static 'images/about-us.jpg' %}" alt="YuMe Learning" />
       </div>
 
       <!-- CONTENT LEFT -->
@@ -419,10 +419,11 @@
 
     .about-image img {
       width: 100%;
-      max-width: 500px;
-      height: 250px;
+      max-width: 450px;
+      object-fit: contain;
+      height: 350px;
       border-radius: 18px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  
       transition: transform .5s ease;
     }
 

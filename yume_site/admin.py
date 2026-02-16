@@ -1094,6 +1094,58 @@ class AdvisorAdmin(admin.ModelAdmin):
 
 
 
+
+from django.contrib import admin
+from django.utils.html import format_html
+from .models import GalleryImage
+
+
+from django.contrib import admin
+from django.utils.html import format_html
+from .models import GalleryImage
+
+
+@admin.register(GalleryImage)
+class GalleryImageAdmin(admin.ModelAdmin):
+    """Admin for Gallery Images - simplified"""
+    
+    list_display = [
+        'image_preview',
+        'display_order',
+        'is_active',
+        'id'
+    ]
+    
+    list_filter = ['is_active']
+    list_editable = ['display_order', 'is_active']
+    
+    fieldsets = (
+        ('📷 Image', {
+            'fields': (
+                'image',
+                'image_preview',
+                'alt_text',
+            ),
+        }),
+        
+        ('⚙️ Settings', {
+            'fields': (
+                'display_order',
+                'is_active',
+            ),
+        }),
+    )
+    
+    readonly_fields = ['image_preview', 'created_at']
+    
+    def image_preview(self, obj):
+        if obj.image:
+            return format_html(
+                '<img src="{}" style="max-height: 80px; max-width: 120px; border-radius: 8px; object-fit: cover;" />',
+                obj.image.url
+            )
+        return "No image"
+    image_preview.short_description = 'Preview'
 from django.contrib import admin
 from django.utils.html import format_html
 from .models import PlacementsSection, CompanyLogo, ManyMoreCompanies
