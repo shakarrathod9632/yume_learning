@@ -10,14 +10,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # --------------------------------------------------
 # SECURITY SETTINGS
 # --------------------------------------------------
-SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key")  # Use environment variable on Render
+SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key")
 
-DEBUG = os.environ.get("DEBUG", "False") == "True"  # Set DEBUG=False in production
+# --------------------------------------------------
+# DEBUG
+# --------------------------------------------------
+DEBUG = os.environ.get("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = os.environ.get(
-    "ALLOWED_HOSTS",
-    "127.0.0.1,localhost,.onrender.com"
-).split(",")
+# --------------------------------------------------
+# ALLOWED HOSTS
+# --------------------------------------------------
+if DEBUG:
+    ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+else:
+    ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
+
+    RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+    if RENDER_EXTERNAL_HOSTNAME:
+        ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
 
 # --------------------------------------------------
 # APPLICATIONS
@@ -83,17 +94,25 @@ WSGI_APPLICATION = 'yume_backend.wsgi.application'
 # --------------------------------------------------
 # DATABASE CONFIGURATION
 # --------------------------------------------------
-# Use DATABASE_URL from Render if available, otherwise fallback to local database
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get(
-            "DATABASE_URL",
-            "postgresql://postgres:sakku@123@localhost:5432/yume_learning"
-        ),
-        conn_max_age=600,
-        ssl_require=True  # Render requires SSL for PostgreSQL
-    )
-}
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'yume_learning',
+            'USER': 'postgres',
+            'PASSWORD': 'sakku@123',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+            conn_max_age=600,
+            ssl_require=True
+        )
+    }
+
 
 # --------------------------------------------------
 # PASSWORD VALIDATION
@@ -117,12 +136,12 @@ USE_TZ = True
 # STATIC FILES
 # --------------------------------------------------
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # --------------------------------------------------
@@ -136,6 +155,15 @@ MEDIA_ROOT = BASE_DIR / "media"
 # --------------------------------------------------
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# --------------------------------------------------
+# SECURITY (Production Safe)
+# --------------------------------------------------
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
 
 
 

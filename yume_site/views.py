@@ -61,8 +61,8 @@ def professional_dev_course(request):
 
 
 
-def projects_page(request):
-    return render(request, "projects.html")
+# def projects_page(request):
+#     return render(request, "projects.html")
 
 
 def aspire_project(request):

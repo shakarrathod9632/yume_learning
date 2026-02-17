@@ -24,7 +24,7 @@ urlpatterns = [
     path("courses/security-compliance/", views.security_course, name="security"),
     path("courses/professional-development/", views.professional_dev_course, name="professional_dev"),
 
-    path("projects/", views.projects_page, name="projects"),
+    # path("projects/", views.projects_page, name="projects"),
     
     path('projects/aspire_project/', views.aspire_project, name='aspire_project'),
     path('projects/kjk_project/', views.kjk_project, name='kjk_project'),
@@ -81,11 +81,13 @@ urlpatterns = [
     # path("projects/<slug:slug>/", views.project_detail, name="project_detail"),
     
      # Main projects page with cards
-    path('', views.projects_page, name='projects_page'),
+    # path('', views.projects_page, name='projects_page'),
     
-    # Project detail page
-    path('<slug:slug>/', views.project_detail, name='project_detail'),
+    # # Project detail page
+    # path('<slug:slug>/', views.project_detail, name='project_detail'),
     
+    path("projects/", views.projects_page, name="projects"),
+    path('projects/<slug:slug>/', views.project_detail, name='project_detail'),
     
  
 ]
