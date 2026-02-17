@@ -20,14 +20,23 @@ DEBUG = os.environ.get("DEBUG", "True") == "False"
 # --------------------------------------------------
 # ALLOWED HOSTS
 # --------------------------------------------------
+RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+
 if DEBUG:
     ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 else:
-    ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
+    ALLOWED_HOSTS = []
 
-    RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
     if RENDER_EXTERNAL_HOSTNAME:
         ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
+    env_allowed = os.environ.get("ALLOWED_HOSTS")
+    if env_allowed:
+        ALLOWED_HOSTS.extend([host.strip() for host in env_allowed.split(",")])
+
+    # Safety fallback
+    if not ALLOWED_HOSTS:
+        ALLOWED_HOSTS = ["*"]
 
 
 # --------------------------------------------------
