@@ -10,43 +10,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # --------------------------------------------------
 # SECURITY
 # --------------------------------------------------
-SECRET_KEY = os.environ.get("SECRET_KEY", "unsafe-secret-key-change-in-production")
+SECRET_KEY = os.environ.get("SECRET_KEY", "unsafe-secret-key-change-me")
 
-DEBUG = os.environ.get("DEBUG", "True").lower() == "true"
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
 # --------------------------------------------------
 # ALLOWED HOSTS
 # --------------------------------------------------
-ALLOWED_HOSTS = []
-
-if DEBUG:
-    ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
-else:
-    render_hostname = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
-    if render_hostname:
-        ALLOWED_HOSTS.append(render_hostname)
-
-    extra_hosts = os.environ.get("ALLOWED_HOSTS")
-    if extra_hosts:
-        ALLOWED_HOSTS.extend([host.strip() for host in extra_hosts.split(",")])
-
-    if not ALLOWED_HOSTS:
-        raise Exception("ALLOWED_HOSTS must be set in production!")
+ALLOWED_HOSTS = os.environ.get(
+    "ALLOWED_HOSTS",
+    "yume-learning.onrender.com,127.0.0.1,localhost"
+).split(",")
 
 # --------------------------------------------------
 # CSRF TRUSTED ORIGINS
 # --------------------------------------------------
-CSRF_TRUSTED_ORIGINS = []
-
-if not DEBUG:
-    render_hostname = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
-    if render_hostname:
-        CSRF_TRUSTED_ORIGINS.append(f"https://{render_hostname}")
-
-    extra_hosts = os.environ.get("ALLOWED_HOSTS")
-    if extra_hosts:
-        for host in extra_hosts.split(","):
-            CSRF_TRUSTED_ORIGINS.append(f"https://{host.strip()}")
+CSRF_TRUSTED_ORIGINS = [
+    "https://yume-learning.onrender.com",
+]
 
 # --------------------------------------------------
 # APPLICATIONS
@@ -61,7 +42,6 @@ INSTALLED_APPS = [
 
     'mathfilters',
 
-    # Local Apps
     'yume_site',
 ]
 
@@ -110,27 +90,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'yume_backend.wsgi.application'
 
 # --------------------------------------------------
-# DATABASE
+# DATABASE (Render Production Focused)
 # --------------------------------------------------
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ.get("DB_NAME", "yume_learning"),
-            'USER': os.environ.get("DB_USER", "postgres"),
-            'PASSWORD': os.environ.get("DB_PASSWORD", ""),
-            'HOST': os.environ.get("DB_HOST", "localhost"),
-            'PORT': os.environ.get("DB_PORT", "5432"),
-        }
-    }
-else:
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=os.environ.get("DATABASE_URL"),
-            conn_max_age=600,
-            ssl_require=True
-        )
-    }
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.environ.get("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=not DEBUG
+    )
+}
 
 # --------------------------------------------------
 # PASSWORD VALIDATORS
@@ -174,20 +142,14 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # --------------------------------------------------
-# SECURITY SETTINGS (Production)
+# SECURITY SETTINGS (Safe for Render)
 # --------------------------------------------------
 if not DEBUG:
-    SECURE_SSL_REDIRECT = True
+    SECURE_SSL_REDIRECT = False
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_BROWSER_XSS_FILTER = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
-    SECURE_HSTS_SECONDS = 31536000
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
-
-
-
 
 
 # import dj_database_url
